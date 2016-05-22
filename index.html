@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>WBT</title>
+    <link rel="stylesheet" href="src/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="src/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="src/css/wbtStyle.css"/>
+    <script src="src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/accordion.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/video.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/audio.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/value.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/dragDrop.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/localStorage.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/modal.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
+    <script src="src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+        .draggable { cursor:pointer; display:inline; padding:8px; border:1px solid #006; min-height:300px; max-width:300px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="mainNavigation"></nav>
+    <div class="row">
+        <div class="col-md-3 col-sm-12 col-xs-3 hidden-xs">
+            <nav class="subNavigation"></nav>
+        </div>
+        <div class="col-md-9 col-xs-12">
+            <section data-linear="1">
+                <h1>Section 1</h1>
+                <article>
+                    <h2>Hallo</h2>
+                    <div class="module single-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
+                        <p data-correct="1">Antwort 1</p>
+                        <p data-correct="0">Antwort 2</p>
+                        <p data-correct="0">Antwort 3</p>
+                        <p data-correct="0">Antwort 4</p>
+                        <p data-correct="0">Antwort 5</p>
+                    </div>
+                    <div class="module dragDrop" data-question="Das könnte deine Frage sein!">
+                        <div>
+                            <div>Hallo</div>
+                            <div>Tschüss</div>
+                        </div>
+                        <div>
+                            <div>Simsalabim</div>
+                            <div>Bambasaladusaladim</div>
+                        </div>
+                        <div>
+                            <div>Wasser</div>
+                            <div>Meer</div>
+                        </div>
+                        <div>
+                            <div>Blumen</div>
+                            <div>Topf</div>
+                        </div>
+                        <div>
+                            <div>Apfel</div>
+                            <div>Baum</div>
+                        </div>
+                    </div>
+                    <!--
+
+                                            <div class="module accordion">
+                                                <p data-title="Akkoridon-Header-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br/><img src="http://www.planet-wissen.de/natur_technik/weltall/sonne/img/intro_soho_g.jpg" alt="SONNE"/></p>
+                                                <p data-title="Titel 2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                                <p data-title="Titel 3">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                    -->
+
+
+                </article>
+                <article>
+                    <h2>Teil 2</h2>
+                </article>
+                <article>
+                    <h2>Teil 3</h2>
+                </article>
+                <article>
+                    <h2>Teil 4</h2>
+                </article>
+                <article>
+                    <h2>Blablabl</h2>
+                    <div class="module audio">
+                        <p data-src="data/sound/audio.mp3"></p>
+                    </div>
+                    <div class="module multiple-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
+                        <p data-correct="1">Antwort 1</p>
+                        <p data-correct="0">Antwort 2</p>
+                        <p data-correct="0">Antwort 3</p>
+                        <p data-correct="1">Antwort 4</p>
+                        <p data-correct="1">Antwort 5</p>
+                    </div>
+
+                    <div class="module value" data-value="123" data-label="m/s" data-question="Das könnte deine Frage sein!"></div>
+
+                    <div class="module video">
+                        <p data-src="data/video/cat.mp4"></p>
+                    </div>
+
+
+                </article>
+            </section>
+            <section data-linear="0">
+                <h1>Section 2</h1>
+                <article>
+                    <h2>Bla</h2>
+                </article>
+                <article>
+                    <h2>Bla12</h2>
+                    <div class="module multiple-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
+                        <p data-correct="1">Antwort 1</p>
+                        <p data-correct="0">Antwort 2</p>
+                        <p data-correct="0">Antwort 3</p>
+                        <p data-correct="1">Antwort 4</p>
+                        <p data-correct="1">Antwort 5</p>
+                    </div>
+                </article>
+                <article>
+                    <h2>Bla3</h2>
+                </article>
+            </section>
+            <section data-linear="1">
+                <h1>Haus bauen</h1>
+                <article>
+                    <h2>Loch graben</h2>
+                    <div class="module multiple-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
+                        <p data-correct="1">Antwort 1</p>
+                        <p data-correct="0">Antwort 2</p>
+                        <p data-correct="0">Antwort 3</p>
+                        <p data-correct="1">Antwort 4</p>
+                        <p data-correct="1">Antwort 5</p>
+                    </div>
+                </article>
+                <article>
+                    <h2>Mauern</h2>
+                </article>
+                <article>
+                    <h2>Dach und Decke</h2>
+                </article>
+                <article>
+                    <h2>Strom und Wasser</h2>
+                </article>
+                <article>
+                    <h2>Einziehen</h2>
+                </article>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>

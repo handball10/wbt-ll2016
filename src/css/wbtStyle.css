@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+ul, li	{ list-style-type:none; padding:0px; margin:0px; }
+.clear { clear:both; }
+* {border:none;}
+
+
+/*Cursor:Pointer*/
+.draggable, .snapTarget	{ cursor:pointer;  }
+
+/*MODULE*/
+
+/*Drag Drop*/
+.answers { width:29%; float:left; }
+.answers > div { padding:0.5em; margin:0 0 1em 0.1em; min-height:50px; border:1px solid #006;  background-color:#CCC; float:left; width:100%; z-index:2; }
+
+.solutions { width:70%; float:right; }
+.solutions ul { width:100%; margin-left:1em;}
+.solutions > ul > li { min-height:50px; min-width:35%;  margin:0 0 1em 0.1em;  }
+.solutions > ul > li div { min-height:50px; min-width:35%; float:left; padding:0.5em;}	
+.solutions > ul > li div:first-child { border:#666 dashed 1px; background-color:#DEF3E6; }
+.solutions > ul > li div:last-child { border:#666 solid 1px;  background-color:#CEE3D0; }
+.draggable { padding:8px; border:1px solid #006; max-width:280px; z-index:1; background-color:#AAA; min-height:50px; margin-bottom:8px; }
+
+
+
+/*footer*/
+.footer { margin-top:15px !important; }
+/*Queries*/
+@media(max-width:768px){
+	
+	}
+	
+@media(min-width:768px){
+	
+	}
+@media(min-width:992px){
+
+}
+@media(min-width:1200px){
+
+}
