@@ -1,7 +1,23 @@
+/**
+ * Stores custom events as an object library
+ * @type {{}}
+ */
+var customEvents = {
+    article : {
+        onAfterRender : function(){
+            // do your isotope stuff here
+        }
+    }
+};
+
+
+
 var App = App || {
     init: function(){
         var start = (new Date()).getTime();
+
         this.Error.registerErrorEventHandler();
+        App.Event.registerCustomEvents();
         this.StorageManager.init();
 
         this.SectionManager.init();
@@ -87,8 +103,38 @@ App.Event = {
             throw new Error("The event \""+eventName+"\" does not exist!");
         }
         delete this.events[eventName];
+    },
+
+    /**
+     * This function registers all custom events if there is a customEvent object.
+     * This works recursively through the whole tree.
+     */
+    registerCustomEvents : function(){
+
+        /**
+         * walks recursively through an object tree and registers events if an object property is typeof function.
+         * @private
+         * @param item Object Contains the items
+         */
+        function walk(item, name){
+
+            var objectName = name ? name + '.' : '';
+
+            for(var property in item){
+                if(typeof item[property] === 'function'){
+                    //console.log(objectName + property, item[property]);
+                     App.Event.register(objectName + property, item[property]);
+                } else if(typeof item[property] === 'object'){
+                    walk(item[property], objectName + property);
+                }
+            }
+        }
+
+        if(typeof customEvents !== 'undefined'){
+            walk(customEvents);
+        }
     }
-}
+};
 
 App.ModuleManager = {
 
@@ -514,6 +560,8 @@ App.SectionManager = {
         if(App.Event.eventExists("onSubNavigationBuild")){
             App.Event.remove("onSubNavigationBuild");
         }
+
+        App.Event.eventExists('onAfterRender') && App.Event.trigger('onAfterRender');
     },
 
     registerModuleForArticle : function(key, article){
