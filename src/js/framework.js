@@ -416,12 +416,14 @@ App.SectionManager = {
                 var id;
                 if(i > 0){
                     id = articleArray[i-1];
-                    row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+                    row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\">Zurück</a>");
+                    //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+                    //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
                 }
 
                 if(i < len){
                     id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
-                    row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"btn btn-primary pull-right walkingButton\" role=\"button\">"+(i == len - 1 ? "Abschließen" : "Weiter")+"</a>");
+                    row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\" role=\"button\">"+(i == len - 1 ? "Abschließen" : "Weiter")+"</a>");
                 }
 
                 this.articles[articleArray[i]].selector.append(row);

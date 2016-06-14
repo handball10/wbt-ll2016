@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.wbt-card-full-width.mdl-card {
+    width: 100%;
+}
+
 .wbt-intro-card > .mdl-card__title {
     color: #ccc;
     height: 500px;
