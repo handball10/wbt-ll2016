@@ -2,9 +2,9 @@
  * Created by flori on 11.06.2016.
  */
 
-var App = App || {};
+var Main = Main || {};
 
-App.pofile = (function() {
+Main.profile = (function() {
 
     var currentProfile
 
@@ -20,7 +20,7 @@ App.pofile = (function() {
         this.save = function(){
 
 
-            var content = JSON.stringify(data);
+            var content = window.btoa(JSON.stringify(data));
 
             // download profile file
             var downloadLink = document.createElement('a');
@@ -41,6 +41,8 @@ App.pofile = (function() {
 
 
         };
+
+        Main.currentProfile = this;
 
 
         return this;

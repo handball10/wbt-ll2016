@@ -1,0 +1,17 @@
+.wbt-intro-card.mdl-card {
+    width: 100%;
+}
+
+.wbt-intro-card > .mdl-card__title {
+    color: #ccc;
+    height: 500px;
+    background: url('../images/mascott.png') center no-repeat;
+}
+.wbt-intro-card > .mdl-card__menu {
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}

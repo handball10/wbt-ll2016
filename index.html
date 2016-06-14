@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WBT</title>
-    <link rel="stylesheet" href="src/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="src/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="src/css/wbtStyle.css"/>
+    <!--<link rel="stylesheet" href="src/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="src/css/bootstrap-theme.min.css"/>-->
+    <!--<link rel="stylesheet" href="src/css/wbtStyle.css"/>-->
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-green.min.css" />
+    <link rel="stylesheet" href="src/css/mdl-custom.css"/>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <script src="src/js/dist/dialog-polyfill.js"></script>
 
     <style>
         html {
@@ -21,6 +24,76 @@
     </style>
 </head>
 <body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header" id="header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Gesünder leben</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer" id="sidebar">
+        <span class="mdl-layout-title">Kapitel</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid" id="view-index">
+                <div class="mdl-cell mdl-cell--4"></div>
+                <div class="mdl-cell mdl-cell--4">
+                    <div class="wbt-intro-card mdl-card mdl-shadow--6dp">
+                        <div class="mdl-card__title">
+                            <h2 class="mdl-card__title-text">Gesünder leben</h2>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            Herzlich Willkommen zum WebBased Training
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">person_add</i> Profil erstellen
+                            </a>
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">file_upload</i> Profil laden
+                            </a>
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="index-start-wbt">
+                                <i class="material-icons">slideshow</i> ohne Profil starten
+                            </a>
+                        </div>
+                        <div class="mdl-card__menu">
+                            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                                <i class="material-icons">share</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4"></div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!--<section data-linear="1">-->
+    <!--<h1>Temp</h1>-->
+    <!--<article>-->
+        <!--<h2>Test 2</h2>-->
+    <!--</article>-->
+<!--</section>-->
+<!--
+
 <div class="container">
     <nav class="mainNavigation"></nav>
     <div class="row">
@@ -65,7 +138,7 @@
                             <div>Apfel</div>
                             <div>Baum</div>
                         </div>
-                    </div>
+                    </div>-->
                     <!--
 
                                             <div class="module accordion">
@@ -75,7 +148,7 @@
                                             </div>
                     -->
 
-
+<!--
                 </article>
                 <article>
                     <h2>Teil 2</h2>
@@ -154,21 +227,32 @@
             </section>
         </div>
     </div>
-</div>
+</div>-->
+
+<!-- Dialogs -->
+
+<!-- /Dialogs -->
+
+
 
 <script src="src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/accordion.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/video.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/audio.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/value.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/dragDrop.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/localStorage.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/modal.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="src/js/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/controller/abstractViewController.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/controller/profile.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/controller/index.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/accordion.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/video.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/audio.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/value.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/dragDrop.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/localStorage.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/modal.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>-->
 
 </body>
 </html>
