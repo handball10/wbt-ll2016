@@ -760,40 +760,53 @@ App.NavigationManager = {
         // generate an ID for this navbar
         var navBarID = App.Helper.generateUniqueID();
 
+        /**
+         * Modification by Florian Gümbel for Material Design
+         *
+         * Another way of building main Menu
+         */
+
+        var HTMLcontent = "";
+
         // start with the html content
-        var HTMLcontent = "<div class=\"container-fluid\">";
-
-        // add the navbar header
-        HTMLcontent += '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#'+navBarID+'"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>'
-
-        // first part of the collapsable navbar
-        HTMLcontent += '<div class="collapse navbar-collapse" id="'+navBarID+'"><ul class="nav navbar-nav">';
-
+        //var HTMLcontent = "<div class=\"container-fluid\">";
+        //
+        //// add the navbar header
+        //HTMLcontent += '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#'+navBarID+'"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>'
+        //
+        //// first part of the collapsable navbar
+        //HTMLcontent += '<div class="collapse navbar-collapse" id="'+navBarID+'"><ul class="nav navbar-nav">';
+        //
         // walk through every registered section in the section manager, get its articles and adds the dropdown code for every article
         for(section in App.SectionManager.sections){
             var workingSection = App.SectionManager.sections[section];
 
-            HTMLcontent += "<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">"+workingSection.selector.find("h1:first-child").text()+" <span class=\"caret\"></span></a>";
 
-            HTMLcontent += "<ul class=\"dropdown-menu\" role=\"menu\">";
+            // get the first article of the current section
+            var firstArticle = workingSection.articleList[0];
+
+            //HTMLcontent += "<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">"+workingSection.selector.find("h1:first-child").text()+" <span class=\"caret\"></span></a>";
+            HTMLcontent += "<a href=\"#"+App.SectionManager.articles[firstArticle].id+"\" data-target=\""+App.SectionManager.articles[firstArticle].id+"\" class='mdl-navigation__link'>"+workingSection.selector.find("h1:first-child").text()+"</a>";
+
+            //HTMLcontent += "<ul class=\"dropdown-menu\" role=\"menu\">";
 
             // walk throgh every article in the article list array
-            for(var i = 0, article, len = workingSection.articleList.length; i < len; i++){
+            //for(var i = 0, article, len = workingSection.articleList.length; i < len; i++){
+            //
+            //    article = workingSection.articleList[i];
+            //
+            //    //App.Log.log(App.SectionManager.articles[article].selector.find("h2:first-child").text());
+            //
+            //    HTMLcontent += "<li class=\""+((i > 0 && workingSection.isLinear) ? "disabled" : "")+"\" data-target=\""+App.SectionManager.articles[article].id+"\">"+
+            //    "<a class=\"\" data-target=\""+App.SectionManager.articles[article].id+"\" href=\"#"+App.SectionManager.articles[article].id+"\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a></li>";
+            //}
 
-                article = workingSection.articleList[i];
-
-                //App.Log.log(App.SectionManager.articles[article].selector.find("h2:first-child").text());
-
-                HTMLcontent += "<li class=\""+((i > 0 && workingSection.isLinear) ? "disabled" : "")+"\" data-target=\""+App.SectionManager.articles[article].id+"\">"+
-                "<a class=\"\" data-target=\""+App.SectionManager.articles[article].id+"\" href=\"#"+App.SectionManager.articles[article].id+"\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a></li>";
-            }
-
-            HTMLcontent += "</ul>";
-            HTMLcontent += "</li>";
+            //HTMLcontent += "</ul>";
+            //HTMLcontent += "</li>";
         }
-
-        // hmlt end snippets for navigation code
-        HTMLcontent += "</ul></div></div>";
+        //
+        //// hmlt end snippets for navigation code
+        //HTMLcontent += "</ul></div></div>";
 
         // insert the navigation code into the navigation container
         navigation.append(HTMLcontent);
@@ -802,6 +815,11 @@ App.NavigationManager = {
 
     },
 
+    /**
+     * Builds the sub navigation each time the user chooses a section
+     *
+     * @Modification by Florian Gümbel for Material Design
+     */
     buildSubNavigation : function(){
         // select the navigation element
         var navigation = $("nav.subNavigation");
@@ -809,18 +827,18 @@ App.NavigationManager = {
         this.subNavigation = navigation;
 
         // add some important attributes
-        navigation.addClass("list-group");
-        navigation.addClass("hidden-xs");
+        //navigation.addClass("list-group");
+        //navigation.addClass("hidden-xs");
 
         // get the current section
         var section = App.SectionManager.currentSection;
         var articles = App.SectionManager.sections[section].articleList;
 
-        navigation.append("<h3 class=\"list-group-item list-group-item-"+(App.SectionManager.sections[section].finished ? "success" : "info")+"\">"+App.SectionManager.sections[section].selector.find("h1:first-child").text()+""+(App.SectionManager.sections[section].finished ? "<span class=\"glyphicon glyphicon-ok pull-right\" title=\"Kapitel abgeschlossen\"></span>" : "")+"</h3>");
+        // navigation.append("<h3 class=\"list-group-item list-group-item-"+(App.SectionManager.sections[section].finished ? "success" : "info")+"\">"+App.SectionManager.sections[section].selector.find("h1:first-child").text()+""+(App.SectionManager.sections[section].finished ? "<span class=\"glyphicon glyphicon-ok pull-right\" title=\"Kapitel abgeschlossen\"></span>" : "")+"</h3>");
 
         for(var i = 0, article; i < articles.length; i++){
             article = articles[i];
-            navigation.append("<a href=\"#"+article+"\" class=\"sidebarItem list-group-item"+((i > 0 && App.SectionManager.sections[section].isLinear && !App.SectionManager.articles[article].visited) ? " disabled" : "")+"\" data-target=\""+article+"\" class=\"list-group-item\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a>");
+            navigation.append("<a href=\"#"+article+"\" class=\"sidebarItem mdl-navigation__link list-group-item"+((i > 0 && App.SectionManager.sections[section].isLinear && !App.SectionManager.articles[article].visited) ? " disabled" : "")+"\" data-target=\""+article+"\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a>");
         }
 
         this.sidebarController();
@@ -848,16 +866,17 @@ App.NavigationManager = {
      */
     linkController : function(){
         // bind the click event
-        $(".nav .dropdown-menu > li > a").click(function(e){
-            
+        //$(".nav .dropdown-menu > li > a").click(function(e){
+        $("nav.mainNavigation > a").click(function(e){
+
             var t = $(this);
 
-            var parentLI = t.parent("li");
-            // if the LI is disabled, stop here
-            if(parentLI.hasClass("disabled")){
-                e.preventDefault();
-                return;
-            }
+            //var parentLI = t.parent("li");
+            //// if the LI is disabled, stop here
+            //if(parentLI.hasClass("disabled")){
+            //    e.preventDefault();
+            //    return;
+            //}
             // call the SectionManagers showArticle method
             App.SectionManager.showArticle(t.attr("data-target"));
 
@@ -904,11 +923,12 @@ App.NavigationManager = {
      * @return {jQuery} The jQuery object that contains the element
      */
     getNavigationElement : function(target){
-        var obj = this.mainNavigation.find(".nav .dropdown-menu > li[data-target=\""+target+"\"]");
+        //var obj = this.mainNavigation.find(".nav .dropdown-menu > li[data-target=\""+target+"\"]");
+        var obj = this.mainNavigation.find(".mainNavigation > a[data-target=\""+target+"\"]");
 
         // if there is no LI, throw a runtime error
         if(obj.length === 0){
-            throw new Error("Runtime Error!\nThe navigation element targeting \""+target+"\" does not exist!");
+            //throw new Error("Runtime Error!\nThe navigation element targeting \""+target+"\" does not exist!");
         }
 
         return obj;
@@ -1024,7 +1044,3 @@ App.Error = {
         };
     }
 };
-
-
-
-$(document).ready(function(){ App.init(); /*SessionController.init();*/ });

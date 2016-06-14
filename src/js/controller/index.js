@@ -6,25 +6,32 @@ var Main = Main || {};
 
 Main.controller.indexView = (function(){
 
-    $.extend(this, new abstractViewController('#view-index'));
+    function IndexView(){
+        $.extend(this, new abstractViewController('#view-index'));
 
-    /**
-     * starts the wbt after clicking the start button
-     */
-    var startWBT = function(){
+        var controller = this;
 
-    };
+        /**
+         * starts the wbt after clicking the start button
+         */
+        var startWBT = function(){
+            controller.fadeOut();
+            Main.controller.headerController.fadeIn();
+            Main.controller.sidebarController.fadeIn();
+            App.init();
+        };
 
-    var bindEvents = function(){
+        var bindEvents = function(){
 
-        $('#index-start-wbt').on('click', startWBT);
+            $('#index-start-wbt').on('click', startWBT);
 
-    };
+        };
 
-    this.init = function(){
-        bindEvents();
-    };
+        this.init = function(){
+            bindEvents();
+        };
+    }
 
-    return this;
+    return new IndexView();
 
 })();

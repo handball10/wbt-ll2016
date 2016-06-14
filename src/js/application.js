@@ -9,6 +9,9 @@ Main.makeProfile = function(){
 
 Main.init = function(){
     Main.controller.indexView.init();
+
+    Main.controller.headerController.hide();
+    Main.controller.sidebarController.hide();
 };
 
 

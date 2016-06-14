@@ -33,17 +33,18 @@
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
+            <!--<nav class="mdl-navigation mdl-layout&#45;&#45;large-screen-only">-->
+                <!--<a class="mdl-navigation__link" href="">Link</a>-->
+                <!--<a class="mdl-navigation__link" href="">Link</a>-->
+                <!--<a class="mdl-navigation__link" href="">Link</a>-->
+                <!--<a class="mdl-navigation__link" href="">Link</a>-->
+            <!--</nav>-->
+            <nav class="mainNavigation mdl-navigation mdl-layout--large-screen-only"></nav>
         </div>
     </header>
     <div class="mdl-layout__drawer" id="sidebar">
         <span class="mdl-layout-title">Kapitel</span>
-        <nav class="mdl-navigation">
+        <nav class="subNavigation mdl-navigation">
             <a class="mdl-navigation__link" href="">Link</a>
             <a class="mdl-navigation__link" href="">Link</a>
             <a class="mdl-navigation__link" href="">Link</a>
@@ -81,6 +82,22 @@
                     </div>
                 </div>
                 <div class="mdl-cell mdl-cell--4"></div>
+            </div>
+
+            <div class="wbt" id="wbt-content">
+                <section data-linear="1">
+                    <h1>Temp</h1>
+                    <article>
+                        <h2>Test 2</h2>
+                    </article>
+                </section>
+
+                <section data-linear="1">
+                    <h1>Temp 2</h1>
+                    <article>
+                        <h2>Test 2</h2>
+                    </article>
+                </section>
             </div>
         </div>
     </main>
@@ -243,7 +260,10 @@
 <script src="src/js/controller/abstractViewController.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/profile.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/index.js" type="text/javascript" charset="utf-8"></script>
-<!--<script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="src/js/controller/sidebar.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/controller/header.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/controller/wbt.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>
 <!--<script src="src/js/accordion.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/video.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/audio.js" type="text/javascript" charset="utf-8"></script>-->

@@ -4,14 +4,29 @@
 
 var abstractViewController = function(id){
 
-    this.hide = function(){
-        $(id).hide();
+    var container = $(id);
+
+    var hide = function(){
+        container.hide();
     };
 
-    this.show = function(){
-        $(id).show();
+    var show = function(){
+        container.show();
     };
 
-    return this;
+    var fadeOut = function(duration){
+        container.fadeOut(duration || 200);
+    };
+
+    var fadeIn = function(duration){
+        container.fadeIn(duration || 200);
+    };
+
+    return {
+        hide : hide,
+        show : show,
+        fadeOut : fadeOut,
+        fadeIn : fadeIn
+    }
 
 };
