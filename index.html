@@ -139,10 +139,17 @@
                                                     <div class="mascot-broc"></div>
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-left"></div>
+                                                    <div class="text-bubble-left">
+                                                        <div class="text-bubble-left__bubble"></div>
+                                                        <div class="text-bubble-left__triangle"></div>
+
+                                                    </div>
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
+                                                    <div class="text-bubble-right">
+                                                        <div class="text-bubble-right__bubble"></div>
+                                                        <div class="text-bubble-right__triangle"></div>
+                                                    </div>
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--2-col">
                                                     <div class="mascot-broc"></div>
@@ -168,20 +175,24 @@
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
-                                            <div class="mdl-grid height-full">
+                                            <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="quest-cross"></div>
-                                                    <div class="quest-label">Stimmt nicht</div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="quest-quest">
-                                                        Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mdl-grid height-150">
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="quest-cross"></div>
+                                                            <div class="quest-label">Stimmt nicht</div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--6-col">
+                                                            <div class="quest-quest">
+                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="quest-check"></div>
+                                                            <div class="quest-label">Stimmt!</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="quest-check"></div>
-                                                    <div class="quest-label">Stimmt!</div>
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--2-col"></div>
                                             </div>
@@ -217,8 +228,164 @@
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
-                                            <div class="mdl-grid height-full">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mainmenu">
+                                                    <div class="mdl-grid height-150">
+                                                        <div class="mdl-cell mdl-cell--2-col">
+                                                            <div class="mainmenu-picture sport"></div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--5-col">
+                                                            <div class="mainmenu-quater">
+                                                                <div class="mainmenu-text">
+                                                                <h2 class="mdl-card__title-text">Sport 10/10</h2>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    erneut
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--5-col">
+                                                            <div class="mainmenu-quater">
+                                                                <div id="progressbar_sport" class="mdl-progress mdl-js-progress"></div>
+                                                            </div>
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide">
+                                                                    Auswertung
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
 
+                                                    <div class="mainmenu">
+                                                        <div class="mdl-grid height-150">
+                                                            <div class="mdl-cell mdl-cell--2-col">
+                                                                <div class="mainmenu-picture eat"></div>
+                                                            </div>
+                                                            <div class="mdl-cell mdl-cell--5-col">
+                                                                <div class="mainmenu-quater">
+                                                                    <div class="mainmenu-text">
+                                                                        <h2 class="mdl-card__title-text">Ernährung 7/10</h2>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mainmenu-quater">
+                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                        Start
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mdl-cell mdl-cell--5-col">
+                                                                <div class="mainmenu-quater">
+                                                                    <div id="progressbar_eat" class="mdl-progress mdl-js-progress"></div>
+                                                                </div>
+                                                                <div class="mainmenu-quater">
+                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide" disabled>
+                                                                        Auswertung
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mainmenu">
+                                                        <div class="mdl-grid height-150">
+                                                            <div class="mdl-cell mdl-cell--2-col">
+                                                                <div class="mainmenu-picture"></div>
+                                                            </div>
+                                                            <div class="mdl-cell mdl-cell--5-col">
+                                                                <div class="mainmenu-quater">
+                                                                    <div class="mainmenu-text">
+                                                                       <h2 class="mdl-card__title-text">Gesamt 17/20</h2>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mainmenu-quater">
+                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide" disabled>
+                                                                        Abschlussquiz
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mdl-cell mdl-cell--5-col">
+                                                                <div class="mainmenu-quater">
+                                                                    <div id="progressbar_all" class="mdl-progress mdl-js-progress"></div>
+                                                                </div>
+                                                                <div class="mainmenu-quater">
+                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide">
+                                                                        Tipps
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="main-help">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <div class="text-bubble-right">
+                                                    <div class="text-bubble-right__bubble">
+                                                        <div class="text-bubble-right__content">
+                                                        <h2 class="mdl-card__title-text">TEXT</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-bubble-right__triangle"></div>
+                                                </div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+
+                                                    <div class="mascot-broc"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                        <section data-linear="1" data-id="myth">
+                            <h1>Ernährung</h1>
+                            <article data-id="start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Frage 1</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Frage 1
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mdl-grid height-150">
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="quest-cross"></div>
+                                                            <div class="quest-label">Stimmt nicht</div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--6-col">
+                                                            <div class="quest-quest">
+                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="quest-check"></div>
+                                                            <div class="quest-label">Stimmt!</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mdl-grid height-150"></div>
+
+                                                    </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
                                             </div>
                                         </div>
                                         <div class="main-help">
@@ -236,7 +403,349 @@
                                     </div>
                                 </div>
                             </article>
+
+                            <article data-id="start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Frage 2</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Frage 2
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                            <div class="mdl-grid height-150">
+                                                <div class="mdl-grid">
+                                                   Wähle eine der 4 Antwortmöglichkeiten.
+                                                </div>
+                                            </div>
+                                            <div class="mdl-grid height-150">
+                                                    <div class="mdl-grid">
+
+                                                        <div class="mdl-cell mdl-cell--6-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 1
+                                                                </button>
+                                                            </div>
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 3
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--6-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 2
+                                                                </button>
+                                                            </div>
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 4
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <div class="text-bubble-right"></div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                    <div class="mascot-broc"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article data-id="start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Frage 3</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Frage 3
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mdl-grid height-150">
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 1
+                                                                </button>
+                                                            </div>
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 3
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--6-col">
+                                                            <div class="quest-quest">
+                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 2
+                                                                </button>
+                                                            </div>
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 4
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mdl-grid height-150">
+                                                    </div>
+                                                    </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <div class="text-bubble-right"></div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                    <div class="mascot-broc"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article data-id="start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Frage 4</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Frage 4
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mdl-grid height-150">
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 1
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--6-col">
+                                                            <div class="quest-quest">
+                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--3-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Antwort 2
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mdl-grid height-150">
+                                                    </div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <div class="text-bubble-right"></div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                    <div class="mascot-broc"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article data-id="start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Auswertung</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Geschwätz
+                                            <br/>
+                                            <h2 class="mdl-card__title-text">Abschlusscode: IssGesund!</h2>
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mdl-grid height-300">
+                                                        <div class="mdl-cell mdl-cell--1-col"></div>
+                                                        <div class="mdl-cell mdl-cell--2-col">
+                                                            <div class="evaluation-headline"><h2 class="mdl-card__title-text">Frage</h2></div>
+                                                            <div class="evaluation-item">1</div>
+                                                            <div class="evaluation-item">2</div>
+                                                            <div class="evaluation-item">3</div>
+                                                            <div class="evaluation-item">4</div>
+                                                            <div class="evaluation-item">5</div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--2-col">
+                                                            <div class="evaluation-headline"><h2 class="mdl-card__title-text">Ergebnis</h2></div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--2-col"></div>
+                                                        <div class="mdl-cell mdl-cell--2-col">
+                                                            <div class="evaluation-headline"><h2 class="mdl-card__title-text">Frage</h2></div>
+                                                            <div class="evaluation-item">6</div>
+                                                            <div class="evaluation-item">7</div>
+                                                            <div class="evaluation-item">8</div>
+                                                            <div class="evaluation-item">9</div>
+                                                            <div class="evaluation-item">10</div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--2-col">
+                                                            <div class="evaluation-headline"><h2 class="mdl-card__title-text">Ergebnis</h2></div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                            <div class="evaluation-item">Richtig</div>
+                                                            <div class="evaluation-item">Falsch</div>
+                                                            <div class="evaluation-item">Falsch</div>
+                                                            <div class="evaluation-item">Falsch</div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--1-col"></div>
+                                                    </div>
+                                                    <div class="mdl-grid height-150 evaluation-line">
+                                                        <div class="mdl-cell mdl-cell--4-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                     Tipps
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--4-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    erneut
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mdl-cell mdl-cell--4-col">
+                                                            <div class="mainmenu-quater">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                    Hauptmenü
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <div class="text-bubble-right"></div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                    <div class="mascot-broc"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article data-id="start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Tipps</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Tipps zur Ernährung
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <div class="mdl-grid height-150">
+                                                        Hier stehen Tipps:
+                                                    </div>
+                                                    <div class="mdl-grid height-150">
+                                                        Hier stehen Links:
+                                                    </div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <div class="text-bubble-right"></div>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                    <div class="mascot-broc"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+
+
+
+
+
                         </section>
+
                     </div>
                     <div class="mdl-layout-spacer"></div>
                 </div>
