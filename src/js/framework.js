@@ -492,6 +492,7 @@ App.SectionManager = {
 
 
                 //document.getElementById(this.sections[section].id.replace('#',''))
+
                 componentHandler.upgradeElement($container.get(0));
 
                 // finally bind events on next,prev and finalize buttons
@@ -501,11 +502,26 @@ App.SectionManager = {
                 $container.find('.mdl-step').each(function(item){
                     $(this)
                         .on('onstepnext', function(event){
-                            console.log('Hallo');
                             stepperInstance.next();
+                            var currentStep = $(stepperInstance.getActive());
+
+                            //console.log(currentStep.find('.mdl-step__content').getScrollHeight());
+
+                            console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
+
+                            $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192);
+
                         })
                         .on('onstepback', function(event){
                             stepperInstance.back();
+
+                            var currentStep = $(stepperInstance.getActive());
+
+                            console.log(currentStep);
+
+                            console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
+
+                            $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192+"px");
                         });
                 });
 
