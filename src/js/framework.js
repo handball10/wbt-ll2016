@@ -411,23 +411,125 @@ App.SectionManager = {
         for(section in this.sections){
             var articleArray = this.sections[section].articleList;
 
-            for(var i = 0, len = articleArray.length; i < len; i++){
-                var row = $("<div class=\"container-fluid footer\"></div>");
-                var id;
-                if(i > 0){
-                    id = articleArray[i-1];
-                    row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\">Zurück</a>");
-                    //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
-                    //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+            /**
+             * @Modification
+             * Build stepper module from material design if there are more than 1 articles
+             */
+
+            if(articleArray.length > 1){
+
+                var $container = $('<ul></ul>');
+
+                $container.addClass('mdl-stepper wbt-card-full-width mdl-stepper--horizontal');
+
+                this.sections[section].isLinear && $container.addClass('mdl-stepper--linear');
+
+                for(var i = 0, len = articleArray.length; i < len; i++){
+
+                    var currentArticle = this.articles[articleArray[i]];
+
+                    //console.log(currentArticle.selector.find('h2:first-child').find('small').remove());
+
+                    // catch the elements
+                    var $element = $('<li></li>').addClass('mdl-step mdl-step--editable'),
+                        $label = $('<span></span>').addClass('mdl-step__label'),
+                        $title = $('<span></span>').addClass('mdl-step__title-text'),
+                        $subtitle,
+                        $titleContainer = $('<span></span>').addClass('mdl-step__title'),
+                        $subTitleText
+                    ;
+
+                    //
+
+                    // .text((currentArticle.selector.find('h2:first-child').find('small').remove()).text())
+
+                    $titleContainer.append($title);
+
+
+                    if(($subtitle = currentArticle.selector.find('h2:first-child > small'))){
+                        $subTitleText = $('<span></span>').addClass('mdl-step__title-message').text($subtitle.text());
+                        $subtitle.remove();
+                    }
+                    $title.text(currentArticle.selector.find('h2:first-child').text());
+
+                    $subTitleText && $titleContainer.append($subTitleText);
+
+                    $label.append($titleContainer);
+
+                    // catch the content
+                    var $content = currentArticle.selector.find("*:not(h2)").html();
+
+                    var $contentContainer = $('<div></div>').addClass('mdl-step__content');
+
+                    $contentContainer.append($content);
+
+                    var $footer = $('<div></div>').addClass('mdl-step__actions');
+
+                    if(i > 0){
+                        id = articleArray[i-1];
+                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" data-stepper-back>Zurück</button>");
+                        //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+                        //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+                    }
+
+                    if(i < len){
+                        id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
+                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
+                        //$footer.append("<button href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-continue>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
+                    }
+
+                    $element
+                        .append($label)
+                        .append($contentContainer)
+                        .append($footer)
+                    ;
+
+                    $container.append($element);
+
+                    this.sections[section].selector.append($container);
+
                 }
 
-                if(i < len){
-                    id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
-                    row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\" role=\"button\">"+(i == len - 1 ? "Abschließen" : "Weiter")+"</a>");
-                }
 
-                this.articles[articleArray[i]].selector.append(row);
+                //document.getElementById(this.sections[section].id.replace('#',''))
+                componentHandler.upgradeElement($container.get(0));
+
+                // finally bind events on next,prev and finalize buttons
+                var stepperInstance = $container.get(0).MaterialStepper;
+
+                // now, find all stepper and bind events
+                $container.find('.mdl-step').each(function(item){
+                    $(this)
+                        .on('onstepnext', function(event){
+                            console.log('Hallo');
+                            stepperInstance.next();
+                        })
+                        .on('onstepback', function(event){
+                            stepperInstance.back();
+                        });
+                });
+
             }
+
+
+
+            //for(var i = 0, len = articleArray.length; i < len; i++){
+            //    var row = $("<div class=\"container-fluid footer\"></div>");
+            //    var id;
+            //    if(i > 0){
+            //        id = articleArray[i-1];
+            //        row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\">Zurück</a>");
+            //        //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+            //        //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+            //    }
+            //
+            //    if(i < len){
+            //        id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
+            //        row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\" role=\"button\">"+(i == len - 1 ? "Abschließen" : "Weiter")+"</a>");
+            //    }
+            //
+            //    this.articles[articleArray[i]].selector.append(row);
+            //}
         }
 
         // bind walking events on every walking button
@@ -545,7 +647,22 @@ App.SectionManager = {
         }
         // make the new section and article visible
         parentSection.selector.show();
-        thisArticle.selector.show();
+
+        /**
+         * @Modification
+         * need to check if the requested article is inside a stepper or not.
+         *
+         * Behaviour:
+         *  Inside:
+         *      Activate the stepper
+         */
+        if(parentSection.articleList.length > 1){
+
+        } else {
+            thisArticle.selector.show();
+        }
+
+
 
         // "visit" the article in our structure
         this.articles[this.currentArticle].visited = true;
