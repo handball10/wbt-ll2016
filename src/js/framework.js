@@ -352,7 +352,12 @@ App.SectionManager = {
                 var _t = $(this);
 
                 // find the articles headline
-                var articleHeadline = _t.find("h2:first-child");
+                var articleHeadline = _t.find("h2:first-child"),
+
+                    skipAutoButtons = typeof _t.data('skip-button') !== "undefined"
+                ;
+
+                console.log(_t.data('skip-button'));
 
                 // throw a structural error if the is no h2 headline
                 if(articleHeadline.length == 0){
@@ -372,6 +377,7 @@ App.SectionManager = {
                     selector : $("#"+articleID),
                     parentSection : sectionID,
                     visited : false,
+                    skipButtons : skipAutoButtons,
                     modules: []
                 };
 
@@ -465,14 +471,14 @@ App.SectionManager = {
 
                     var $footer = $('<div></div>').addClass('mdl-step__actions');
 
-                    if(i > 0){
+                    if(!currentArticle.skipButtons && i > 0){
                         id = articleArray[i-1];
                         $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" data-stepper-back>Zurück</button>");
                         //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
                         //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
                     }
 
-                    if(i < len){
+                    if(!currentArticle.skipButtons && i < len){
                         id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
                         $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
                         //$footer.append("<button href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-continue>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
