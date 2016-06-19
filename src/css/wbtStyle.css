@@ -131,19 +131,29 @@ h1{
 
 .main-help{
 	min-height:175px;
-	margin-top:50px;
+}
+
+.border-bottom{
+	border-bottom: 1px solid lightgray;
 }
 
 /*MAIN-HEADER*/
 .main-header{
-	height:150px;
+	height:100px;
 }
 
 
 /* MAIN-CONTENT */
 .main-content{
 	min-height:300px;
-	margin-top:100px;
+}
+
+.height-50{
+	height:50px;
+}
+
+.height-100{
+	height:100px;
 }
 
 .height-150{
@@ -151,7 +161,7 @@ h1{
 }
 
 .height-300{
-	 height:300px;
+	 height:332px;
  }
 
 /*MAIN-CONTENT__QUIZ*/
