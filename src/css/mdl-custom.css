@@ -23,3 +23,132 @@
 .mdl-stepper--horizontal {
     max-width: 1400px;
 }
+
+/************* Mascot bubble **************/
+
+wrong,
+right,
+tip,
+say {
+    display: none;
+}
+
+.bubble-blue {
+    background: #2196F3;
+}
+
+.bubble-green {
+    background: #4AB548;
+}
+
+.oval-thought {
+    position:relative;
+    width:270px;
+    padding:50px 40px;
+    margin:1em auto 80px;
+    text-align:center;
+    color:#fff;
+
+    /*!* css3 *!*/
+    /*background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));*/
+    /*background:-moz-linear-gradient(#2e88c4, #075698);*/
+    /*background:-o-linear-gradient(#2e88c4, #075698);*/
+    /*background:linear-gradient(#2e88c4, #075698);*/
+    /*!**/
+
+    /*NOTES:*/
+    /*-webkit-border-radius:220px 120px; // produces oval in safari 4 and chrome 4*/
+    /*-webkit-border-radius:220px / 120px; // produces oval in chrome 4 (again!) but not supported in safari 4*/
+    /*Not correct application of the current spec, therefore, using longhand to avoid future problems with webkit corrects this*/
+
+    -webkit-border-top-left-radius:220px 120px;
+    -webkit-border-top-right-radius:220px 120px;
+    -webkit-border-bottom-right-radius:220px 120px;
+    -webkit-border-bottom-left-radius:220px 120px;
+    -moz-border-radius:220px / 120px;
+    border-radius:220px / 120px;
+}
+
+.oval-thought p {font-size:1.25em;}
+
+/* creates the larger circle */
+.oval-thought:before {
+    content:"";
+    position:absolute;
+    width:30px;
+    height:30px;
+    background:#2196F3;
+    /* css3 */
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    border-radius:30px;
+}
+
+.oval-thought.right:before {
+    top: -7px;
+    left: 320px;
+}
+
+.oval-thought.right:after {
+    top: -12px;
+    left: 366px;
+}
+
+.oval-thought.left:before {
+    top: -7px;
+    left: 0;
+}
+
+.oval-thought.left:after {
+    top: -12px;
+    left: -40px;
+}
+
+/* creates the smaller circle */
+.oval-thought:after {
+    content:"";
+    position:absolute;
+
+    width: 20px;
+    height: 20px;
+    background:#2196F3;
+    /* css3 */
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    border-radius:15px;
+}
+
+
+.oval-speech {
+    position:relative;
+    width:270px;
+    padding:50px 40px;
+    margin:1em auto 50px;
+    text-align:center;
+    color:#fff;
+
+    -webkit-border-top-left-radius:220px 120px;
+    -webkit-border-top-right-radius:220px 120px;
+    -webkit-border-bottom-right-radius:220px 120px;
+    -webkit-border-bottom-left-radius:220px 120px;
+    -moz-border-radius:220px / 120px;
+    border-radius:220px / 120px;
+}
+
+
+.triangle-border {
+    position:relative;
+    padding:15px;
+    margin:1em 0 3em;
+    border:5px solid #5a8f00;
+    color:#333;
+    background:#fff;
+    /* css3 */
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+.mascot {
+
+}

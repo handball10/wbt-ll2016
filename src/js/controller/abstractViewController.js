@@ -4,7 +4,7 @@
 
 var abstractViewController = function(id){
 
-    var container = $(id);
+    var container = typeof id === 'string' ? $(id) : id;
 
     var hide = function(){
         container.hide();
@@ -26,7 +26,8 @@ var abstractViewController = function(id){
         hide : hide,
         show : show,
         fadeOut : fadeOut,
-        fadeIn : fadeIn
+        fadeIn : fadeIn,
+        container : container
     }
 
 };
