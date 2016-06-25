@@ -57,8 +57,10 @@ Main.controller.mascot = (function(){
                 .addClass('oval-speech');
 
             settings.$blockSelector.text(
-                dialogs.say[sayingIndex]
+                dialogs.say[sayingIndex].text
             );
+
+
         };
 
         /**
@@ -139,11 +141,29 @@ Main.controller.mascot = (function(){
         this.right = function(){
             if(dialogs.right.length === 0) return;
 
+            var item = dialogs.right[(Math.floor(Math.random() * dialogs.right.length))];
 
+            settings.$blockSelector.text(
+                item.text
+            );
+
+            controller.animateBubble('in-out', item.delay);
+
+            return item.delay;
         };
 
         this.wrong = function(){
+            if(dialogs.wrong.length === 0) return;
 
+            var item = dialogs.wrong[(Math.floor(Math.random() * dialogs.wrong.length))];
+
+            settings.$blockSelector.text(
+                item.text
+            );
+
+            controller.animateBubble('in-out', item.delay);
+
+            return item.delay;
         };
 
 
@@ -216,8 +236,8 @@ Main.controller.mascot = (function(){
 
         // article::load
         settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){controller.autoplay(0);});
-        dialogs.right.length && parentArticle.on('article::load', controller.right);
-        dialogs.wrong.length && parentArticle.on('article::load', controller.wrong);
+        dialogs.right.length && parentArticle.on('article::right', controller.right);
+        dialogs.wrong.length && parentArticle.on('article::wrong', controller.wrong);
 
         return this;
 

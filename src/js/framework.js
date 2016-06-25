@@ -21,9 +21,11 @@ var App = App || {
         this.StorageManager.init();
 
         this.SectionManager.init();
+
         this.NavigationManager.init();
         App.Event.trigger("onSectionLoadComplete");
         App.SectionManager.loadArticleByIndex(0);
+        App.NavigationManager.initCustomWalkers();
         var end = (new Date()).getTime();
 
         App.Log.log("Application build in "+ (end - start)+" millis");
@@ -371,6 +373,8 @@ App.SectionManager = {
                 // push it into the sections article array
                 articleList.push(articleID);
 
+                console.log(_t.data('id'));
+
                 // generate a new object with article relating properties
                 thisHelper.articles[articleID] = {
                     id : articleID,
@@ -378,6 +382,7 @@ App.SectionManager = {
                     parentSection : sectionID,
                     visited : false,
                     skipButtons : skipAutoButtons,
+                    customID : _t.data('id'),
                     modules: []
                 };
 
@@ -563,10 +568,30 @@ App.SectionManager = {
     },
 
     /**
+     * Performs a search for a data-id and delegates show article to show the custom article
+     * @Modification
+     * @param customID
+     */
+    gotoArticle : function(customID){
+        // need to find the article with the custom id
+        for(var article in App.SectionManager.articles){
+            if(App.SectionManager.articles[article].customID === customID){
+                App.SectionManager.showArticle(App.SectionManager.articles[article].id);
+                return;
+            }
+        }
+
+        //throw new Error('Cannot find article with custom id \''+customID+'\'');
+    },
+
+    /**
      * displays an article in the document --> make it visible
      * @param  {String} articleName This is the ID of every article. The ID is given by the navigation link manager
      */
-    showArticle : function(articleName){
+    showArticle : function(articleName, skip){
+
+        skip = typeof skip === "undefined" ? false : skip;
+
         // check if the article id exists        
         if(!this.articles.hasOwnProperty(articleName)){
             throw new Error("The article \""+articleName+"\" does not exist!");
@@ -580,14 +605,14 @@ App.SectionManager = {
 
         var arg, canProceed = true;
 
-        if(!this.firstRun){
+        if(!this.firstRun && !skip){
             
             if(this.currentSection === parentSection.id){
                 // validate if we have any validator modules in this article
                 for(var i = 0, modules = this.articles[this.currentArticle].modules, validatorResult = false; i < modules.length; i++){
                     var currentModule = App.ModuleManager.registeredModules[modules[i]];
                     if(currentModule.isValidator && !currentModule.finished){
-                        validatorResult = currentModule.validate(currentModule)
+                        validatorResult = currentModule.validate(currentModule);
                         canProceed = canProceed && validatorResult;
 
                         currentModule.finished = validatorResult;
@@ -598,8 +623,17 @@ App.SectionManager = {
             }
 
             if(!canProceed && this.currentSection === parentSection.id){
-                alert("bitte alle sachen richtig machen!");
+                this.articles[this.currentArticle].selector.trigger('article::wrong');
                 return;
+            } else {
+                if(this.articles[this.currentArticle].selector.find('.mascot').length > 0){
+                    this.articles[this.currentArticle].selector.trigger('article::right');
+
+                    setTimeout(function(){
+                        App.SectionManager.showArticle(articleName, true);
+                    }, 3000);
+                }
+
             }
         }
 
@@ -627,7 +661,6 @@ App.SectionManager = {
                 for(var i = 0, modules = this.articles[allArticles[nextIndex-1]].modules; i < modules.length; i++){
                     var currentModule = App.ModuleManager.registeredModules[modules[i]];
                     if(currentModule.isValidator && !currentModule.finished){
-                        alert("erst sachen davor machen!");
                         return;
                     }
                 }
@@ -1120,6 +1153,16 @@ App.NavigationManager = {
 
     disableSubLink : function(target){
         this.getSubNavigationElement(target).addClass("disabled");
+    },
+
+    initCustomWalkers : function(){
+        $('.customWalker').on('click', function(){
+            var $_ = $(this);
+
+            alert(1);
+
+            App.SectionManager.gotoArticle($_.data('target'));
+        });
     }
 
 
