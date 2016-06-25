@@ -126,7 +126,7 @@ Main.controller.mascot = (function(){
         this.animateBubble = function(mode, delay){
             switch(mode){
                 case 'in' :
-                    settings.selector
+                    settings.$blockSelector
                         .fadeIn('fast');
                     break;
                 case 'in-out':
