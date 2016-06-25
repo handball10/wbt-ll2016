@@ -394,7 +394,8 @@ App.SectionManager = {
                 selector : $("#"+sectionID),
                 isLinear : isLinear,
                 articleList : articleList,
-                finished : false
+                finished : false,
+                visibleInHeader : !t[0].hasAttribute('data-not-in-header')
             };
             // if this is the first section in the whole document, this is the main section that is displayed
             if(index === 0){
@@ -703,6 +704,9 @@ App.SectionManager = {
         }
 
         App.Event.eventExists('onAfterRender') && App.Event.trigger('onAfterRender');
+
+        // trigger articleLoad Event
+        thisArticle.selector.trigger('article::load');
     },
 
     registerModuleForArticle : function(key, article){
@@ -921,6 +925,8 @@ App.NavigationManager = {
         // walk through every registered section in the section manager, get its articles and adds the dropdown code for every article
         for(section in App.SectionManager.sections){
             var workingSection = App.SectionManager.sections[section];
+
+            if(!workingSection.visibleInHeader) continue;
 
 
             // get the first article of the current section
