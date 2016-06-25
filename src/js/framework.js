@@ -1159,8 +1159,6 @@ App.NavigationManager = {
         $('.customWalker').on('click', function(){
             var $_ = $(this);
 
-            alert(1);
-
             App.SectionManager.gotoArticle($_.data('target'));
         });
     }
