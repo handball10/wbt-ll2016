@@ -110,14 +110,6 @@ Main.controller.mascot = (function(){
 
         };
 
-        this.sayRight = function(){
-
-        };
-
-        this.sayWrong = function(){
-
-        };
-
         /**
          * animates the bubble
          * @param mode {String} in | out
@@ -142,6 +134,16 @@ Main.controller.mascot = (function(){
 
                     break;
             }
+        };
+
+        this.right = function(){
+            if(dialogs.right.length === 0) return;
+
+
+        };
+
+        this.wrong = function(){
+
         };
 
 
@@ -185,7 +187,7 @@ Main.controller.mascot = (function(){
                     $('<div class="mdl-cell mdl-cell--2-col"></div>')
                         .append($mascot)
                 ).append(
-                    $('<div class="mdl-cell mdl-cell--4-col"></div>')
+                    $('<div class="mdl-cell mdl-cell--10-col"></div>')
                         .append($block)
                 );
         } else if(settings.selector.hasClass('mascot--right')){
@@ -193,14 +195,9 @@ Main.controller.mascot = (function(){
             $block.addClass('right');
 
             $grid
+
                 .append(
-                    $('<div class="mdl-cell mdl-cell--2-col"></div>')
-                )
-                .append(
-                    $('<div class="mdl-cell mdl-cell--4-col"></div>')
-                )
-                .append(
-                    $('<div class="mdl-cell mdl-cell--4-col"></div>')
+                    $('<div class="mdl-cell mdl-cell--10-col"></div>')
                         .append($block)
                 ).append(
                     $('<div class="mdl-cell mdl-cell--2-col"></div>')
@@ -215,9 +212,12 @@ Main.controller.mascot = (function(){
         // click
         $mascot.on('click', controller.tip);
 
-        // article::load
-        settings.selector.hasClass('autoplay') && element.closest('article').on('article::load', function(){controller.autoplay(0);});
+        var parentArticle = element.closest('article');
 
+        // article::load
+        settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){controller.autoplay(0);});
+        dialogs.right.length && parentArticle.on('article::load', controller.right);
+        dialogs.wrong.length && parentArticle.on('article::load', controller.wrong);
 
         return this;
 
