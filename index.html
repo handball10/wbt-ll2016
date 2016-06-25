@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="src/css/mdl-custom.css"/>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <link rel="stylesheet" href="src/css/wbtStyle.css"/>
+    <link rel="stylesheet" href="src/css/mascot.css"/>
 
     <script src="src/js/dist/dialog-polyfill.js"></script>
 
@@ -50,6 +51,9 @@
             <!--<a class="mdl-navigation__link" href="">Link</a>-->
             <!--</nav>-->
             <nav class="mainNavigation mdl-navigation mdl-layout--large-screen-only"></nav>
+            <div class="header-user">
+                <div id="progressbar_user" class="mdl-progress mdl-js-progress"></div>
+            </div>
         </div>
     </header>
     <div class="mdl-layout__drawer" id="sidebar">
@@ -128,7 +132,7 @@
                 <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--8-col">
-                        <section data-linear="1" data-id="welcome">
+                        <section data-linear="1" data-id="welcome" data-not-in-header>
                             <h1>Willkommen</h1>
                             <article data-id="start">
                                 <h2>Test<small>subtitle</small></h2>
@@ -200,26 +204,12 @@
                                         </div>
                                         </div>
                                         <div class="main-help">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-left">
-                                                        <div class="text-bubble-left__bubble"></div>
-                                                        <div class="text-bubble-left__triangle"></div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right">
-                                                        <div class="text-bubble-right__bubble"></div>
-                                                        <div class="text-bubble-right__triangle"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--left mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
@@ -1147,6 +1137,7 @@
 <script src="src/js/controller/sidebar.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/header.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/wbt.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/controller/mascot.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>
 <!--<script src="src/js/accordion.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/video.js" type="text/javascript" charset="utf-8"></script>-->
@@ -1157,6 +1148,5 @@
 <!--<script src="src/js/modal.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>-->
-
 </body>
 </html>
