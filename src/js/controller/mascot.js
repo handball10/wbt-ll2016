@@ -68,7 +68,7 @@ Main.controller.mascot = (function(){
 
             if(dialogs.tip.length === 0) return;
 
-            settings.$blockSelector.addClass('oval-speech');
+            settings.$blockSelector.removeClass('oval-speech');
 
             var tipToDisplay = dialogs.tip[(Math.floor(Math.random() * dialogs.tip.length))];
 
