@@ -9,6 +9,7 @@ Main.controller.mascot = (function(){
 
         var controller = this;
 
+        // mascot options
         var options = {
             size : {
                 l   : 1.6,
@@ -23,6 +24,7 @@ Main.controller.mascot = (function(){
             }
         };
 
+        // mascot settings
         var settings = {
             size : 'default',
             selector : element,
@@ -30,6 +32,10 @@ Main.controller.mascot = (function(){
             $blockSelector : null
         };
 
+        /**
+         * contains all dialog found in the mascot element
+         * @type {{wrong: Array, right: Array, say: Array, tip: Array}}
+         */
         var dialogs = {
             wrong : [],
             right : [],
@@ -37,17 +43,32 @@ Main.controller.mascot = (function(){
             tip : []
         };
 
+        /**
+         * @ignore
+         */
         this.init = function(){
             $('body').append()
         };
 
-        this.say = function(say){
+        this.say = function(sayingIndex){
 
+            settings.$blockSelector
+                .removeClass('oval-though')
+                .addClass('oval-speech');
+
+            settings.$blockSelector.text(
+                dialogs.say[sayingIndex]
+            );
         };
 
+        /**
+         * displays a random string from dialog tips array
+         */
         this.tip = function(){
 
             if(dialogs.tip.length === 0) return;
+
+            settings.$blockSelector.addClass('oval-speech');
 
             var tipToDisplay = dialogs.tip[(Math.floor(Math.random() * dialogs.tip.length))];
 
@@ -57,12 +78,58 @@ Main.controller.mascot = (function(){
 
             settings.$blockSelector.addClass('oval-thought');
 
-            controller.animateBubble('in', tipToDisplay.delay);
+            controller.animateBubble('in-out', tipToDisplay.delay);
         };
 
+        this.autoplay = function(index){
+
+            console.log(index);
+
+            if(dialogs.say.length === 0 || index >= dialogs.say.length){
+                controller.animateBubble('out');
+                return;
+            }
+
+            if(index === 0){
+                settings.$blockSelector
+                    .removeClass('oval-though')
+                    .addClass('oval-speech');
+                controller.animateBubble('in');
+            }
+
+            var currentSpeech = dialogs.say[index];
+
+            settings.$blockSelector.text(
+                currentSpeech.text
+            );
+
+            setTimeout(function(){
+                controller.autoplay(++index);
+            }, currentSpeech.delay)
+
+
+        };
+
+        this.sayRight = function(){
+
+        };
+
+        this.sayWrong = function(){
+
+        };
+
+        /**
+         * animates the bubble
+         * @param mode {String} in | out
+         * @param delay {Number} Time in ms to display the bubble
+         */
         this.animateBubble = function(mode, delay){
             switch(mode){
-                case 'in':
+                case 'in' :
+                    settings.selector
+                        .fadeIn('fast');
+                    break;
+                case 'in-out':
                     settings.$blockSelector
                         .fadeIn('fast')
                         .delay(delay)
@@ -77,9 +144,7 @@ Main.controller.mascot = (function(){
             }
         };
 
-        this.toSize = function(size){
 
-        };
 
         // parse all dialogs
         for(var type in dialogs){
@@ -145,8 +210,13 @@ Main.controller.mascot = (function(){
 
         settings.selector.append($grid);
 
+        // bind events
+
+        // click
         $mascot.on('click', controller.tip);
 
+        // article::load
+        settings.selector.hasClass('autoplay') && element.closest('article').on('article::load', function(){controller.autoplay(0);});
 
 
         return this;
