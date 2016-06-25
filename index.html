@@ -39,20 +39,13 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header" id="header">
         <div class="mdl-layout__header-row">
-            <!-- Title -->
             <span class="mdl-layout-title">Gesünder leben</span>
-            <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <!--<nav class="mdl-navigation mdl-layout&#45;&#45;large-screen-only">-->
-            <!--<a class="mdl-navigation__link" href="">Link</a>-->
-            <!--<a class="mdl-navigation__link" href="">Link</a>-->
-            <!--<a class="mdl-navigation__link" href="">Link</a>-->
-            <!--<a class="mdl-navigation__link" href="">Link</a>-->
-            <!--</nav>-->
             <nav class="mainNavigation mdl-navigation mdl-layout--large-screen-only"></nav>
             <div class="header-user">
-                <div id="progressbar_user" class="mdl-progress mdl-js-progress"></div>
+                <div id="progressbar_user" class="mdl-progress mdl-js-progress">
+                </div>
+                <div class="header-user__icon"></div>
             </div>
         </div>
     </header>
@@ -82,7 +75,6 @@
                                         </form>
 
                                     </div>
-
                                     <div class="mainmenu-quater">
                                         <form action="#">
                                             <div class="mdl-textfield mdl-js-textfield">
@@ -126,44 +118,9 @@
                     <div class="mdl-cell mdl-cell--8-col">
                         <section data-linear="1" data-id="welcome" data-not-in-header>
                             <h1>Willkommen</h1>
-                            <article data-id="start">
+                            <article data-id="welcome_start">
                                 <h2>Test<small>subtitle</small></h2>
                                 <p>Content one goes here</p>
-
-                                <!--<div class="wbt-card-full-width mdl-card mdl-shadow&#45;&#45;2dp">-->
-                                    <!--<div class="mdl-card__title">-->
-                                    <!--</div>-->
-                                    <!--<div class="mdl-card__supporting-text">-->
-                                        <!--Zum WBT gesundes Leben<br/>-->
-                                        <!--Hier geht es um balblslblalbl-->
-                                    <!--</div>-->
-                                    <!--<div class="mdl-card__actions mdl-card&#45;&#45;border">-->
-                                        <!--<div class="mdl-grid margin-top-100">-->
-                                            <!--<div class="mdl-layout-spacer"></div>-->
-                                            <!--<div class="mdl-cell mdl-cell&#45;&#45;2-col">-->
-                                                <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">-->
-                                                    <!--Start-->
-                                                <!--</button>-->
-                                            <!--</div>-->
-                                            <!--<div class="mdl-layout-spacer"></div>-->
-                                        <!--</div>-->
-                                        <!--<div class="mdl-grid">-->
-                                            <!--<div class="mdl-layout-spacer"></div>-->
-                                            <!--<div class="mdl-cell mdl-cell&#45;&#45;2-col">-->
-                                                <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide">-->
-                                                    <!--Hauptmenü-->
-                                                <!--</button>-->
-                                            <!--</div>-->
-                                            <!--<div class="mdl-layout-spacer"></div>-->
-                                        <!--</div>-->
-                                        <!--<div class="mdl-grid margin-top-100">-->
-                                            <!--<div class="mdl-cell mdl-cell&#45;&#45;2-col mascot-broc"></div>-->
-                                            <!--<div class="mdl-cell mdl-cell&#45;&#45;4-col text-bubble-left">s</div>-->
-                                            <!--<div class="mdl-cell mdl-cell&#45;&#45;4-col text-bubble-right"></div>-->
-                                            <!--<div class="mdl-cell mdl-cell&#45;&#45;2-col mascot-broc"></div>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Willkommen</h2>
@@ -179,7 +136,7 @@
                                         <div class="mdl-grid">
                                             <div class="mdl-layout-spacer"></div>
                                             <div class="mdl-cell mdl-cell--2-col">
-                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="mythen-1">
+                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="myth_start">
                                                     Start
                                                 </button>
                                             </div>
@@ -188,7 +145,7 @@
                                         <div class="mdl-grid">
                                             <div class="mdl-layout-spacer"></div>
                                             <div class="mdl-cell mdl-cell--2-col">
-                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide">
+                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide customWalker" data-target="mainmenu_start">
                                                     Hauptmenü
                                                 </button>
                                             </div>
@@ -211,7 +168,7 @@
 
                         <section data-linear="1" data-id="myth">
                             <h1>Mythen</h1>
-                            <article data-id="mythen-1">
+                            <article data-id="myth_start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Mythen</h2>
@@ -246,15 +203,10 @@
                                             </div>
                                         </div>
                                         <div class="main-help">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--tought green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="4000">Wir besthen zu 80% aus Wasser!</say>
+                                                <tip data-delay="2000">Wir bestehen zu 80% aus Wasser!</tip>
                                             </div>
                                         </div>
                                     </div>
@@ -264,7 +216,7 @@
 
                         <section data-linear="1" data-id="mainmenu">
                             <h1>Hauptmenü</h1>
-                            <article data-id="start">
+                            <article data-id="mainmenu_start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Hauptmenü</h2>
@@ -291,7 +243,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="sport_start">
                                                                     erneut
                                                                 </button>
                                                             </div>
@@ -301,7 +253,7 @@
                                                                 <div id="progressbar_sport" class="mdl-progress mdl-js-progress"></div>
                                                             </div>
                                                             <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide customWalker" data-target="sport_end">
                                                                     Auswertung
                                                                 </button>
                                                             </div>
@@ -321,7 +273,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="mainmenu-quater">
-                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide" data-target="mythen-1">
+                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="eat_start">
                                                                         Start
                                                                     </button>
                                                                 </div>
@@ -331,7 +283,7 @@
                                                                     <div id="progressbar_eat" class="mdl-progress mdl-js-progress"></div>
                                                                 </div>
                                                                 <div class="mainmenu-quater">
-                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide" disabled>
+                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide customWalker" data-target="eat_end" disabled>
                                                                         Auswertung
                                                                     </button>
                                                                 </div>
@@ -367,71 +319,24 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--2-col"></div>
-
                                             </div>
                                         </div>
                                         <div class="main-help">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right">
-                                                    <div class="text-bubble-right__bubble">
-                                                        <div class="text-bubble-right__content">
-                                                        <h2 class="mdl-card__title-text">TEXT</h2>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-bubble-right__triangle"></div>
-                                                </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="4000">Das hier ist dein Hauptmenü! Hier erscheinen deine Erfolge</say>
+                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
                         </section>
-                        <section data-linear="1" data-id="myth">
+                        <section data-linear="1" data-id="eat">
                             <h1>Ernährung</h1>
-                            <!--
-
-                            HI Stefan,
-                            an deinem System, wie du die Article aufbaust, brauchst du nichts verändern :)
-                            Was du allerdings noch für jeden Article machen kannst, ist das doppelte hinterlegen von H2-Überschriften.
-                            Ich hab das System für den Stepper so gebaut, dass er sich die erste h2 in einem article holt und diese als Stepper-Kpitel-Überschrift nimmt.
-                            Jede h2 kann als children noch ein <small> haben. Dieses kannst du als Untertitel für den Stepper nehmen. In dem nachfolgenden article habe ich das mal umgesetzt.
-                            Diese Überschriften landen auch nicht in der Ausgabe, die in dem Content-Feld des Steppers zu sehen ist.
-
-                            Die MDL-Cards kannst du weiterhin ohne Probleme verwenden.
-                            Wenn du eigene Buttons zum or-und Zurück-Gehen verwenden möchtest, kannst du das gerne tun.
-
-                            Die Butons brauchen keine besonderne Klassen, müssen jedoch jeweils mit einer der folgenden Attribute ausgestattet sein:
-
-                            data-stepper-next
-                            data-stepper-back
-
-                            Darüber feuert das Stepper-Plugin ein Event ab, für welches bereits ein Listener registriert ist. Du brauchst also insofern nichts mehr machen.
-
-
-                            Deinen Code habe ich übernommen, dieser ist jedoch nicht immer direkt sichtbar (wie z.b. deine Startseite ;) )
-
-
-
-
-
-
-
-
-                            -->
-
-
-                            <article data-id="start">
+                            <article data-id="eat_start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Frage 1</h2>
@@ -468,22 +373,19 @@
                                         </div>
 
                                         <div class="main-help border-bottom">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
-                            <article data-id="start">
+                            <article data-id="eat_q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Frage 2</h2>
@@ -537,22 +439,17 @@
                                             </div>
                                         </div>
                                         <div class="main-help border-bottom">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="4000">information zu Aufgabe </say>
+                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
-                            <article data-id="start">
+                            <article data-id="eat_q3">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Frage 3</h2>
@@ -616,22 +513,17 @@
                                             </div>
                                         </div>
                                         <div class="main-help border-bottom">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="4000">information zu Aufgabe </say>
+                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
-                            <article data-id="start">
+                            <article data-id="eat_q4">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Frage 4</h2>
@@ -675,22 +567,17 @@
                                             </div>
                                         </div>
                                         <div class="main-help border-bottom">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="4000">information zu Aufgabe </say>
+                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
 
-                            <article data-id="start">
+                            <article data-id="eat_end">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Auswertung</h2>
@@ -749,218 +636,16 @@
                                             </div>
                                         </div>
                                         <div class="main-help border-bottom">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!--<article>-->
-                                <!--<h2>Tab 2<small>Subtitle 2</small></h2>-->
-                                <!--<p>Content three</p>-->
-                            <!--</article>-->
-                            <!--<article>-->
-                                <!--<h2>Tab 3<small>Subtitle 3</small></h2>-->
-                                <!--<p>Content three</p>-->
-                            <!--</article>-->
-                            <!--<article>-->
-                                <!--<h2>Tab 4<small>Subtitle 4</small></h2>-->
-                                <!--<p>Content three</p>-->
-                            <!--</article>-->
-                            <!--<article>-->
-                                <!--<h2>Tab 5<small>Subtitle 5</small></h2>-->
-                                <!--<p>Content three</p>-->
-                            <!--</article>-->
-
-                        </section>
-                        <!--<section data-linear="1" data-id="tipps">
-                            <h1>Tipps</h1>
-
-                            <article data-id="tipp_eat">
-                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Tipps Ernährung</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Tipps zur Ernährung
-                                        </div>
-                                    </div>
-                                    <div class="mdl-card__actions mdl-card--border">
-                                        <div class="main-content">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid height-150">
-                                                        Hier stehen Tipps:
-                                                    </div>
-                                                    <div class="mdl-grid height-150">
-                                                        Hier stehen Links:
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                            </div>
-                                        </div>
-                                        <div class="main-help">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article data-id="tipp_sport">
-                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Tipps Sport</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Tipps zur Ernährung
-                                        </div>
-                                    </div>
-                                    <div class="mdl-card__actions mdl-card--border">
-                                        <div class="main-content">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid height-150">
-                                                        Hier stehen Tipps:
-                                                    </div>
-                                                    <div class="mdl-grid height-150">
-                                                        Hier stehen Links:
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                            </div>
-                                        </div>
-                                        <div class="main-help">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
-                                                <div class="mdl-cell mdl-cell--4-col">
-                                                    <div class="text-bubble-right"></div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <div class="mascot-broc"></div>
-                                                </div>
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="4000">information zu Aufgabe </say>
+                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
                         </section>
-
-                        <!--<ul class="mdl-stepper wbt-card-full-width mdl-stepper&#45;&#45;horizontal mdl-stepper&#45;&#45;linear">-->
-                            <!--<li class="mdl-step">-->
-                                        <!--<span class="mdl-step__label">-->
-                                            <!--<span class="mdl-step__title">-->
-                                                <!--<span class="mdl-step__title-text">Name of step 1</span>-->
-                                                <!--<span class="mdl-step__title-message">Summarize if needed</span>-->
-                                            <!--</span>-->
-                                        <!--</span>-->
-                                <!--<div class="mdl-step__content">-->
-                                    <!--<p>Hallo</p>-->
-                                <!--</div>-->
-                                <!--<div class="mdl-step__actions">-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-next>-->
-                                        <!--Continue <i class="material-icons">keyboard_arrow_right</i>-->
-                                    <!--</button>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="mdl-step">-->
-                                        <!--<span class="mdl-step__label">-->
-                                            <!--<span class="mdl-step__title">-->
-                                                <!--<span class="mdl-step__title-text">Name of step 1</span>-->
-                                                <!--<span class="mdl-step__title-message">Summarize if needed</span>-->
-                                            <!--</span>-->
-                                        <!--</span>-->
-                                <!--<div class="mdl-step__content">-->
-                                    <!--<p>Hallo</p>-->
-                                <!--</div>-->
-                                <!--<div class="mdl-step__actions">-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-back>-->
-                                        <!--<i class="material-icons">keyboard_arrow_left</i> Back-->
-                                    <!--</button>-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-next>-->
-                                        <!--Continue <i class="material-icons">keyboard_arrow_right</i>-->
-                                    <!--</button>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="mdl-step">-->
-                                        <!--<span class="mdl-step__label">-->
-                                            <!--<span class="mdl-step__title">-->
-                                                <!--<span class="mdl-step__title-text">Name of step 1</span>-->
-                                                <!--<span class="mdl-step__title-message">Summarize if needed</span>-->
-                                            <!--</span>-->
-                                        <!--</span>-->
-                                <!--<div class="mdl-step__content">-->
-                                    <!--<p>Hallo</p>-->
-                                <!--</div>-->
-                                <!--<div class="mdl-step__actions">-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-back>-->
-                                        <!--<i class="material-icons">keyboard_arrow_left</i> Back-->
-                                    <!--</button>-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-next>-->
-                                        <!--Continue <i class="material-icons">keyboard_arrow_right</i>-->
-                                    <!--</button>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="mdl-step">-->
-                                        <!--<span class="mdl-step__label">-->
-                                            <!--<span class="mdl-step__title">-->
-                                                <!--<span class="mdl-step__title-text">Name of step 1</span>-->
-                                                <!--<span class="mdl-step__title-message">Summarize if needed</span>-->
-                                            <!--</span>-->
-                                        <!--</span>-->
-                                <!--<div class="mdl-step__content">-->
-                                    <!--<p>Hallo</p>-->
-                                <!--</div>-->
-                                <!--<div class="mdl-step__actions">-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-back>-->
-                                        <!--<i class="material-icons">keyboard_arrow_left</i> Back-->
-                                    <!--</button>-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-next>-->
-                                        <!--Continue <i class="material-icons">keyboard_arrow_right</i>-->
-                                    <!--</button>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                            <!--<li class="mdl-step">-->
-                                        <!--<span class="mdl-step__label">-->
-                                            <!--<span class="mdl-step__title">-->
-                                                <!--<span class="mdl-step__title-text">Name of step 1</span>-->
-                                                <!--<span class="mdl-step__title-message">Summarize if needed</span>-->
-                                            <!--</span>-->
-                                        <!--</span>-->
-                                <!--<div class="mdl-step__content">-->
-                                    <!--<p>Hallo</p>-->
-                                <!--</div>-->
-                                <!--<div class="mdl-step__actions">-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-back>-->
-                                        <!--<i class="material-icons">keyboard_arrow_left</i> Back-->
-                                    <!--</button>-->
-                                    <!--<button class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent" data-stepper-next>-->
-                                        <!--<i class="material-icons">check_circle</i> Abschließen-->
-                                    <!--</button>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                        <!--</ul>-->
                     </div>
                     <div class="mdl-layout-spacer"></div>
                 </div>
@@ -968,155 +653,6 @@
         </div>
     </main>
 </div>
-
-<!--<section data-linear="1">-->
-<!--<h1>Temp</h1>-->
-<!--<article>-->
-<!--<h2>Test 2</h2>-->
-<!--</article>-->
-<!--</section>-->
-<!--
-
-<div class="container">
-    <nav class="mainNavigation"></nav>
-    <div class="row">
-        <div class="col-md-3 col-sm-12 col-xs-3 hidden-xs">
-            <nav class="subNavigation"></nav>
-        </div>
-        <div class="col-md-9 col-xs-12">
-            <section data-linear="1">
-                <h1>Section 1</h1>
-                <article>
-                    <h2>Hallo</h2>
-                    <div class="module single-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
-                        <p data-correct="1">Antwort 1</p>
-                        <p data-correct="0">Antwort 2</p>
-                        <p data-correct="0">Antwort 3</p>
-                        <p data-correct="0">Antwort 4</p>
-                        <p data-correct="0">Antwort 5</p>
-                    </div>
-
-                    <div class="module mascot">
-
-                    </div>
-
-                    <div class="module dragDrop" data-question="Das könnte deine Frage sein!">
-                        <div>
-                            <div>Hallo</div>
-                            <div>Tschüss</div>
-                        </div>
-                        <div>
-                            <div>Simsalabim</div>
-                            <div>Bambasaladusaladim</div>
-                        </div>
-                        <div>
-                            <div>Wasser</div>
-                            <div>Meer</div>
-                        </div>
-                        <div>
-                            <div>Blumen</div>
-                            <div>Topf</div>
-                        </div>
-                        <div>
-                            <div>Apfel</div>
-                            <div>Baum</div>
-                        </div>
-                    </div>-->
-<!--
-
-                        <div class="module accordion">
-                            <p data-title="Akkoridon-Header-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br/><img src="http://www.planet-wissen.de/natur_technik/weltall/sonne/img/intro_soho_g.jpg" alt="SONNE"/></p>
-                            <p data-title="Titel 2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                            <p data-title="Titel 3">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                        </div>
--->
-
-<!--
-                </article>
-                <article>
-                    <h2>Teil 2</h2>
-                </article>
-                <article>
-                    <h2>Teil 3</h2>
-                </article>
-                <article>
-                    <h2>Teil 4</h2>
-                </article>
-                <article>
-                    <h2>Blablabl</h2>
-                    <div class="module audio">
-                        <p data-src="data/sound/audio.mp3"></p>
-                    </div>
-                    <div class="module multiple-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
-                        <p data-correct="1">Antwort 1</p>
-                        <p data-correct="0">Antwort 2</p>
-                        <p data-correct="0">Antwort 3</p>
-                        <p data-correct="1">Antwort 4</p>
-                        <p data-correct="1">Antwort 5</p>
-                    </div>
-
-                    <div class="module value" data-value="123" data-label="m/s" data-question="Das könnte deine Frage sein!"></div>
-
-                    <div class="module video">
-                        <p data-src="data/video/cat.mp4"></p>
-                    </div>
-
-
-                </article>
-            </section>
-            <section data-linear="0">
-                <h1>Section 2</h1>
-                <article>
-                    <h2>Bla</h2>
-                </article>
-                <article>
-                    <h2>Bla12</h2>
-                    <div class="module multiple-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
-                        <p data-correct="1">Antwort 1</p>
-                        <p data-correct="0">Antwort 2</p>
-                        <p data-correct="0">Antwort 3</p>
-                        <p data-correct="1">Antwort 4</p>
-                        <p data-correct="1">Antwort 5</p>
-                    </div>
-                </article>
-                <article>
-                    <h2>Bla3</h2>
-                </article>
-            </section>
-            <section data-linear="1">
-                <h1>Haus bauen</h1>
-                <article>
-                    <h2>Loch graben</h2>
-                    <div class="module multiple-choice" data-shuffle="1" data-question="Wie viele Häuser siehst du hier?">
-                        <p data-correct="1">Antwort 1</p>
-                        <p data-correct="0">Antwort 2</p>
-                        <p data-correct="0">Antwort 3</p>
-                        <p data-correct="1">Antwort 4</p>
-                        <p data-correct="1">Antwort 5</p>
-                    </div>
-                </article>
-                <article>
-                    <h2>Mauern</h2>
-                </article>
-                <article>
-                    <h2>Dach und Decke</h2>
-                </article>
-                <article>
-                    <h2>Strom und Wasser</h2>
-                </article>
-                <article>
-                    <h2>Einziehen</h2>
-                </article>
-            </section>
-        </div>
-    </div>
-</div>-->
-
-<!-- Dialogs -->
-
-<!-- /Dialogs -->
-
-
 <script src="src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>

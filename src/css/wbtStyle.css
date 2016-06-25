@@ -283,5 +283,17 @@ h1{
 }
 
 #progressbar_user{
+	height:30px;
+	margin-top:15px;
+	width: 195px;
+	float:left;
+}
 
+.header-user__icon{
+	width: 50px;
+	height:60px;
+	margin-left:5px;
+	float:left;
+	background: url('../images/user.png') center no-repeat;
+	background-size: 100% auto;
 }
