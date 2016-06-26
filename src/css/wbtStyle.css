@@ -149,6 +149,10 @@ h1{
 	min-height:300px;
 }
 
+.main-content li{
+	list-style-type: circle;
+}
+
 .height-50{
 	height:50px;
 }
