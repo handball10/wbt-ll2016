@@ -64,7 +64,10 @@ App.ModuleManager.extend("YesOrNo",
                 $contentGrid
                     .find('div.quest-answer')
                     .on('click', function(){
-                        $contentGrid.attr('data-selected', $(this).hasClass('quest-cross') ? 0 : 1);
+                        var $this = $(this);
+                        $contentGrid.find('div.quest-answer').removeClass('active');
+                        $this.addClass('active');
+                        $contentGrid.attr('data-selected', $this.hasClass('quest-cross') ? 0 : 1);
                     });
 
                 $contentContainer.append($contentGrid);
@@ -85,18 +88,18 @@ App.ModuleManager.extend("YesOrNo",
 
                 $t.replaceWith($container);
 
-                console.log(parentArticle);
-
-                App.ModuleManager.registerPreparedModule(id,
-                    {
-                        id: id,
-                        parentArticle: parentArticle.attr("id"),
-                        selector: $('#'+id),
-                        isValidator: true,
-                        validate: thisHelper.validator,
-                        finished: false
-                    }
-                );
+                //console.log(parentArticle);
+                //
+                //App.ModuleManager.registerPreparedModule(id,
+                //    {
+                //        id: id,
+                //        parentArticle: parentArticle.attr("id"),
+                //        selector: $('#'+id),
+                //        isValidator: true,
+                //        validate: thisHelper.validator,
+                //        finished: false
+                //    }
+                //);
             });
         },
 
