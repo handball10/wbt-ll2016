@@ -473,7 +473,7 @@ App.SectionManager = {
 
                     var $contentContainer = $('<div></div>').addClass('mdl-step__content');
 
-                    $contentContainer.append($content);
+                    $contentContainer.append($('<article></article>').attr('id', currentArticle.id).append($content));
 
                     var $footer = $('<div></div>').addClass('mdl-step__actions');
 
@@ -639,6 +639,22 @@ App.SectionManager = {
 
         this.firstRun = false;
 
+        if(parentSection.articleList.length > 1){
+
+            // get the index of the current article
+            var index = parentSection.articleList.indexOf(articleName);
+
+            var $ul = parentSection.selector.find('ul');
+
+            var instance = $ul.get(0).MaterialStepper;
+
+            console.log($ul);
+
+            //$ul.height(
+            //    $ul.find('.mdl-step__content:nth-child('+index+')')[0].scrollHeight+192+"px"
+            //);
+        }
+
         // check if we can go to this article
         if(parentSection.isLinear){
             // the next article we want to visit is located in a linear section
@@ -743,6 +759,7 @@ App.SectionManager = {
     },
 
     registerModuleForArticle : function(key, article){
+        console.log(article);
         this.articles[article].modules.push(key);
     },
 
