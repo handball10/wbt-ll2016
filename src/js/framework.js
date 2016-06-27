@@ -383,7 +383,7 @@ App.SectionManager = {
                     visited : false,
                     skipButtons : skipAutoButtons,
                     customID : _t.data('id'),
-                    minHeight : parseInt(isNaN(_t.data('min-height')) ? 400 : _t.data('min-height'), 10),
+                    minHeight : parseInt(isNaN(_t.data('min-height')) ? $( window ).height() - 415 : _t.data('min-height'), 10),
                     modules: []
                 };
 
