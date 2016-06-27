@@ -472,13 +472,15 @@ App.SectionManager = {
                     // catch the content
                     var $content = currentArticle.selector.find("*:not(h2)").html();
 
-                    var $contentContainer = $('<div></div>').addClass('mdl-step__content');
+                    var $contentContainer = $('<div></div>').addClass('mdl-step__content').attr('data-min-height', (currentArticle.minHeight + 192));
 
                     $contentContainer.append($('<article></article>').attr('id', currentArticle.id).append($content));
 
-                    if(currentArticle.minHeight > 400){
-                        $container.css("min-height", (currentArticle.minHeight + 192) + "px");
-                    }
+                    //if(currentArticle.minHeight > 400){
+
+
+                    i == 0 && $container.css("min-height", (currentArticle.minHeight + 192) + "px");
+                    //}
 
                     var $footer = $('<div></div>').addClass('mdl-step__actions');
 
@@ -522,9 +524,12 @@ App.SectionManager = {
                         instance.next();
                         var currentStep = $(instance.getActive());
 
-                        console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
+                        //console.log(currentStep.find('.mdl-step__content').data('min-height'));
 
-                        $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192);
+                        var height = currentStep.find('.mdl-step__content').data('min-height');
+                        console.log(height);
+
+                        $container.css("min-height", currentStep.find('.mdl-step__content').data('min-height') + "px");
                     }
                 })(stepperInstance, $container);
 
@@ -536,7 +541,7 @@ App.SectionManager = {
 
                         //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
 
-                        $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192+"px");
+                        $container.css("min-height", currentStep.find('.mdl-step__content').data('min-height') + "px");
                     }
                 })(stepperInstance, $container);
 
