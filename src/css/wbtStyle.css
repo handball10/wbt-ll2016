@@ -167,8 +167,13 @@ h1{
 	margin: 0 auto;
 }
 
-.main-content li{
+.main-content ul li{
 	list-style-type: circle;
+	margin-left:20px;
+}
+
+.main-content ol li{
+	list-style-type: decimal;
 }
 
 .height-50{
