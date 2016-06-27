@@ -185,19 +185,12 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-
                                             </div>
-
                                             <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--5-col"></div>
                                                 <div class="mdl-cell mdl-cell--2-col">
-                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="myth_eat_start">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="mainmenu_start">
                                                         Start
-                                                    </button>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col">
-                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide customWalker" data-target="mainmenu_start">
-                                                        Hauptmenü
                                                     </button>
                                                 </div>
                                             </div>
@@ -205,7 +198,7 @@
                                         <div class="main-help">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="5000">Wenn du einen Code hast, kannst du das Mythenquiz überspringen</say>
+                                                <say data-delay="100000">Wenn du einen Code hast, kannst du das Mythenquiz überspringen</say>
                                                 <tip data-delay="1000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
@@ -214,69 +207,16 @@
                             </article>
                         </section>
 
-                        <!-- TODO MYTH -->
-
-                        <section data-linear="1" data-id="myth">
-                            <h1>Mythen</h1>
-                            <article data-id="myth_eat_start">
-                                <h2>Ernährungsmythen<small></small></h2>
-
-                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Mythen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                    <div class="mdl-card__supporting-text">
-                                        Mythos 1
-                                    </div>
-                                    </div>
-                                    <div class="mdl-card__actions mdl-card--border">
-                                        <div class="main-content">
-                                            <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid height-150">
-                                                        <div class="mdl-cell mdl-cell--3-col">
-                                                            <div class="quest-cross"></div>
-                                                            <div class="quest-label">Stimmt nicht</div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="quest-quest">
-                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
-                                                            </div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--3-col">
-                                                            <div class="quest-check"></div>
-                                                            <div class="quest-label">Stimmt!</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                            </div>
-                                        </div>
-                                        <div class="main-help">
-                                            <div class="mascot mascot--right mascot--tought green autoplay">
-                                                <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="4000">Wir besthen zu 80% aus Wasser!</say>
-                                                <tip data-delay="2000">Wir bestehen zu 80% aus Wasser!</tip>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                        </section>
-
                         <section data-linear="1" data-id="mainmenu">
-                            <h1>Hauptmenü</h1>
+                            <h1>Kategorieauswahl</h1>
                             <article data-id="mainmenu_start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Hauptmenü</h2>
+                                        <h2 class="mdl-card__title-text">Kategorieauswahl</h2>
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
-                                            Hier hast du Übersicht über deine bisherigen Erfolge ......
+
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -284,92 +224,28 @@
                                             <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--2-col"></div>
                                                 <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mainmenu">
-                                                    <div class="mdl-grid height-150">
-                                                        <div class="mdl-cell mdl-cell--2-col">
-                                                            <div class="mainmenu-picture sport"></div>
+                                                    <div class="main-content">
+                                                        <div class="mdl-grid">
+                                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                                            <div class="mdl-cell mdl-cell--8-col">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_menu_start">Ernährung</button>
+                                                            </div>
+                                                            <div class="mdl-cell mdl-cell--2-col"></div>
                                                         </div>
-                                                        <div class="mdl-cell mdl-cell--5-col">
-                                                            <div class="mainmenu-quater">
-                                                                <div class="mainmenu-text">
-                                                                <h2 class="mdl-card__title-text">Sport 10/10</h2>
-                                                                </div>
+                                                        <div class="mdl-grid">
+                                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                                            <div class="mdl-cell mdl-cell--8-col">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_menu_start">Sport</button>
                                                             </div>
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="sport_start">
-                                                                    erneut
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--5-col">
-                                                            <div class="mainmenu-quater">
-                                                                <div id="progressbar_sport" class="mdl-progress mdl-js-progress"></div>
-                                                            </div>
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide customWalker" data-target="sport_end">
-                                                                    Auswertung
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </div>
+                                                            <div class="mdl-cell mdl-cell--2-col"></div>
 
-                                                    <div class="mainmenu">
-                                                        <div class="mdl-grid height-150">
-                                                            <div class="mdl-cell mdl-cell--2-col">
-                                                                <div class="mainmenu-picture eat"></div>
-                                                            </div>
-                                                            <div class="mdl-cell mdl-cell--5-col">
-                                                                <div class="mainmenu-quater">
-                                                                    <div class="mainmenu-text">
-                                                                        <h2 class="mdl-card__title-text">Ernährung 7/10</h2>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mainmenu-quater">
-                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="eat_start">
-                                                                        Start
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="mdl-cell mdl-cell--5-col">
-                                                                <div class="mainmenu-quater">
-                                                                    <div id="progressbar_eat" class="mdl-progress mdl-js-progress"></div>
-                                                                </div>
-                                                                <div class="mainmenu-quater">
-                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide customWalker" data-target="eat_end" disabled>
-                                                                        Auswertung
-                                                                    </button>
-                                                                </div>
-                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="mainmenu">
-                                                        <div class="mdl-grid height-150">
-                                                            <div class="mdl-cell mdl-cell--2-col">
-                                                                <div class="mainmenu-picture"></div>
+                                                        <div class="mdl-grid">
+                                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                                            <div class="mdl-cell mdl-cell--8-col">
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_chap1--start" disabled>Motivation</button>
                                                             </div>
-                                                            <div class="mdl-cell mdl-cell--5-col">
-                                                                <div class="mainmenu-quater">
-                                                                    <div class="mainmenu-text">
-                                                                       <h2 class="mdl-card__title-text">Gesamt 17/20</h2>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mainmenu-quater">
-                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide" disabled>
-                                                                        Abschlussquiz
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="mdl-cell mdl-cell--5-col">
-                                                                <div class="mainmenu-quater">
-                                                                    <div id="progressbar_all" class="mdl-progress mdl-js-progress"></div>
-                                                                </div>
-                                                                <div class="mainmenu-quater">
-                                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-blue mdl-button-wide">
-                                                                        Tipps
-                                                                    </button>
-                                                                </div>
-                                                            </div>
+                                                            <div class="mdl-cell mdl-cell--2-col"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -387,44 +263,85 @@
                                 </div>
                             </article>
                         </section>
-                        <section data-linear="1" data-id="eat">
-                            <h1>Ernährung</h1>
-                            <article data-id="eat_start">
+                        <!-- TODO EAT MENU-->
+                        <section data-linear="1" data-id="eat_menu">
+                        <h1>Ernährung</h1>
+                        <article data-id="eat_menu_start">
+                            <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title">
+                                    <h2 class="mdl-card__title-text">Einleitung</h2>
+                                </div>
+                                <div class="main-header">
+                                    <div class="mdl-card__supporting-text">
+                                        Wer isst schon normal?
+                                    </div>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <div class="main-content">
+                                        <div class="mdl-grid">
+                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                            <div class="mdl-cell mdl-cell--8-col">
+                                                „Geringeres Krebsrisiko: Warum vegane Ernährung gesund ist“.<br>
+                                                „Low Carb gefährlich? Schaden zuviel Fett und Eiweiß?“<br>
+                                                „Viel Fett, wenig Kohlenhydrate – das greift die Speckdepots an“.<br>
+                                                Kommen dir solche Überschriften bekannt vor?<br><br>
+
+                                                Wer sich über das Thema „Gesunde Ernährung“ informieren will, verirrt sich schnell in einem nahezu unüberschaubaren „Kaninchenbau“ an widersprüchlichen Informationen und Empfehlungen.<br>
+                                                In diesem Kapitel werden wir versuchen, etwas Ordnung in den „Kaninchenbau“ der Ernährung zu bringen. Du wirst dabei folgendes lernen:<br>
+                                                <ul>
+                                                <li>
+                                                    Du wirst populäre „Ernährungsmythen“ kennenlernen, die häufig genannt werden, wenn es um die Thema „Gesunde Ernährung“ geht.
+                                                </li>
+                                                    <li>
+
+                                                    Du wirst lernen, was tatsächlich hinter diesen Mythen steckt.
+                                                </li>
+                                                <li>
+                                                    Du wirst zahlreiche Tipps und Anregungen erhalten, wie du deine Ernährung gesünder gestalten kannst.
+
+                                                 </li>
+                                                </ul>
+                                                <br>
+                                                Klicke weiter, um zur Kapitelübersicht zu gelangen.
+                                            </div>
+                                            <div class="mdl-cell mdl-cell--2-col">
+                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_chap1--start" >Kapitel 1 - Mythen</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main-help border-bottom">
+                                        <div class="mascot mascot--right mascot--speech green autoplay">
+                                            <wrong>Das war leider Falsch!</wrong>
+                                            <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                            <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                            <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                            <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                            <article data-id="eat_menu_end">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Frage 1</h2>
+                                        <h2 class="mdl-card__title-text">Kapitelübersicht</h2>
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
-                                            Frage 1
+                                            Wähle eine Kattegorie aus
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
-                                            <div class="mdl-grid height-300">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid height-150">
-                                                        <div class="mdl-cell mdl-cell--3-col">
-                                                            <div class="quest-cross"></div>
-                                                            <div class="quest-label">Stimmt nicht</div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="quest-quest">
-                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
-                                                            </div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--3-col">
-                                                            <div class="quest-check"></div>
-                                                            <div class="quest-label">Stimmt!</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="height-150"></div>
-                                                    </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_chap1--start" >Kapitel 1 - Mythen</button>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
                                             </div>
                                         </div>
-
                                         <div class="main-help border-bottom">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
@@ -437,56 +354,30 @@
                                     </div>
                                 </div>
                             </article>
-
-                            <article data-id="eat_q2">
+                    </section>
+                        <!-- TODO EAT CHAP 1 Myth-->
+                        <section data-linear="1" data-id="eat_chap1" data-not-in-header="">
+                            <h1>Ernährung</h1>
+                            <article data-id="eat_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Frage 2</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Das Quiz</h2>
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
-                                            Frage 2
+
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
-                                            <div class="mdl-grid height-300">
+                                            <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--2-col"></div>
                                                 <div class="mdl-cell mdl-cell--8-col">
-                                            <div class="mdl-grid height-150">
-                                                <div class="mdl-grid">
-                                                   Wähle eine der 4 Antwortmöglichkeiten.
-                                                </div>
-                                            </div>
-                                            <div class="mdl-grid height-150">
-                                                    <div class="mdl-grid">
-
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 1
-                                                                </button>
-                                                            </div>
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 3
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 2
-                                                                </button>
-                                                            </div>
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 4
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </div>
+                                                    "Wie regelmäßig sollte man am Tag Essen? Sollte man vor dem Schlafengehen keine Kohlenhydrate mehr Essen? Unser Quiz wird Dich in die Welt der hartnäckigsten Ernährungsmythen einführen.
+                                                    <br>
+                                                    Das Quiz besteht aus fünf Aussagen. Deine Aufgabe ist es, zu entscheiden, ob diese stimmen oder nicht. Klicke dazu auf die Buttons “Stimmt” oder “Stimmt nicht”. Danach erhältst du sofort eine Rückmeldung, ob du richtig gelegen hast oder nicht. Außerdem erhältst du weiterführende Informationen.
+                                                    <br>
+                                                    Teste Dein Wissen und starte mit dem Quiz!
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--2-col"></div>
                                             </div>
@@ -494,211 +385,725 @@
                                         <div class="main-help border-bottom">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="4000">information zu Aufgabe </say>
-                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-
-                            <article data-id="eat_q3">
+                            <article data-id="eat_chap1--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Frage 3</h2>
+                                        <h2 style="display: none">Frage 1</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 1 </h2>
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
-                                            Frage 3
+                                            "Keine Kohlenhydrate am Abend essen!"
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
-                                            <div class="mdl-grid height-300">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid">
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="quest-quest">
-                                                                <img src="./src/images/bsp.jpg">
-                                                            </div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="height-150">
-                                                            <div class="evaluation-item">
-                                                            FRAGE!
-                                                            </div>
-                                                            </div>
-                                                            <div class="height-150">
-                                                                <div class="mdl-grid">
-
-                                                                    <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 1
-                                                                </button>
-                                                            </div>
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 3
-                                                                </button>
-                                                            </div>
-                                                                    </div>
-                                                                    <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 2
-                                                                </button>
-                                                            </div>
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 4
-                                                                </button>
-                                                            </div>
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-
-                                                    </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            <div class="module yesOrNo"
+                                                 data-question='"Keine Kohlenhydrate am Abend essen!"'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="0">
                                             </div>
                                         </div>
                                         <div class="main-help border-bottom">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="4000">information zu Aufgabe </say>
-                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-
-                            <article data-id="eat_q4">
+                            <article data-id="eat_chap1--a1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Frage 4</h2>
+                                        <h2 style="display: none">Antwort 1</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 1 </h2>
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
-                                            Frage 4
+                                            Keine Kohlenhydrate am Abend essen!<br>
+                                            Ein häufig genannter Ernährungstipp für Menschen, die abnehmen möchten, ist folgender: “Iss‘ keine Kohlenhydrate am Abend! Das macht nämlich dick, weil wir Menschen nachts schneller Fett aufbauen!”
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
-                                        <div class="main-content">
-                                            <div class="mdl-grid height-300">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid height-150">
-                                                        <div class="mdl-cell mdl-cell--3-col">
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 1
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--6-col">
-                                                            <div class="quest-quest">
-                                                                Stimmt es, dass du mindestens drei Liter Wasser am Tag trinken sollst?
-                                                            </div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--3-col">
-                                                            <div class="mainmenu-quater">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide">
-                                                                    Antwort 2
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mdl-grid height-150">
-                                                    </div>
-                                                </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                        <div class="main-content answer">
+                                            <div class="mdl-grid">
+                                            <div class="mdl-cell mdl-cell--1-col"></div>
+                                            <div class="mdl-cell mdl-cell--10-col">
+                                                <strong> was steckt dahinter?</strong>
+                                                <br>
+                                                Viele glauben, dass sich der Stoffwechsel im Schlaf sehr stark verlangsamt. Außerdem treiben Kohlenhydrate den Blutzucker- und Insulinspiegel in die Höhe. Bei einem langsamen Stoffwechsel kann das dazu führen, dass man Fettgewebe aufbaut. Deshalb nehmen viele an, dass Kohlenhydrate am abend dicker machen. Und weil dies für viele sehr plausibel klingt, setzt sich dieser Mythos immer wieder fort."
+                                                <br><br>
+                                                <strong>Wie ist es wirklich?</strong>
+                                                <br>
+                                                In Studien<sup>(1,2)</sup> konnte nachgewiesen werden, dass sich der Stoffwechsel nachts nur geringfügig - wenn überhaupt- verlangsamt. Stattdessen kann ein kohlenhydratreiches Abendessen vor dem Schlafengehen sogar dazu beitragen, dass übergewichtige Personen am nächsten Morgen weniger Hunger haben und schneller abnehmen, als Personen, die dieselbe Menge Kohlenhydrate über den ganzen Tag hinweg verteilt essen <sup>(3)</sup>.
+                                                <br><br>
+                                                <strong>Was heißt das für dich?</strong>
+                                                <br>
+                                                Auch du kannst Kohlenhydrate am Abend essen. Es sollten jedoch nicht zu viele sein. Die Teilnehmer an der Studie <sup>(3)</sup> nahmen 1.300 – 1.500 Kalorien pro Tag zu sich, 40-50 % davon waren Kohlenhydrate.
+                                                <br>
+                                                <div class="evaluation-headline">Literatur</div>
+                                                <sup>1</sup> Seale J.L, & Conway J.M. (1999) Relationship between overnight energy expenditure and BMR measured in a room-sized calorimeter. Eur J Clin Nutr. 53(2), 107-11.
+                                                <br><sup>2</sup> Zhang K,, Sun M,, Werner P,, Kovera A,J, Albu J,, Pi-Sunyer F.X, & Boozer C.N. (2002). Sleeping metabolic rate in relation to body mass index and body composition. Int J Obes Relat Metab Disord ;26(3):376-83.
+                                                <br><sup>3</sup> Sofer S, Eliraz A, Kaplan S, Voet H, Fink G, Kima T, & Madar Z. (2011) Greater weight loss and hormonal changes after 6 months diet with carbohydrates eaten mostly at dinner. Obesity, 19(10), 2006-2014.
+                                            </div>
+                                            <div class="mdl-cell mdl-cell--1-col"></div>
                                             </div>
                                         </div>
-                                        <div class="main-help border-bottom">
+                                        <div class="main-help border-bottom answer">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="4000">information zu Aufgabe </say>
-                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-
-                            <article data-id="eat_end">
+                            <article data-id="eat_chap1--q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Auswertung</h2>
+                                        <h2 style="display: none">Frage 2</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 2 </h2>
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
-                                            Geschwätz
-                                            <br/>
-                                            <h2 class="mdl-card__title-text">Abschlusscode: IssGesund!</h2>
+                                            “Fett ist ungesund”
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
-                                            <div class="mdl-grid height-300">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
-                                                    <div class="mdl-grid">
-                                                        <div class="mdl-cell mdl-cell--1-col"></div>
-                                                        <div class="mdl-cell mdl-cell--2-col">
-                                                            <div class="evaluation-headline"><div class="mdl-card__title-text">Frage</div></div>
-                                                            <div class="evaluation-item">1</div>
-                                                            <div class="evaluation-item">2</div>
-                                                            <div class="evaluation-item">3</div>
-                                                            <div class="evaluation-item">4</div>
-                                                            <div class="evaluation-item">5</div>
+                                                        <div class="module yesOrNo"
+                                                             data-question='“Fett ist ungesund”'
+                                                             data-label-wrong="Stimmt nicht"
+                                                             data-label-right="Stimmt"
+                                                             data-answer="1">
                                                         </div>
-                                                        <div class="mdl-cell mdl-cell--2-col">
-                                                            <div class="evaluation-headline"><div class="mdl-card__title-text">Ergebnis</div></div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--2-col"></div>
-                                                        <div class="mdl-cell mdl-cell--2-col">
-                                                            <div class="evaluation-headline"><div class="mdl-card__title-text">Frage</div></div>
-                                                            <div class="evaluation-item">6</div>
-                                                            <div class="evaluation-item">7</div>
-                                                            <div class="evaluation-item">8</div>
-                                                            <div class="evaluation-item">9</div>
-                                                            <div class="evaluation-item">10</div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--2-col">
-                                                            <div class="evaluation-headline"><div class="mdl-card__title-text">Ergebnis</div></div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                            <div class="evaluation-item">Richtig</div>
-                                                            <div class="evaluation-item">Falsch</div>
-                                                            <div class="evaluation-item">Falsch</div>
-                                                            <div class="evaluation-item">Falsch</div>
-                                                        </div>
-                                                        <div class="mdl-cell mdl-cell--1-col"></div>
-                                                    </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--a2">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Antwort 2</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 2 </h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Fett ist ungesund!<br>
+                                            „Fett macht fett“, diesen Satz hast du sicher schon oft gehört.
+
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content answer">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+                                                    <strong>Was steckt dahinter?</strong><br>
+
+                                                    Fett enthält viele Kalorien. Und zu viele Kalorien machen bekanntlich dick. Außerdem ist Fett genau das, was viele Personen, die Fett verlieren wollen, um jeden Preis vermeiden möchten. Wenn ich Fett verlieren will, warum soll ich dann Fett essen? So denken viele. Du auch?
+                                                    <br><br>
+                                                    <strong>Wie ist es wirklich?</strong>
+                                                    <br>
+
+                                                    Eines vorweg: Fett ist überlebenswichtig. Wir brauchen es zum Beispiel, um bestimmte Vitamine aufzunehmen. Es gibt zwei Arten von Fett: „gutes“ und „schlechtes“. Beide unterscheiden sich durch einen bestimmten chemischen Baustein: Die sogenannte „Fettsäure“ <sup>(1)</sup>. „Schlechtes“ Fett besteht unter anderem aus sogenannten „gesättigten Fettsäuren“, “gutes“ Fett aus sogenannten „ungesättigten Fettsäuren“. Gesättigte Fettsäuren befinden sich vor allem in tierischen Produkten, wie fettigem Fleisch, Sahne und Butter, aber auch in gehärteten Ölen, wie Palmöl. Ungesättigte Fettsäuren befinden sich hauptsächlich in flüssigen, pflanzlichen Ölen (z.B. Olivenöl), aber auch Nüssen (z.B. Walnüssen) und fettem Fisch (z.B. Lachs).
+                                                    <br><br>
+                                                    <strong>Was heißt das für dich?</strong><br>
+                                                    Fett ist nicht nur ein Geschmacksträger (sprich: lecker), sondern auch lebenswichtig. Du solltest also auch genügend Fett zu dir nehmen, vor allem in Form von ungesättigten Fettsäuren. Insbesondere die Menge ist entscheidend: Da Fett sehr viele Kalorien enthält und zu viele Kalorien dick machen, solltest du jedoch darauf achten, nicht allzu davon viel zu dir zu nehmen. Die Deutsche Gesellschaft für Ernährung (DGE) empfiehlt beispielsweise, dass Jugendliche und Erwachsene ihren Energiebedarf (Anzahl der notwendigen Kalorien pro Tag) zu 30 % mit Fett decken sollten <sup>(2)</sup>.
+                                                    <div class="evaluation-headline">Literatur</div>
+                                                    <br>
+                                                    <sup>1</sup> Biesalski, H.K, Grimm, P., & Nowitzki-Grimm, S. (2015). Taschenatlas Ernährung. 6. Auflage. Stuttgart: Georg Thieme Verlag.<br>
+                                                    <sup>2</sup> https://www.dge.de/wissenschaft/referenzwerte/fett/
+
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--q3">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 3</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 3</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            “Smoothies helfen beim Abnehmen”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='“Smoothies helfen beim Abnehmen”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="0">
                                             </div>
                                         </div>
                                         <div class="main-help border-bottom">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="4000">information zu Aufgabe </say>
-                                                <tip data-delay="3000">Ich bin ein Tipp</tip>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--a3">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Antwort 3</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 3</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Smoothies helfen beim Abnehmen!<br>
+                                            Kiloweise Spinat, Beeren, Äpfel, Bananen und ein paar Eiswürfel in den Mixer, alles schön cremig rühren und fertig ist dein Guten-Morgen-Smoothie, der perfekte Diät-Drink. Richtig? Falsch!
+
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content answer">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+                                                    <strong>Was steckt dahinter?</strong><br>
+                                                    Es klingt vielversprechend: statt über den ganzen Tag hinweg die empfohlene Tagesdosis von fünf Portionen Obst und Gemüse essen zu müssen, wird einfach viel Obst und Gemüse in einen Mixer geworfen und zu einem Getränk verarbeitet. Man muss das noch nicht einmal selbst machen: in den Obst- und Gemüseabteilungen der Supermärkte stehen mittlerweile auch Kühlschränke, in denen industriell gefertigte Smoothies angeboten werden. Das scheint ideal zu sein für gestresste Büroarbeiter, die schlichtweg keine Zeit haben, fünf Portionen Obst und Gemüse in ihren Mixer zu werfen, geschweige denn sie über den Tag hinweg verteilt zu essen.
+                                                    <br><br>
+                                                    <strong>Wie ist es wirklich?</strong>
+                                                    <br>
+                                                    Wenn du es bei einem selbstgemachten Smoothie pro Tag belässt, hast du nicht allzu viel zu befürchten. Du solltest jedoch darauf achten, die Früchte möglichst vollständig in den Mixer zu werfen, also beispielsweise Äpfel nicht zu schälen, weil sich die meisten Vitamine unterhalb der Schale befinden. Je mehr Obst du in deinen Smoothie machst, desto mehr Kalorien wirst du auch in flüssiger Form zu dir nehmen. Wenn dein Smoothie beispielsweise hauptsächlich aus Weintrauben und Bananen besteht, dann wird er sehr kalorienreich sein, weil diese Früchte von Natur aus viel Fruchtzucker enthalten. Diese Kalorien (auch wenn du sie in flüssiger Form zu dir genommen hast) gehen in deine tägliche Kalorienbilanz ein. Wenn du also deinen Smoothie trinken willst, solltest du im Auge behalten, wie viele Kalorien du sonst im Laufe des Tages zu dir nimmst.
+                                                    Insbesondere Smoothies aus dem Supermarkt solltest du mit Vorsicht genießen. Diese enthalten nämlich neben Obst und Gemüse auch häufig zugesetzten Zucker und Fruchtsaft, um den Smoothie süßer und „smoother“ zu machen. Auf diese Weise wird der vermeintlich gesunde Diät-Drink dann zu einer Kalorienbombe.
+                                                    <br><br>
+                                                    <strong>Was heißt das für dich?</strong><br>
+                                                    Versuch’ lieber, über den Tag hinweg verteilt kleinere Portionen Obst und Gemüse zu essen (z.B. ein Apfel zum Frühstück, Paprikastreifen, Gurken- und Möhrenscheiben als Snacks zwischendurch, ein Schälchen voll Brokoli zum Mittagessen in der Kantine und ein Salat zum Abendessen). Auf diese Weise bleibt dein Magen länger gefüllt und du fühlst dich länger satt. Das ist nämlich ein weiterer Nachteil von Smoothies: Flüssigkeiten haben nur einen geringen Sättigungseffekt. Feste Nahrung jedoch hält dich länger satt.
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--q4">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 4</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 4</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            “Vegane Ernährung ist schädlich”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='“Vegane Ernährung ist schädlich”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="0">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--a4">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Antwort 4</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 4</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Vegane Ernährung ist schädlich<br>
+                                            Kein Fleisch, kein Fisch und auch weder Milch noch Eier. Viele denken: “Da kann man ja vor lauter Mangelerscheinungen nur krank werden”. Doch stimmt das?
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content answer">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+                                                    <strong>Was steckt dahinter?</strong><br>
+                                                    Zunehmend mehr Menschen halten mittlerweile eine vegetarische Ernährung (also ein ausschließlicher Verzicht auf Fisch und Fleisch, nicht aber auf andere tierische Produkte) für gesund. Sie sind aber der Meinung, dass ein Verzicht auf alle tierischen Nahrungsprodukt ungesund, sogar schädlich und tödlich sei. Das liegt daran, dass viele lebenswichtige Nährstoffe (z.B. Eiweiß, Vitamin B12, Eisen, Kalzium und Jod hauptsächlich in tierischen Lebensmitteln vorkommen. Eine vegane Ernährung kann also dazu führen, dass der Körper mit diesen Nährstoffen nicht ausreichend versorgt wird. Das lässt sich jedoch verhindern, wenn du diese Nährstoffe über Nahrungsergänzungsmittel zuführst. Vor allem schwangere und stillende Frauen, aber auch Kinder sollten aber besonders vorsichtig sein: diese haben nämlich einen erhöhten Bedarf an diesen Nährstoffen.
+                                                    <br><br>
+                                                    <strong>Was heißt das für dich?</strong><br>
+                                                    Wenn du dich aus ethischen Gründen für eine vegane Ernährung entscheidest solltest du gut darauf achten, dass du auch genug Nährstoffe zu dir nimmst. Einige (vor allem Vitamin B 12) musst du in Form von Nahrungsergänzungsmitteln zu dir nehmen. Andere (z.B. Eisen) kannst du ausreichend zu dir nehmen, wenn du Hülsenfrüchte (z.B. Linsen) isst.
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--q5">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 5</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 5</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            “Das Frühstück ist die wichtigste Mahlzeit am Tag”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='“Das Frühstück ist die wichtigste Mahlzeit am Tag”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="1">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--a5">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Antwort 5</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 5</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Das Frühstück ist die wichtigste Mahlzeit am Tag
+                                            <br>
+                                            “Iss’ morgens wie ein Kaiser, mittags wie ein König und abends wie ein Bettler”. Vielleicht hast auch du als Kind diesen oder einen ähnlichen Spruch von deinen Eltern oft gehört. Viele Personen sind der Auffassung, dass das Frühstück die wichtigste Mahlzeit des Tages sei. Doch stimmt das? Nein. Keine Mahlzeit ist grundsätzlich “wichtiger” als eine andere.
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content answer">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+                                                    <strong>Was steckt dahinter?</strong><br>
+                                                    Hinter diesem Mythos steck die Annahme, dass Frühstück wichtig ist, um den Stoffwechsel zu bescheunigen. Ein schneller Stoffwechsel schützt nämlich davor, dick zu werden. Ein langsamer hingegen führt dazu, dass wir schneller dick werden. Deshalb, so manche Leute, ist es wichtig, auf jeden Fall zu frühstücken. Außerdem leeren sich während wir schlafen unsere Nahrungsreserven. Wenn wir dann nicht sofort nach dem Aufstehen frühstücken, bleiben diese Reserven ungefüllt und wir werden früher oder später Heißhunger kriegen und zu viel auf einmal essen.
+                                                    <br><br>
+                                                    <strong>Was ist es wirklich?</strong><br>
+                                                    Bislang konnte nicht belegt werden, ob ein Verzicht auf’s Frühstück den Stoffwechsel beschleunigt. Stattdessen ist es gesamte Menge an Essen entscheidend, die du über den ganzen Hinweg zu dir nimmst. Und es scheint keinen Unterschied zu machen, wie oft und wann du isst <sup>(1)</sup>.
+                                                    <br><br>
+                                                    <strong>Was heißt das für dich?</strong><br>
+                                                    Du wirst nicht sterben, wenn du nicht frühstückst. Du wirst auch nicht dicker. Du kannst also ruhig das Frühstück ausfallen lassen. Am Ende des Tages zählt, wie viel du gegessen hast und nicht wann.
+                                                    <div class="evaluation-headline">Literatur</div><br>
+                                                    <sup>1</sup> Kobayashi, F., Ogata, H., Omi, N., Nagasaka, S., Yamaguchi, S., Hibi, M., & Tokuyama, K. (2014). Effect of breakfast skipping on diurnal variation of energy metabolism and blood glucose. Obesity research & clinical practice, 8(3), e249-e257.
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="eat_chap1--tipps">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Tipps</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Tipps und Tricks</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            TBA
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content answer">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+                                                    TBA
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </article>
                         </section>
+                        <!-- TODO SPORT MENU-->
+                        <section data-linear="1" data-id="sport_menu">
+                            <h1>Sport</h1>
+                            <article data-id="sport_menu_start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Einleitung</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Sport - Wenn schon, dann richtig!
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    „Je schneller, desto besser.“<br>
+                                                    „Ohne Schweiß kein Preis."<br>
+                                                    „Salat schrumpft den Bizeps.“<br><br>
+
+                                                    Kommen dir solche Aussagen bekannt vor?<br>
+
+                                                    Wenn es um das Thema „Sport“ geht, meint anscheinend jeder Sportler ein Experte zu sein. Doch redet man mit unterschiedlichen Leuten, wird schnell klar, dass anscheinend jeder eine andere “subjektive” Meinung hat. Allerdings können solche Widersprüche schnell zu chronischen Verletzungen und damit zum Ende der Sportkarriere führen. Unwissenheit kann also schnell dramatische Folgen haben. Deshalb ist es das Ziel dieser Einheit “Licht ins Dunkel” zu bringen. Du wirst dabei folgendes lernen:
+                                                    <br>
+                                                    <ul>
+                                                        <li>Du wirst die Vorteile von Sport kennenlernen.</li>
+                                                    <li>Du wirst erfahren, welche Sportart für Dich geeignet ist.</li>
+                                                    <li>Du wirst zahlreiche Tipps und Anregungen erhalten, wie Du Dein Training erfolgreich gestalten kannst.</li>
+                                                    </ul>
+                                                    <br>
+                                                    Klicke weiter, um zur Kapitelübersicht zu gelangen.
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_chap1--start" >Kapitel 1 - sport</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="sport_menu_end">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Kapitelübersicht</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Wähle eine Kattegorie aus
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_chap1--start" >Kapitel 1 - Sportmythen</button>
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_chap2--start" >Kapitel 2 - Basiswissen</button>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                        <!-- TODO SPORT CHAP 1 mythen-->
+                        <section data-linear="1" data-id="sport_chap1" data-not-in-header="">
+                            <h1>Sport</h1>
+                            <article data-id="sport_chap1--start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Das Quiz</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    "Wie treibe ich richtig Sport? Welcher Sport passt zu mir und wie treibe ich überhaupt richtig Sport? Bringt Sport nur etwas, wenn es wehtut?“. Unser Quiz wird Dich in die Welt der hartnäckigsten Sportmythen einführen.
+                                                    <br>
+                                                    Das Quiz besteht aus fünf Aussagen. Deine Aufgabe ist es, zu entscheiden, ob diese stimmen oder nicht. Danach erhältst du sofort eine Rückmeldung, ob du richtig gelegen hast oder nicht. Außerdem erhältst du weiterführende Informationen.
+                                                    <br>
+                                                    <strong>Teste Dein Wissen und starte mit dem Quiz!</strong>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="sport_chap1--q1">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 1</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 1 </h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            “Fettpolster killt man nur durch hartes Training: no pain, no gain!”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='“Fettpolster killt man nur durch hartes Training: no pain, no gain!”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="0">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="2000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="sport_chap1--q2">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 2</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 2 </h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            ”Bereits ein Bierchen nach dem Sport ist ungesund!”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='”Bereits ein Bierchen nach dem Sport ist ungesund!”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="1">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="2000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="sport_chap1--q3">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 3</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 3 </h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            ”Besser erst nach dem Sport trinken - sonst riskiert man unnötig ein Völlegefühl”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='”Besser erst nach dem Sport trinken - sonst riskiert man unnötig ein Völlegefühl”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="0">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="2000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="sport_chap1--q4">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 4</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 4 </h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            ”Auch nach dem Sport verbrennt der Körper Fett”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='”Auch nach dem Sport verbrennt der Körper Fett”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="1">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="2000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="sport_chap1--q5">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 style="display: none">Frage 5</h2>
+                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 5 </h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            “Dehnen vor dem Sport verringert das Verletzungrisiko!”
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="module yesOrNo"
+                                                 data-question='“Dehnen vor dem Sport verringert das Verletzungrisiko!”'
+                                                 data-label-wrong="Stimmt nicht"
+                                                 data-label-right="Stimmt"
+                                                 data-answer="0">
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="2000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            </section>
+                        <!-- TODO SPORT CHAP 2 Basiswissen-->
+                        <!-- TODO SPORT CHAP 3 Krafttraining-->
+                        <!-- TODO SPORT CHAP 4 Ausdauer-->
+                        <!-- TODO SPORT CHAP 5 Regeneration-->
+
+
                     </div>
                     <div class="mdl-layout-spacer"></div>
                 </div>
@@ -720,6 +1125,7 @@
 <script src="src/js/controller/wbt.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/mascot.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/framework.js" type="text/javascript" charset="utf-8"></script>
+<script src="src/js/yesOrNo.js" type="text/javascript" charset="utf-8"></script>
 <!--<script src="src/js/accordion.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/video.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/audio.js" type="text/javascript" charset="utf-8"></script>-->
