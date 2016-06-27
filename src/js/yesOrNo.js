@@ -32,7 +32,7 @@ App.ModuleManager.extend("YesOrNo",
                 // get the question and labels
                 var question = $t.data('question'),
                     wrongLabel = $t.data('label-wrong'),
-                    rightLabel = $t.data('right-wrong'),
+                    rightLabel = $t.data('label-right'),
                     answer     = $t.data('answer')
                 ;
 
