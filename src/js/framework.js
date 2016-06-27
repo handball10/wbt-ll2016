@@ -438,6 +438,8 @@ App.SectionManager = {
 
                 $container.attr('data-finished', this.sections[section].onFinishId );
 
+                $container.attr('data-system-id', this.sections[section].id);
+
                 $container.addClass('mdl-stepper wbt-card-full-width mdl-stepper--horizontal');
 
                 this.sections[section].isLinear && $container.addClass('mdl-stepper--linear');
@@ -552,10 +554,11 @@ App.SectionManager = {
 
                 var innerFinish = (function($container){
                     return function(){
-                        console.log($container.data('finished'));
                         if($container.data('finished')){
                             App.SectionManager.gotoArticle($container.data('finished'));
                         }
+
+                        App.SectionManager.sections[$container.data('system-id')].finished = true;
                     }
                 })($container);
 
