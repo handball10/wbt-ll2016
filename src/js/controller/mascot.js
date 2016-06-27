@@ -5,6 +5,15 @@
 Main.controller.mascot = (function(){
 
     function Mascot(element){
+
+        if(element.attr('data-init') === "1"){
+            console.log('inited');
+            return null;
+        }
+
+        element.attr('data-init', 1);
+
+
         $.extend(this, new abstractViewController(element));
 
         var controller = this;
@@ -84,8 +93,6 @@ Main.controller.mascot = (function(){
         };
 
         this.autoplay = function(index){
-
-            console.log(index);
 
             if(dialogs.say.length === 0 || index >= dialogs.say.length){
                 controller.animateBubble('out');
@@ -199,6 +206,11 @@ Main.controller.mascot = (function(){
 
         $block.hide();
 
+        $mascot.on('click', function(){alert(1);});
+        console.log($mascot);
+
+
+
         if(settings.selector.hasClass('mascot--left')){
 
             $block.addClass('left');
@@ -230,14 +242,14 @@ Main.controller.mascot = (function(){
         // bind events
 
         // click
-        $mascot.on('click', controller.tip);
+
 
         var parentArticle = element.closest('article');
 
         // article::load
         settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){controller.autoplay(0);});
-        dialogs.right.length && parentArticle.on('article::right', controller.right);
-        dialogs.wrong.length && parentArticle.on('article::wrong', controller.wrong);
+        dialogs.right.length > 0 && parentArticle.on('article::right', controller.right);
+        dialogs.wrong.length > 0 && parentArticle.on('article::wrong', controller.wrong);
 
         return this;
 
@@ -247,8 +259,11 @@ Main.controller.mascot = (function(){
     // get all mascots
     var $mascotItems = $('.mascot');
 
+
     $mascotItems.each(function(){
-        mascots.push(new Mascot($(this)));
+        var m = new Mascot($(this));
+
+        mascots.push(m);
     });
 
     return mascots;

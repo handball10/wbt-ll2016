@@ -500,6 +500,8 @@ App.SectionManager = {
 
                     this.sections[section].selector.append($container);
 
+                    console.log('building');
+
                 }
 
 
@@ -510,31 +512,34 @@ App.SectionManager = {
                 // finally bind events on next,prev and finalize buttons
                 var stepperInstance = $container.get(0).MaterialStepper;
 
+                var innerNext = (function(instance, $container){
+                    return function(){
+                        instance.next();
+                        var currentStep = $(instance.getActive());
+
+                        console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
+
+                        $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192);
+                    }
+                })(stepperInstance, $container);
+
+                var innerBefore = (function(instance, $container){
+                    return function(){
+                        instance.back();
+
+                        var currentStep = $(instance.getActive());
+
+                        //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
+
+                        $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192+"px");
+                    }
+                })(stepperInstance, $container);
+
                 // now, find all stepper and bind events
                 $container.find('.mdl-step').each(function(item){
                     $(this)
-                        .on('onstepnext', function(event){
-                            stepperInstance.next();
-                            var currentStep = $(stepperInstance.getActive());
-
-                            //console.log(currentStep.find('.mdl-step__content').getScrollHeight());
-
-                            console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
-
-                            $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192);
-
-                        })
-                        .on('onstepback', function(event){
-                            stepperInstance.back();
-
-                            var currentStep = $(stepperInstance.getActive());
-
-                            console.log(currentStep);
-
-                            console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
-
-                            $container.height(currentStep.find('.mdl-step__content')[0].scrollHeight+192+"px");
-                        });
+                        .on('onstepnext', innerNext)
+                        .on('onstepback', innerBefore);
                 });
 
             }
@@ -648,7 +653,7 @@ App.SectionManager = {
 
             var instance = $ul.get(0).MaterialStepper;
 
-            console.log($ul);
+            //console.log($ul);
 
             //$ul.height(
             //    $ul.find('.mdl-step__content:nth-child('+index+')')[0].scrollHeight+192+"px"

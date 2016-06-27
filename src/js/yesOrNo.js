@@ -104,7 +104,7 @@ App.ModuleManager.extend("YesOrNo",
         },
 
         validator : function(module){
-            return;
+            return true;
         }
     }
 );
