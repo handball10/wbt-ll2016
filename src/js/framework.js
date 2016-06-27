@@ -383,6 +383,7 @@ App.SectionManager = {
                     visited : false,
                     skipButtons : skipAutoButtons,
                     customID : _t.data('id'),
+                    minHeight : parseInt(isNaN(_t.data('min-height')) ? 400 : _t.data('min-height'), 10),
                     modules: []
                 };
 
@@ -458,12 +459,12 @@ App.SectionManager = {
                     $titleContainer.append($title);
 
 
+
                     if(($subtitle = currentArticle.selector.find('h2:first-child > small'))){
                         $subTitleText = $('<span></span>').addClass('mdl-step__title-message').text($subtitle.text());
                         $subtitle.remove();
                     }
                     $title.text(currentArticle.selector.find('h2:first-child').text());
-
                     $subTitleText && $titleContainer.append($subTitleText);
 
                     $label.append($titleContainer);
@@ -474,6 +475,10 @@ App.SectionManager = {
                     var $contentContainer = $('<div></div>').addClass('mdl-step__content');
 
                     $contentContainer.append($('<article></article>').attr('id', currentArticle.id).append($content));
+
+                    if(currentArticle.minHeight > 400){
+                        $container.css("min-height", (currentArticle.minHeight + 192) + "px");
+                    }
 
                     var $footer = $('<div></div>').addClass('mdl-step__actions');
 
