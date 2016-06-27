@@ -359,7 +359,7 @@ App.SectionManager = {
                     skipAutoButtons = typeof _t.data('skip-button') !== "undefined"
                 ;
 
-                console.log(_t.data('skip-button'));
+                //console.log(_t.data('skip-button'));
 
                 // throw a structural error if the is no h2 headline
                 if(articleHeadline.length == 0){
@@ -373,7 +373,7 @@ App.SectionManager = {
                 // push it into the sections article array
                 articleList.push(articleID);
 
-                console.log(_t.data('id'));
+                //console.log(_t.data('id'));
 
                 // generate a new object with article relating properties
                 thisHelper.articles[articleID] = {
@@ -401,8 +401,11 @@ App.SectionManager = {
                 isLinear : isLinear,
                 articleList : articleList,
                 finished : false,
-                visibleInHeader : !t[0].hasAttribute('data-not-in-header')
+                visibleInHeader : !t[0].hasAttribute('data-not-in-header'),
+                onFinishId : t.data('finished') || null
             };
+
+            console.log(thisHelper.sections[sectionID]);
             // if this is the first section in the whole document, this is the main section that is displayed
             if(index === 0){
                 thisHelper.currentSection = thisHelper.sections[sectionID].id;
@@ -432,6 +435,8 @@ App.SectionManager = {
             if(articleArray.length > 1){
 
                 var $container = $('<ul></ul>');
+
+                $container.attr('data-finished', this.sections[section].onFinishId );
 
                 $container.addClass('mdl-stepper wbt-card-full-width mdl-stepper--horizontal');
 
@@ -493,7 +498,7 @@ App.SectionManager = {
 
                     if(!currentArticle.skipButtons && i < len){
                         id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
-                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
+                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton \" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
                         //$footer.append("<button href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-continue>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
                     }
 
@@ -545,12 +550,25 @@ App.SectionManager = {
                     }
                 })(stepperInstance, $container);
 
+                var innerFinish = (function($container){
+                    return function(){
+                        console.log($container.data('finished'));
+                        if($container.data('finished')){
+                            App.SectionManager.gotoArticle($container.data('finished'));
+                        }
+                    }
+                })($container);
+
                 // now, find all stepper and bind events
                 $container.find('.mdl-step').each(function(item){
                     $(this)
                         .on('onstepnext', innerNext)
                         .on('onstepback', innerBefore);
                 });
+
+                $container.on('onsteppercomplete', innerFinish);
+
+
 
             }
 

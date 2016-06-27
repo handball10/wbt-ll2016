@@ -207,9 +207,6 @@ Main.controller.mascot = (function(){
         $block.hide();
 
         $mascot.on('click', function(){alert(1);});
-        console.log($mascot);
-
-
 
         if(settings.selector.hasClass('mascot--left')){
 
@@ -246,9 +243,14 @@ Main.controller.mascot = (function(){
 
         var parentArticle = element.closest('article');
 
+        console.log(parentArticle);
+
         // article::load
         settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){controller.autoplay(0);});
-        dialogs.right.length > 0 && parentArticle.on('article::right', controller.right);
+        if(dialogs.right.length > 0){
+            parentArticle.on('article::right', controller.right);
+
+        }
         dialogs.wrong.length > 0 && parentArticle.on('article::wrong', controller.wrong);
 
         return this;
