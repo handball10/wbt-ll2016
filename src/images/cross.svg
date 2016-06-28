@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="tiny" x="0px" y="0px" width="480px" height="480px" viewBox="0 0 480 480" xml:space="preserve">
-  <g id="cross">
-  	<path d="M310.182,235.995l103.285-103.259c5.006-5.018,5.006-13.237,0-18.251l-54.721-54.733c-5.014-5-13.229-5-18.24,0   l-103.281,103.28L133.944,59.752c-5.018-5-13.229-5-18.246,0l-54.717,54.733c-5.008,5.014-5.008,13.233,0,18.251l103.281,103.259   L60.999,339.263c-5.018,5.014-5.018,13.232,0,18.25l54.717,54.738c5.018,5.001,13.229,5.001,18.242,0l103.268-103.285   l103.264,103.285c5.018,5.001,13.229,5.001,18.24,0l54.721-54.738c5.014-5.018,5.014-13.236,0-18.25L310.182,235.995z"/>
-  </g>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-180 58.3 480 480" style="enable-background:new -180 58.3 480 480;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF0000;}
+</style>
+<g id="cross">
+	<path class="st0" d="M130.2,294.3L233.5,191c5-5,5-13.2,0-18.3L178.7,118c-5-5-13.2-5-18.2,0L57.2,221.3L-46.1,118
+		c-5-5-13.2-5-18.2,0l-54.7,54.7c-5,5-5,13.2,0,18.3l103.3,103.3L-119,397.5c-5,5-5,13.2,0,18.2l54.7,54.7c5,5,13.2,5,18.2,0
+		L57.2,367.2l103.3,103.3c5,5,13.2,5,18.2,0l54.7-54.7c5-5,5-13.2,0-18.2L130.2,294.3z"/>
+</g>
 </svg>
