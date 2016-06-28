@@ -109,7 +109,7 @@
                 <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--8-col">
-                        <section data-linear="1" data-id="welcome" data-not-in-header>
+                        <section data-linear="1" data-id="intro" data-not-in-header data-finished="mainmenu--start">
                             <h1>Gesünder leben WBT</h1>
                             <article data-id="welcome_start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -189,7 +189,7 @@
                                             <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--5-col"></div>
                                                 <div class="mdl-cell mdl-cell--2-col">
-                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="mainmenu-start">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide customWalker" data-target="mainmenu--start">
                                                         Start
                                                     </button>
                                                 </div>
@@ -198,7 +198,7 @@
                                         <div class="main-help">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="100000">Wenn du einen Code hast, kannst du das Mythenquiz überspringen</say>
+                                                <say data-delay="2000">Drücke "Start" um mit dem WBT zu beginnen</say>
                                                 <tip data-delay="1000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
@@ -207,9 +207,9 @@
                             </article>
                         </section>
                         <!-- TODO MAIN MENU -->
-                        <section data-linear="1" data-id="mainmenu">
+                        <section data-linear="1" data-id="mainmenu" data-finished="intro">
                             <h1>Kategorieauswahl</h1>
-                            <article data-id="mainmenu-start">
+                            <article data-id="mainmenu--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Kategorieauswahl</h2>
@@ -228,14 +228,14 @@
                                                         <div class="mdl-grid">
                                                             <div class="mdl-cell mdl-cell--2-col"></div>
                                                             <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_menu-start">Ernährung</button>
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_menu--start">Ernährung</button>
                                                             </div>
                                                             <div class="mdl-cell mdl-cell--2-col"></div>
                                                         </div>
                                                         <div class="mdl-grid">
                                                             <div class="mdl-cell mdl-cell--2-col"></div>
                                                             <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_menu-start">Sport</button>
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_menu--start">Sport</button>
                                                             </div>
                                                             <div class="mdl-cell mdl-cell--2-col"></div>
 
@@ -243,7 +243,7 @@
                                                         <div class="mdl-grid">
                                                             <div class="mdl-cell mdl-cell--2-col"></div>
                                                             <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="motivation_menu-start" disabled>Motivation</button>
+                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="motivation_menu--start" disabled>Motivation</button>
                                                             </div>
                                                             <div class="mdl-cell mdl-cell--2-col"></div>
                                                         </div>
@@ -255,7 +255,7 @@
                                         <div class="main-help">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="4000">Das hier ist dein Hauptmenü! Hier erscheinen deine Erfolge</say>
+                                                <say data-delay="4000">Wähle eine Kategorie aus!</say>
                                                 <tip data-delay="3000">Ich bin ein Tipp</tip>
                                             </div>
                                         </div>
@@ -264,9 +264,9 @@
                             </article>
                         </section>
                         <!-- TODO EAT MENU-->
-                        <section data-linear="1" data-id="eat_menu">
+                        <section data-linear="1" data-id="eat_menu" data-finished="mainmenu--start">
                         <h1>Ernährung</h1>
-                        <article data-id="eat_menu-start">
+                        <article data-id="eat_menu--start">
                             <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title">
                                     <h2 class="mdl-card__title-text">Einleitung</h2>
@@ -354,7 +354,7 @@
                             </article>
                     </section>
                         <!-- TODO EAT CHAP 1 Myth-->
-                        <section data-linear="1" data-id="eat_chap1" data-not-in-header="">
+                        <section data-linear="1" data-id="eat_chap1" data-not-in-header="" data-finished="eat_menu--start">
                             <h1>Ernährung</h1>
                             <article data-id="eat_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -805,9 +805,9 @@
                             </article>
                         </section>
                         <!-- TODO SPORT MENU-->
-                        <section data-linear="1" data-id="sport_menu">
+                        <section data-linear="1" data-id="sport_menu" data-finished="mainmenu--start">
                             <h1>Sport</h1>
-                            <article data-id="sport_menu-start">
+                            <article data-id="sport_menu--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Einleitung</h2>
@@ -893,7 +893,7 @@
                             </article>
                         </section>
                         <!-- TODO SPORT CHAP 1 mythen-->
-                        <section data-linear="1" data-id="sport_chap1" data-not-in-header="">
+                        <section data-linear="1" data-id="sport_chap1" data-not-in-header="" data-finished="sport_menu--start">
                             <h1>Sport</h1>
                             <article data-id="sport_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -1094,7 +1094,7 @@
                             </section>
 
                         <!-- TODO SPORT CHAP 2 Basiswissen-->
-                        <section data-linear="1" data-id="sport_chap2" data-not-in-header="">
+                        <section data-linear="1" data-id="sport_chap2" data-not-in-header="" data-finished="sport_menu--start">
                             <h1>Sport</h1>
                             <article data-id="sport_chap2--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -1267,7 +1267,7 @@
                             </article>
                         </section>
                         <!-- TODO SPORT CHAP 3 Krafttraining-->
-                        <section data-linear="1" data-id="sport_chap3" data-not-in-header="">
+                        <section data-linear="1" data-id="sport_chap3" data-not-in-header="" data-finished="sport_menu--start">
                             <h1>Sport</h1>
                             <article data-id="sport_chap3--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -1459,7 +1459,7 @@
                             </article>
                         </section>
                         <!-- TODO SPORT CHAP 4 Ausdauer-->
-                        <section data-linear="1" data-id="sport_chap4" data-not-in-header="">
+                        <section data-linear="1" data-id="sport_chap4" data-not-in-header="" data-finished="sport_menu--start">
                             <h1>Sport</h1>
                             <article data-id="sport_chap4--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -1699,7 +1699,7 @@
                         </article>
                         </section>
                         <!-- TODO SPORT CHAP 5 Regeneration-->
-                        <section data-linear="1" data-id="sport_chap5" data-not-in-header="">
+                        <section data-linear="1" data-id="sport_chap5" data-not-in-header="" data-finished="sport_menu--start">
                             <h1>Sport</h1>
                             <article data-id="sport_chap5--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -1890,9 +1890,9 @@
                             </section>
 
                         <!-- TODO MOTIVATION MENU -->
-                        <section data-linear="1" data-id="motivation_menu">
+                        <section data-linear="1" data-id="motivation_menu" data-finished="sport_menu--start" data-finished="mainmenu--start">
                             <h1>Motivation</h1>
-                            <article data-id="motivation_menu-start">
+                            <article data-id="motivation_menu--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="mdl-card__title">
                                         <h2 class="mdl-card__title-text">Einleitung</h2>
@@ -2009,7 +2009,7 @@
                             </article>
                         </section>
                         <!-- TODO MOTIVATION CHAP 1 -->
-                        <section data-linear="1" data-id="motivation_chap1" data-not-in-header="">
+                        <section data-linear="1" data-id="motivation_chap1" data-not-in-header="" data-finished="motivation_menu--start">
                             <h1>Motivation</h1>
                             <article data-id="motivation_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">

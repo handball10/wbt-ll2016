@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1024px" height="1024px" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" xml:space="preserve">
+	 viewBox="91 -214.7 1024 1024" style="enable-background:new 91 -214.7 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00FF42;}
+</style>
 <g id="Small_Icons">
 	<g id="Artboard_4">
-		<path id="Rectangle_63" d="M832.332,140.346L952.577,241.14c7.193,6.084,8.525,17.405,2.309,24.822l-516.673,615.69
-			c-4.084,4.884-9.725,6.927-15.231,6.216c-3.861-0.178-7.68-1.599-10.876-4.263l-340.348-285.6
-			c-7.594-6.305-8.884-17.762-2.622-25.221l100.527-119.8c6.084-7.236,17.628-8.258,25.355-1.776L402.38,625.183l405.088-482.84
-			C814.128,134.486,824.873,134.042,832.332,140.346z"/>
+		<path id="Rectangle_63" class="st0" d="M923.3-74.4l120.2,100.8c7.2,6.1,8.5,17.4,2.3,24.8L529.2,666.9c-4.1,4.9-9.7,6.9-15.2,6.2
+			c-3.9-0.2-7.7-1.6-10.9-4.3L162.8,383.3c-7.6-6.3-8.9-17.8-2.6-25.2l100.5-119.8c6.1-7.2,17.6-8.3,25.4-1.8l207.4,174L898.5-72.4
+			C905.1-80.2,915.9-80.7,923.3-74.4z"/>
 	</g>
 </g>
 </svg>

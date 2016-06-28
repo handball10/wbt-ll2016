@@ -69,7 +69,7 @@ ul, li	{ list-style-type:none; padding:0px; margin:0px; }
 }
 
 h1{
-	color:#3c763d;
+	color:#67b168;
 	text-align: center;
 }
 /* MAIN-HELP*/
@@ -80,73 +80,18 @@ h1{
 	cursor: pointer;
 }
 
-
-.text-bubble-right__bubble{
-	height:150px;
-	width: 90%;
-	background-color:green;
-	border-radius: 10px;
-	float:left;
-	color:white;
-}
-.text-bubble-right__triangle{
-	top: 97px;
-	position: relative;
-	float: left;
-	width: 10%;
-	height: 50px;
-	background-color: green;
-	left:-1px;
-	-webkit-mask:  url('../images/arrow-right.svg') left no-repeat;
-	mask: url('../images/arrow-right.svg') left no-repeat;
-	mask-size: auto 50%;
-	-webkit-mask-size: auto 50%;
-}
-
-.text-bubble-right__content{
-	margin:10px;
-
-}
-
-.text-bubble-left__bubble{
-	height:150px;
-	width: 90%;
-	background-color:blue;
-	border-radius: 10px;
-	float:right;
-	color:white;
-}
-.text-bubble-left__triangle{
-	top: 97px;
-	position: relative;
-	float: right;
-	width: 10%;
-	height: 50px;
-	background-color: blue;
-	right:-1px;
-	-webkit-mask:  url('../images/arrow-left.svg') right no-repeat;
-	mask: url('../images/arrow-left.svg') right no-repeat;
-	mask-size: auto 50%;
-	-webkit-mask-size: auto 50%;
-}
-
 .main-help{
-	min-height:150px;
+	height:150px;
 }
 
 .main-help.answer{
 	display: none;
 }
 
-.border-bottom{
-	border-bottom: 1px solid lightgray;
-}
-
 /*MAIN-HEADER*/
 .main-header{
-	height:100px;
+	min-height:50px;
 }
-
 
 /* MAIN-CONTENT */
 .main-content{
@@ -156,11 +101,6 @@ h1{
 .main-content img{
 	max-width: 100%;
 	height:auto;
-}
-
-.main-content.answer{
-	min-height:45px;
-	border-bottom: 1px solid lightgray;
 }
 
 .main-content table{
@@ -194,7 +134,7 @@ h1{
 
 /*MAIN-CONTENT__QUIZ*/
 .quest-cross{
-	height:80%;
+	height:100px;
 	background: url('../images/cross.svg') center no-repeat;
 	background-size: auto 50%;
 	color:red;
@@ -205,7 +145,7 @@ h1{
 }
 
 .quest-check{
-	height:80%;
+	height:100px;
 	background: url('../images/check.svg') center no-repeat;
 	background-size: auto 50%;
 }
@@ -328,4 +268,7 @@ h1{
 	float:left;
 	background: url('../images/user.png') center no-repeat;
 	background-size: 100% auto;
+}
+.mdl-step__actions{
+	border-top:1px solid lightgrey;
 }
