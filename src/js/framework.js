@@ -493,14 +493,14 @@ App.SectionManager = {
 
                     if(!currentArticle.skipButtons && i > 0){
                         id = articleArray[i-1];
-                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" data-stepper-back>Zurück</button>");
+                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton mdl-button--stepper--back\" role='button' data-stepper-back>Zurück</button>");
                         //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
                         //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
                     }
 
                     if(!currentArticle.skipButtons && i < len){
                         id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
-                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton \" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
+                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton pull-right\" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
                         //$footer.append("<button href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-continue>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
                     }
 
@@ -528,6 +528,11 @@ App.SectionManager = {
 
                 var innerNext = (function(instance, $container){
                     return function(){
+
+                        App.SectionManager.validate();
+
+
+
                         if(!instance.next()) {
                             $container.data('finished') && App.SectionManager.gotoArticle($container.data('finished'));
                         }
@@ -608,6 +613,10 @@ App.SectionManager = {
         App.Event.register("onSectionLoadComplete", function(){ App.ModuleManager.buildAllModules(); });
 
         $(window).trigger('stepper::init');
+    },
+
+    validate : function(articleID){
+        return true;
     },
 
     /**
@@ -691,11 +700,6 @@ App.SectionManager = {
 
             var instance = $ul.get(0).MaterialStepper;
 
-            //console.log($ul);
-
-            //$ul.height(
-            //    $ul.find('.mdl-step__content:nth-child('+index+')')[0].scrollHeight+192+"px"
-            //);
         }
 
         // check if we can go to this article
@@ -803,10 +807,7 @@ App.SectionManager = {
         } else {
             //console.log('bla');
             console.log('firing for first mascot');
-            //console.log($('#'+thisArticle.id).find('.mascot--init:first-child'));
-            //console.log(parentSection.selector.find('.mdl-step:first-child > .mascot'));
-            //parentSection.selector.find('.mdl-step:first-child > .mascot').trigger('article::load');
-            //console.log($('#'+thisArticle.id).find('.mascot--init'));
+
             $('#'+thisArticle.id).find('.mascot--init:first-child').trigger('article::load');
         }
     },
