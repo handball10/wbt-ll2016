@@ -189,7 +189,7 @@ Main.controller.mascot = (function(){
                 });
         }
 
-        var $grid = $('<div class="mdl-grid"></div>'),
+        var $grid = $('<div class="mdl-grid mascot--init"></div>'),
             $block = $('<blockquote></blockquote>'),
             $mascot = $('<div class="mascot-broc"></div>')
         ;
@@ -206,7 +206,7 @@ Main.controller.mascot = (function(){
 
         $block.hide();
 
-        $mascot.on('click', function(){alert(1);});
+        $mascot.on('click', controller.tip);
 
         if(settings.selector.hasClass('mascot--left')){
 
@@ -241,9 +241,8 @@ Main.controller.mascot = (function(){
         // click
 
 
-        var parentArticle = element.closest('article');
-
-        console.log(parentArticle);
+        var parentArticle = element;
+        //var parentArticle = element.closest('article');
 
         // article::load
         settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){controller.autoplay(0);});
@@ -257,17 +256,24 @@ Main.controller.mascot = (function(){
 
     }
 
-    var mascots = [];
-    // get all mascots
-    var $mascotItems = $('.mascot');
+    return function(){
+        var mascots = [];
+        // get all mascots
+        var $mascotItems = $('.mascot');
 
 
-    $mascotItems.each(function(){
-        var m = new Mascot($(this));
+        $mascotItems.each(function(){
+            var m = new Mascot($(this));
 
-        mascots.push(m);
-    });
+            mascots.push(m);
+        });
 
-    return mascots;
+        return mascots;
+    }
+
 
 })();
+
+$(window).on('stepper::init', function(){
+    Main.controller.mascot();
+});

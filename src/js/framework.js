@@ -405,7 +405,7 @@ App.SectionManager = {
                 onFinishId : t.data('finished') || null
             };
 
-            console.log(thisHelper.sections[sectionID]);
+            //console.log(thisHelper.sections[sectionID]);
             // if this is the first section in the whole document, this is the main section that is displayed
             if(index === 0){
                 thisHelper.currentSection = thisHelper.sections[sectionID].id;
@@ -539,6 +539,8 @@ App.SectionManager = {
                         var height = currentStep.find('.mdl-step__content').data('min-height');
                         console.log(height);
 
+                        currentStep.find('.mascot--init').trigger('article::load');
+
                         $container.css("min-height", currentStep.find('.mdl-step__content').data('min-height') + "px");
                     }
                 })(stepperInstance, $container);
@@ -549,7 +551,7 @@ App.SectionManager = {
 
                         var currentStep = $(instance.getActive());
 
-                        //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight+"px");
+                        currentStep.find('.mascot--init').trigger('article::load');
 
                         $container.css("min-height", currentStep.find('.mdl-step__content').data('min-height') + "px");
                     }
@@ -604,6 +606,8 @@ App.SectionManager = {
 
         // register event that's triggered after all sections have been build
         App.Event.register("onSectionLoadComplete", function(){ App.ModuleManager.buildAllModules(); });
+
+        $(window).trigger('stepper::init');
     },
 
     /**
@@ -794,7 +798,17 @@ App.SectionManager = {
         App.Event.eventExists('onAfterRender') && App.Event.trigger('onAfterRender');
 
         // trigger articleLoad Event
-        thisArticle.selector.trigger('article::load');
+        if(parentSection.articleList.length === 1){
+            thisArticle.selector.find('.mascot--init').trigger('article::load');
+        } else {
+            //console.log('bla');
+            console.log('firing for first mascot');
+            //console.log($('#'+thisArticle.id).find('.mascot--init:first-child'));
+            //console.log(parentSection.selector.find('.mdl-step:first-child > .mascot'));
+            //parentSection.selector.find('.mdl-step:first-child > .mascot').trigger('article::load');
+            //console.log($('#'+thisArticle.id).find('.mascot--init'));
+            $('#'+thisArticle.id).find('.mascot--init:first-child').trigger('article::load');
+        }
     },
 
     registerModuleForArticle : function(key, article){
