@@ -272,3 +272,14 @@ h1{
 .mdl-step__actions{
 	border-top:1px solid lightgrey;
 }
+
+.mdl-button--stepper--back{
+	margin-left: 8px!important;
+	margin-right: auto;
+	color: #2196F3!important;
+	background-color: transparent!important;
+}
+
+/*.mdl-stepper--horizontal .mdl-step>.mdl-step__actions [data-stepper-next] {*/
+	/*float: right;*/
+/*}*/
