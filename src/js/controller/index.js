@@ -23,7 +23,7 @@ Main.controller.indexView = (function(){
 
         var bindEvents = function(){
 
-            setTimeout(startWBT, 100);
+            //setTimeout(startWBT, 100);
 
             $('#index-start-wbt').on('click', startWBT);
 
