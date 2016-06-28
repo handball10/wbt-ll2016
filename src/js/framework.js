@@ -528,7 +528,10 @@ App.SectionManager = {
 
                 var innerNext = (function(instance, $container){
                     return function(){
-                        instance.next();
+                        if(!instance.next()) {
+                            $container.data('finished') && App.SectionManager.gotoArticle($container.data('finished'));
+                        }
+
                         var currentStep = $(instance.getActive());
 
                         //console.log(currentStep.find('.mdl-step__content').data('min-height'));
