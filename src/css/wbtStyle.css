@@ -71,6 +71,8 @@ ul, li	{ list-style-type:none; padding:0px; margin:0px; }
 h1{
 	color:#67b168;
 	text-align: center;
+	font-size: 3em;
+	margin: 0px 0 15px;
 }
 /* MAIN-HELP*/
 .mascot-broc{
@@ -90,11 +92,11 @@ h1{
 
 /*MAIN-HEADER*/
 .main-header{
-	min-height:50px;
 }
 
 /* MAIN-CONTENT */
 .main-content{
+	color:#5e5e5e;
 }
 
 .main-content img{
@@ -178,7 +180,7 @@ h1{
 	height:150px;
 	width: 100%;
 	position: relative;
-	border-bottom:1px solid lightgrey;
+	border-bottom:1px solid ;
 }
 .mainmenu:last-child{
 	border:none;
@@ -270,7 +272,7 @@ h1{
 	background-size: 100% auto;
 }
 .mdl-step__actions{
-	border-top:1px solid lightgrey;
+	border-top:1px solid #67b168;
 }
 
 .mdl-button--stepper--back{
@@ -283,3 +285,9 @@ h1{
 /*.mdl-stepper--horizontal .mdl-step>.mdl-step__actions [data-stepper-next] {*/
 	/*float: right;*/
 /*}*/
+body{
+	background-color:rgba(240,240,240,1);
+}
+.mdl-card__title h1{
+	color:black;
+}
