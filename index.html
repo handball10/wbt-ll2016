@@ -51,7 +51,7 @@
                 <div class="mdl-cell mdl-cell--8-col">
                     <div class="wbt-intro-card mdl-card mdl-shadow--6dp">
                         <div class="mdl-card__title">
-                            <h1 class="mdl-card__title-text">Hallo, ich bin Brokulus. Ich begleite dich durch dieses WBT!</h1>
+                            <h1 class="mdl-card__title-text" onclick="showLighboxCenter(this);">Hallo, ich bin Brokulus. Ich begleite dich durch dieses WBT!</h1>
                         </div>
                         <div class="mdl-card__supporting-text">
 
@@ -1155,7 +1155,7 @@
                                                     Wenn du dein Training selbstständig gestalten möchtest, wirst du die schnellsten Erfolge erzielen, wenn du im Hinterkopf behältst, wie wir Menschen Muskeln aufbauen.
                                                     Muskeln befinden sich normalweise in einem Zustand der Selbstregulation, sie sind "im Gleichgewicht". Absolvierst du dein erstes Training, so sind die Muskeln direkt danach erschöpft und weniger leistungsfähig als vor der Trainingsbelastung. Dann beginnen sie sich zu erholen. Hierbei kehren sie jedoch nicht in ihren Ausgangszustand zurück, sie werden sogar noch ein wenig leistungsfähiger als zuvor. Dieser Prozess nennt sich Superkompensiation. Trainiert man dann aber nicht erneut, kehren sie nach einiger Zeit doch in ihren Ausgangszustand zurück.
                                                     <br>
-                                                    <img src="src/images/sport_chap2_q2_1.png" alt="Superkompensation">
+                                                    <img src="src/images/sport_chap2_q2_1.png" alt="Superkompensation" onclick="showLighboxCenter(this)">
                                                     Die Idee hinter erfolgreichem Training ist also, diesen letzten Schritt zu verhindern, indem man rechtzeitig erneut trainiert. Der Trick hierbei besteht darin, zeitlich möglichst den höchsten Punkt der Superkompensation zu treffen und nicht etwa zu trainieren, während sich die Muskeln noch erholen und geschwächt sind.
                                                     Was bedeutet das jetzt genau für dich und dein Training?
                                                     Manchmal ist weniger mehr! Wenn du so viel trainierst, dass deine Muskeln keine Möglichkeit zur Erholung haben, behinderst du deinen eigenen Trainingserfolg. Du solltest also Ruhetage einplanen, wenn du dir einen Trainingsplan erstellen möchtest. Wenn du dann etwas fitter bist und so großen Gefallen am Sport findest, sodass dir ein Tag ohne Training langweilig erscheint, könntest du dieses Wissen erneut anwenden. So könntest du beispielsweise an geraden Kalendertagen den Oberkörper und an ungeraden Kalendertagen die Beine trainieren und die jeweils andere Muskelgruppe schonen.
@@ -2089,5 +2089,12 @@
 <!--<script src="src/js/modal.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>-->
 <!--<script src="src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>-->
+<div id="lightbox__center">
+    <div class="close-overlay" onclick="hideLightboxBackground();">
+        X
+    </div>
+    <div id="lightbox__center--content"></div>
+</div>
+<div id="lightbox__background"></div>
 </body>
 </html>

@@ -291,3 +291,39 @@ body{
 .mdl-card__title h1{
 	color:black;
 }
+
+#lightbox__background{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	z-index:3;
+	height:100%;
+	background-color: rgba(20,20,20,0.5);
+	display:none;
+}
+
+#lightbox__center{
+	position: fixed;
+	margin: 0 auto;
+	width:80%;
+	z-index:4;
+	height:80%;
+	left:9%;
+	top:9%;
+	padding: 1%;
+	background-color: white;
+	display:none;
+}
+
+#lightbox__center--content{
+	width:100%;
+	height:100%;
+}
+
+.close-overlay{
+	font-size: 3em;
+	cursor: pointer;
+	float:right;
+	margin:15px;
+}

@@ -37,3 +37,28 @@ Main.controller.indexView = (function(){
     return new IndexView();
 
 })();
+
+function showLighboxCenter(temp){
+    $('#lightbox__center').css('display','block');
+    console.log(temp.src);
+    var div = document.createElement("div");
+    div.style.backgroundImage = "url('"+temp.src+"')";
+    div.style.backgroundPosition = "center";
+    div.style.backgroundRepeat = "no-repeat";
+    div.style.backgroundSize = "contain";
+    div.style.width = "100%";
+    div.style.height = "100%";
+    $('#lightbox__center--content').append(div);
+    showLightboxBackground();
+}
+
+function showLightboxBackground(){
+    $('#lightbox__background').css('display', 'block');
+}
+
+function hideLightboxBackground(){
+    $('#lightbox__center--content').empty();
+    $('#lightbox__center').css('display','none');
+    $('#lightbox__background').css('display','none');
+
+}

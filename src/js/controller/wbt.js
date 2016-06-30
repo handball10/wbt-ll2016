@@ -10,3 +10,4 @@ Main.controller.wbtController = (function(){
     return this;
 
 })();
+
