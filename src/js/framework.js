@@ -546,7 +546,9 @@ App.SectionManager = {
 
                         currentStep.find('.mascot--init').trigger('article::load');
 
-                        $container.css("min-height", currentStep.find('.mdl-step__content').data('min-height') + "px");
+                        //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
+
+                        $container.css("min-height", currentStep.find('.mdl-step__content')[0].scrollHeight + 200 + "px"); // .data('min-height')
                     }
                 })(stepperInstance, $container);
 
