@@ -26,6 +26,8 @@ var App = App || {
         App.Event.trigger("onSectionLoadComplete");
         App.SectionManager.loadArticleByIndex(0);
         App.NavigationManager.initCustomWalkers();
+
+        //Main.controller.question.init();
         var end = (new Date()).getTime();
 
         App.Log.log("Application build in "+ (end - start)+" millis");
@@ -542,13 +544,13 @@ App.SectionManager = {
                         //console.log(currentStep.find('.mdl-step__content').data('min-height'));
 
                         var height = currentStep.find('.mdl-step__content').data('min-height');
-                        console.log(height);
+                        console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
 
                         currentStep.find('.mascot--init').trigger('article::load');
 
                         //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
 
-                        $container.css("min-height", currentStep.find('.mdl-step__content')[0].scrollHeight + 200 + "px"); // .data('min-height')
+                        $container.css("height", currentStep.find('.mdl-step__content')[0].scrollHeight + 200 + "px"); // .data('min-height')
                     }
                 })(stepperInstance, $container);
 
@@ -560,7 +562,7 @@ App.SectionManager = {
 
                         currentStep.find('.mascot--init').trigger('article::load');
 
-                        $container.css("min-height", currentStep.find('.mdl-step__content').data('min-height') + "px");
+                        $container.css("height", currentStep.find('.mdl-step__content')[0].scrollHeight + 200 + "px");
                     }
                 })(stepperInstance, $container);
 
@@ -810,12 +812,17 @@ App.SectionManager = {
             //console.log('bla');
             console.log('firing for first mascot');
 
-            $('#'+thisArticle.id).find('.mascot--init:first-child').trigger('article::load');
+            var $item = $('#'+thisArticle.id);
+
+            $item.find('.mascot--init:first-child').trigger('article::load');
+
+            // zhg
+            //console.log($item.find('.mdl-step__content:first-child')[0].scrollHeight);
+
         }
     },
 
     registerModuleForArticle : function(key, article){
-        console.log(article);
         this.articles[article].modules.push(key);
     },
 
@@ -1131,7 +1138,11 @@ App.NavigationManager = {
             //    return;
             //}
             // call the SectionManagers showArticle method
+
             App.SectionManager.showArticle(t.attr("data-target"));
+            t.parent().find('a').removeClass('active');
+
+            t.addClass('active');
 
         });
     },
