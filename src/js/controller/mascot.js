@@ -95,7 +95,7 @@ Main.controller.mascot = (function(){
         this.autoplay = function(index){
 
             // console.log(dialogs.say);
-
+            settings.$blockSelector.removeClass('oval-thought');
 
             // check, if the mascot is visible
             if(!settings.selector.is(':visible')){

@@ -839,7 +839,7 @@ App.SectionManager = {
             //console.log('bla');
             console.log('firing for first mascot');
 
-            var $item = $('#'+thisArticle.id);
+            var $item = $('#_'+thisArticle.id);
 
             $item.find('.mascot--init:first-child').trigger('article::load');
 

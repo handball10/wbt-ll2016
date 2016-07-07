@@ -110,7 +110,7 @@ say {
 .oval-speech.left:before {
     content: "";
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     bottom: -30px;
     right: 50%;
     height: 30px;
@@ -129,7 +129,7 @@ say {
 .oval-speech.left:after {
     content: "";
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     bottom: -30px;
     right: 50%;
     width: 50%;
