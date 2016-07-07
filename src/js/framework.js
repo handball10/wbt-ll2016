@@ -18,16 +18,16 @@ var App = App || {
 
         this.Error.registerErrorEventHandler();
         App.Event.registerCustomEvents();
+        Main.controller.question.init();
+
         this.StorageManager.init();
 
         this.SectionManager.init();
-
         this.NavigationManager.init();
         App.Event.trigger("onSectionLoadComplete");
         App.SectionManager.loadArticleByIndex(0);
-        App.NavigationManager.initCustomWalkers();
 
-        Main.controller.question.init();
+        App.NavigationManager.initCustomWalkers();
         var end = (new Date()).getTime();
 
         App.Log.log("Application build in "+ (end - start)+" millis");
@@ -404,10 +404,11 @@ App.SectionManager = {
                 articleList : articleList,
                 finished : false,
                 visibleInHeader : !t[0].hasAttribute('data-not-in-header'),
-                onFinishId : t.data('finished') || null
+                onFinishId : t.data('finished') || null,
+                customId : t.data('id') || sectionID
             };
 
-            Main.controller.question.addSection(sectionID);
+            Main.controller.question.addSection(thisHelper.sections[sectionID].customId);
 
             //console.log(thisHelper.sections[sectionID]);
             // if this is the first section in the whole document, this is the main section that is displayed

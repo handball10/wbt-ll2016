@@ -29,6 +29,8 @@ App.ModuleManager.extend("YesOrNo",
                     $t = $(this)
                 ;
 
+
+
                 // get the question and labels
                 var question = $t.data('question'),
                     wrongLabel = $t.data('label-wrong'),
@@ -60,6 +62,16 @@ App.ModuleManager.extend("YesOrNo",
 
                 $contentGrid.attr('data-answer', answer);
 
+                var parentArticle = $t.parent().parent().parent();
+
+                console.log(parentArticle);
+
+                parentArticle.addClass('hallllloooo');
+
+                // generate ID
+                var id = App.Helper.generateUniqueID();
+                $contentContainer.attr('id', id);
+
                 // bind answer event
                 $contentGrid
                     .find('div.quest-answer')
@@ -68,6 +80,8 @@ App.ModuleManager.extend("YesOrNo",
                         $contentGrid.find('div.quest-answer').removeClass('active');
                         $this.addClass('active');
                         $contentGrid.attr('data-selected', $this.hasClass('quest-cross') ? 0 : 1);
+
+                        thisHelper.validator($this.hasClass('quest-cross') ? 0 : 1, $contentGrid.data('answer'), parentArticle, id);
                     });
 
                 $contentContainer.append($contentGrid);
@@ -80,15 +94,15 @@ App.ModuleManager.extend("YesOrNo",
                     .append($spacer.clone())
                 ;
 
-                // generate ID
-                var id = App.Helper.generateUniqueID();
-                $contentContainer.attr('id', id);
 
-                var parentArticle = $t.parent().parent();
 
-                console.log(parentArticle);
+
+                Main.controller.question.addQuestion(section.attr('id'), id);
 
                 $t.replaceWith($container);
+
+
+                //Main.controller.question.
 
                 //console.log(parentArticle);
                 //
@@ -105,7 +119,16 @@ App.ModuleManager.extend("YesOrNo",
             });
         },
 
-        validator : function(module){
+        validator : function(answer, correct, article, questionId){
+
+            if(answer == correct){
+                Main.controller.question.addAnswer(questionId, article, true);
+            } else {
+                Main.controller.question.addAnswer(questionId, article, false);
+            }
+
+
+
             return true;
         }
     }

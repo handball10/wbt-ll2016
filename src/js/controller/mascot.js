@@ -266,6 +266,8 @@ Main.controller.mascot = (function(){
             // console.log('Receiving autostart');
             controller.autoplay(0);
         });
+
+
         if(dialogs.right.length > 0){
             parentArticle.on('article::right', controller.right);
 
