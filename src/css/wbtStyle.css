@@ -282,6 +282,10 @@ h1{
 	background-color: transparent!important;
 }
 
+.mdl-step__content {
+	overflow: hidden;
+}
+
 /*.mdl-stepper--horizontal .mdl-step>.mdl-step__actions [data-stepper-next] {*/
 	/*float: right;*/
 /*}*/

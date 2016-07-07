@@ -27,7 +27,7 @@ var App = App || {
         App.SectionManager.loadArticleByIndex(0);
         App.NavigationManager.initCustomWalkers();
 
-        //Main.controller.question.init();
+        Main.controller.question.init();
         var end = (new Date()).getTime();
 
         App.Log.log("Application build in "+ (end - start)+" millis");
@@ -385,7 +385,7 @@ App.SectionManager = {
                     visited : false,
                     skipButtons : skipAutoButtons,
                     customID : _t.data('id'),
-                    minHeight : parseInt(isNaN(_t.data('min-height')) ? $( window ).height() - 415 : _t.data('min-height'), 10),
+                    minHeight : parseInt(isNaN(_t.data('min-height')) ? _t[0].scrollHeight : _t.data('min-height'), 10),
                     modules: []
                 };
 
@@ -406,6 +406,8 @@ App.SectionManager = {
                 visibleInHeader : !t[0].hasAttribute('data-not-in-header'),
                 onFinishId : t.data('finished') || null
             };
+
+            Main.controller.question.addSection(sectionID);
 
             //console.log(thisHelper.sections[sectionID]);
             // if this is the first section in the whole document, this is the main section that is displayed
@@ -481,14 +483,14 @@ App.SectionManager = {
                     // catch the content
                     var $content = currentArticle.selector.find("*:not(h2)").html();
 
-                    var $contentContainer = $('<div></div>').addClass('mdl-step__content').attr('data-min-height', (currentArticle.minHeight + 192));
+                    var $contentContainer = $('<div></div>').addClass('mdl-step__content');//.attr('data-min-height', (currentArticle.minHeight + 192));
 
-                    $contentContainer.append($('<article></article>').attr('id', currentArticle.id).append($content));
+                    $contentContainer.append($('<article></article>').attr('id', '_'+currentArticle.id).append($content));
 
                     //if(currentArticle.minHeight > 400){
 
 
-                    i == 0 && $container.css("min-height", (currentArticle.minHeight + 192) + "px");
+                    i == 0 && $container.css("height", (currentArticle.minHeight + 192) + "px");
                     //}
 
                     var $footer = $('<div></div>').addClass('mdl-step__actions');
@@ -541,16 +543,25 @@ App.SectionManager = {
 
                         var currentStep = $(instance.getActive());
 
+                        var currentContent = currentStep.find('.mdl-step__content > article');
+
+
+                        console.log(currentContent);
+                        console.log(currentContent.get(0).scrollHeight);
+
                         //console.log(currentStep.find('.mdl-step__content').data('min-height'));
 
-                        var height = currentStep.find('.mdl-step__content').data('min-height');
-                        console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
+                        var height = currentContent.data('min-height');
+
 
                         currentStep.find('.mascot--init').trigger('article::load');
 
                         //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
 
-                        $container.css("height", currentStep.find('.mdl-step__content')[0].scrollHeight + 200 + "px"); // .data('min-height')
+                        $('.mdl-layout__content').animate({
+                            scrollTop: 0
+                        }, 200);
+                        $container.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px"); // .data('min-height')
                     }
                 })(stepperInstance, $container);
 
@@ -560,9 +571,15 @@ App.SectionManager = {
 
                         var currentStep = $(instance.getActive());
 
+                        var currentContent = currentStep.find('.mdl-step__content > article');
+
                         currentStep.find('.mascot--init').trigger('article::load');
 
-                        $container.css("height", currentStep.find('.mdl-step__content')[0].scrollHeight + 200 + "px");
+                        $container.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px");
+
+                        $('.mdl-layout__content').animate({
+                            scrollTop: 0
+                        }, 200);
                     }
                 })(stepperInstance, $container);
 
@@ -573,6 +590,10 @@ App.SectionManager = {
                         }
 
                         App.SectionManager.sections[$container.data('system-id')].finished = true;
+
+                        $('.mdl-layout__content').animate({
+                            scrollTop: 0
+                        }, 200);
                     }
                 })($container);
 
@@ -617,6 +638,12 @@ App.SectionManager = {
         App.Event.register("onSectionLoadComplete", function(){ App.ModuleManager.buildAllModules(); });
 
         $(window).trigger('stepper::init');
+    },
+
+    updateArticleSelecotr : function(){
+        for(article in this.articles){
+            this.articles[article].selector = $('#'+this.articles[article].id);
+        }
     },
 
     validate : function(articleID){

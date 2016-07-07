@@ -7,7 +7,7 @@ Main.controller.mascot = (function(){
     function Mascot(element){
 
         if(element.attr('data-init') === "1"){
-            console.log('inited');
+            // console.log('inited');
             return null;
         }
 
@@ -94,16 +94,27 @@ Main.controller.mascot = (function(){
 
         this.autoplay = function(index){
 
+            // console.log(dialogs.say);
+
+
+            // check, if the mascot is visible
+            if(!settings.selector.is(':visible')){
+                return;
+            }
+
             if(dialogs.say.length === 0 || index >= dialogs.say.length){
                 controller.animateBubble('out');
                 return;
             }
 
+            // console.log('block skipped');
+
             if(index === 0){
+                //controller.animateBubble('in');
                 settings.$blockSelector
                     .removeClass('oval-though')
-                    .addClass('oval-speech');
-                controller.animateBubble('in');
+                    .addClass('oval-speech').show();
+                // console.log(settings.$blockSelector);
             }
 
             var currentSpeech = dialogs.say[index];
@@ -125,10 +136,15 @@ Main.controller.mascot = (function(){
          * @param delay {Number} Time in ms to display the bubble
          */
         this.animateBubble = function(mode, delay){
+
+            // console.log(mode);
+
             switch(mode){
                 case 'in' :
                     settings.$blockSelector
-                        .fadeIn('fast');
+                        .fadeIn();
+                    // console.log('fadeIn');
+                    // console.log(settings.$blockSelector);
                     break;
                 case 'in-out':
                     settings.$blockSelector
@@ -139,6 +155,7 @@ Main.controller.mascot = (function(){
 
                     break;
                 case 'out':
+                    // console.log('out');
                     settings.$blockSelector.fadeOut();
 
                     break;
@@ -245,7 +262,10 @@ Main.controller.mascot = (function(){
         //var parentArticle = element.closest('article');
 
         // article::load
-        settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){controller.autoplay(0);});
+        settings.selector.hasClass('autoplay') && parentArticle.on('article::load', function(){
+            // console.log('Receiving autostart');
+            controller.autoplay(0);
+        });
         if(dialogs.right.length > 0){
             parentArticle.on('article::right', controller.right);
 

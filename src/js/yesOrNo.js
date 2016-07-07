@@ -84,7 +84,9 @@ App.ModuleManager.extend("YesOrNo",
                 var id = App.Helper.generateUniqueID();
                 $contentContainer.attr('id', id);
 
-                var parentArticle = $t.parent('article');
+                var parentArticle = $t.parent().parent();
+
+                console.log(parentArticle);
 
                 $t.replaceWith($container);
 
