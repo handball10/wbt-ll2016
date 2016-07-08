@@ -80,7 +80,8 @@
                 <div class="mdl-grid">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--8-col">
-                        <section data-linear="1" data-id="intro" data-not-in-header data-finished="mainmenu--start">
+                        <section data-linear="1" data-id="intro" data-finished="mainmenu--start">
+                            <h1>Einleitung</h1>
                             <h1>Gesünder leben WBT</h1>
                             <article data-id="welcome_start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -169,7 +170,7 @@
                                         <div class="main-help">
                                             <div class="mascot mascot--right mascot--speech green autoplay">
                                                 <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="5000">Drücke "Start" um mit dem WBT zu beginnen</say>
+                                                <say data-delay="50000">Drücke "Start" um mit dem WBT zu beginnen</say>
                                                 <tip data-delay="2000">"Ich habe hier keinen Tipp für dich"</tip>
                                             </div>
                                         </div>
@@ -187,56 +188,68 @@
                                     </div>
                                     <div class="main-header">
                                         <div class="mdl-card__supporting-text">
+                                            Wähle eine Kategorie aus, hole dir Motivation oder zeige was du gelernt hast!<br>
+                                            Motivation und Abschlussquiz werden erst freigeschaltet, sobald du Kategorie Sport und Ernährung bearbeitet hast.
 
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
                                             <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
-                                                <div class="mdl-cell mdl-cell--8-col">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
                                                     <div class="main-content">
                                                         <div class="mdl-grid">
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
-                                                            <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_menu--start">Ernährung</button>
+                                                            <div class="mdl-cell mdl-cell--6-col">
+                                                                <div class="mdl-grid menu-item customWalker" data-target="eat_menu--start" id="mainmenu__eat-btn">
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                    <div class="mdl-cell mdl-cell--10-col">
+                                                                        <img src="src/images/eat.png">
+                                                                        <div class="menu-item__title">Ernährung</div>
+                                                                    </div>
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                </div>
                                                             </div>
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                                            <div class="mdl-cell mdl-cell--6-col">
+                                                                <div class="mdl-grid menu-item customWalker"  data-target="sport_menu--start" id="mainmenu__sport-btn">
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                    <div class="mdl-cell mdl-cell--10-col">
+                                                                        <img src="src/images/sport.png">
+                                                                        <div class="menu-item__title">Sport</div>
+                                                                    </div>
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="mdl-grid">
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
-                                                            <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="sport_menu--start">Sport</button>
+                                                            <div class="mdl-cell mdl-cell--6-col">
+                                                                <div class="mdl-grid menu-item customWalker" data-target="motivation_menu--start" id="mainmenu__motivation-btn">
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                    <div class="mdl-cell mdl-cell--10-col">
+                                                                        <img src="src/images/motivation.png">
+                                                                        <div class="menu-item__title">Motivation</div>
+                                                                    </div>
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                </div>
                                                             </div>
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                                            <div class="mdl-cell mdl-cell--6-col">
+                                                                <div class="mdl-grid menu-item customWalker" data-target="test_chap1--start" id="mainmenu__test-btn">
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                    <div class="mdl-cell mdl-cell--10-col">
+                                                                        <img src="src/images/test.png">
+                                                                        <div class="menu-item__title">Abschlussquiz</div>
+                                                                    </div>
+                                                                    <div class="mdl-cell mdl-cell--1-col"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
-                                                        </div>
-                                                        <div class="mdl-grid">
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
-                                                            <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="motivation_menu--start" disabled>Motivation</button>
-                                                            </div>
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
-                                                        </div>
-                                                        <div class="mdl-grid">
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
-                                                            <div class="mdl-cell mdl-cell--8-col">
-                                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="evaluation_menu--start" disabled>Abschlussquiz</button>
-                                                            </div>
-                                                            <div class="mdl-cell mdl-cell--2-col"></div>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
                                             </div>
                                         </div>
-                                        <div class="main-help">
-                                            <div class="mascot mascot--right mascot--speech green autoplay">
-                                                <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="3000">Wähle eine Kategorie aus!</say>
-                                                <tip data-delay="2000">"Ich habe hier keinen Tipp für dich"</tip>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </article>
@@ -246,6 +259,8 @@
                         <h1>Ernährung</h1>
                         <article data-id="eat_menu--start">
                             <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                <div class="header">
+                                <div class="header__text">
                                 <div class="mdl-card__title">
                                     <h2 class="mdl-card__title-text">Einleitung</h2>
                                 </div>
@@ -254,8 +269,24 @@
                                         Wer isst schon normal?
                                     </div>
                                 </div>
+                                </div>
+                                <div class="header__icon">
+                                </div>
+                                </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <div class="main-content">
+                                        <div class="mdl-grid menu-item__title--border-bottom">
+                                            <div class="mdl-cell mdl-cell--2-col">
+                                            </div>
+                                            <div class="mdl-cell mdl-cell--8-col">
+                                                <img src="src/images/eat.png">
+                                                <div class="menu-item__title">Ernährung</div>
+
+
+                                            </div>
+                                            <div class="mdl-cell mdl-cell--2-col"></div>
+
+                                        </div>
                                         <div class="mdl-grid">
                                             <div class="mdl-cell mdl-cell--1-col"></div>
                                             <div class="mdl-cell mdl-cell--10-col">
@@ -298,12 +329,19 @@
                         </article>
                             <article data-id="eat_menu_end">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Kapitelübersicht</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Wähle eine Kattegorie aus
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 class="mdl-card__title-text">Kapitelübersicht</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Wähle ein Kapitel aus!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -312,6 +350,7 @@
                                                 <div class="mdl-cell mdl-cell--4-col"></div>
                                                 <div class="mdl-cell mdl-cell--4-col">
                                                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_chap1--start" >Kapitel 1 - Mythen</button>
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="eat_chap2--start" >Kapitel 2 - Tipps</button>
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--4-col"></div>
                                             </div>
@@ -332,13 +371,20 @@
                             <h1>Ernährung</h1>
                             <article data-id="eat_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;">Einleitung</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Das Quiz</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;">Einleitung</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Das Quiz</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Wer isst schon normal?
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -367,14 +413,20 @@
                             </article>
                             <article data-id="eat_chap1--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Frage 1</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 1 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            "Keine Kohlenhydrate am Abend essen!"
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 1</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    "Keine Kohlenhydrate am Abend Essen!"
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -398,17 +450,24 @@
                             </article>
                             <article data-id="eat_chap1--a1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Antwort 1</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 1 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Keine Kohlenhydrate am Abend essen!<br>
-                                            Ein häufig genannter Ernährungstipp für Menschen, die abnehmen möchten, ist folgender: “Iss‘ keine Kohlenhydrate am Abend! Das macht nämlich dick, weil wir Menschen nachts schneller Fett aufbauen!”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 1</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Keine Kohlenhydrate am Abend essen!<br>
+                                                    Ein häufig genannter Ernährungstipp für Menschen, die abnehmen möchten, ist folgender: “Iss‘ keine Kohlenhydrate am Abend! Das macht nämlich dick, weil wir Menschen nachts schneller Fett aufbauen!”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
+
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content answer">
                                             <div class="mdl-grid">
@@ -445,16 +504,23 @@
                             </article>
                             <article data-id="eat_chap1--q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Frage 2</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 2 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            “Fett ist ungesund”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 2</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    “Fett ist ungesund”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
+
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
                                                         <div class="module yesOrNo"
@@ -476,16 +542,21 @@
                             </article>
                             <article data-id="eat_chap1--a2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Antwort 2</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 2 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Fett ist ungesund!<br>
-                                            „Fett macht fett“, diesen Satz hast du sicher schon oft gehört.
-
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 2</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Fett ist ungesund!<br>
+                                                    „Fett macht fett“, diesen Satz hast du sicher schon oft gehört.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -524,14 +595,20 @@
                             </article>
                             <article data-id="eat_chap1--q3">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Frage 3</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 3</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            “Smoothies helfen beim Abnehmen”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 3</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    “Smoothies helfen beim Abnehmen”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -555,16 +632,21 @@
                             </article>
                             <article data-id="eat_chap1--a3">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Antwort 3</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 3</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Smoothies helfen beim Abnehmen!<br>
-                                            Kiloweise Spinat, Beeren, Äpfel, Bananen und ein paar Eiswürfel in den Mixer, alles schön cremig rühren und fertig ist dein Guten-Morgen-Smoothie, der perfekte Diät-Drink. Richtig? Falsch!
-
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 3</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Smoothies helfen beim Abnehmen!<br>
+                                                    Kiloweise Spinat, Beeren, Äpfel, Bananen und ein paar Eiswürfel in den Mixer, alles schön cremig rühren und fertig ist dein Guten-Morgen-Smoothie, der perfekte Diät-Drink. Richtig? Falsch!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -599,14 +681,20 @@
                             </article>
                             <article data-id="eat_chap1--q4">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Frage 4</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 4</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            “Vegane Ernährung ist schädlich”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 4</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    "Vegane Ernährung ist schädlich"
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -630,15 +718,21 @@
                             </article>
                             <article data-id="eat_chap1--a4">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Antwort 4</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 4</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Vegane Ernährung ist schädlich<br>
-                                            Kein Fleisch, kein Fisch und auch weder Milch noch Eier. Viele denken: “Da kann man ja vor lauter Mangelerscheinungen nur krank werden”. Doch stimmt das?
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 4</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Vegane Ernährung ist schädlich<br>
+                                                    Kein Fleisch, kein Fisch und auch weder Milch noch Eier. Viele denken: “Da kann man ja vor lauter Mangelerscheinungen nur krank werden”. Doch stimmt das?
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -669,14 +763,20 @@
                             </article>
                             <article data-id="eat_chap1--q5">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Frage 5</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 5</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            “Das Frühstück ist die wichtigste Mahlzeit am Tag”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Frage 5</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    “Das Frühstück ist die wichtigste Mahlzeit am Tag”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -700,16 +800,22 @@
                             </article>
                             <article data-id="eat_chap1--a5">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;"></h2>
-                                        <h2 style="display: none">Antwort 5</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 5</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Das Frühstück ist die wichtigste Mahlzeit am Tag
-                                            <br>
-                                            “Iss’ morgens wie ein Kaiser, mittags wie ein König und abends wie ein Bettler”. Vielleicht hast auch du als Kind diesen oder einen ähnlichen Spruch von deinen Eltern oft gehört. Viele Personen sind der Auffassung, dass das Frühstück die wichtigste Mahlzeit des Tages sei. Doch stimmt das? Nein. Keine Mahlzeit ist grundsätzlich “wichtiger” als eine andere.
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Antwort 5</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Das Frühstück ist die wichtigste Mahlzeit am Tag
+                                                    <br>
+                                                    “Iss’ morgens wie ein Kaiser, mittags wie ein König und abends wie ein Bettler”. Vielleicht hast auch du als Kind diesen oder einen ähnlichen Spruch von deinen Eltern oft gehört. Viele Personen sind der Auffassung, dass das Frühstück die wichtigste Mahlzeit des Tages sei. Doch stimmt das? Nein. Keine Mahlzeit ist grundsätzlich “wichtiger” als eine andere.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -743,15 +849,26 @@
                                     </div>
                                 </div>
                             </article>
-                            <article data-id="eat_chap1--tipps">
+                        </section>
+                        <!-- TODO EAT CHAP 2 TIPPS-->
+                        <section data-linear="1" data-id="eat_chap2" data-finished="mainmenu--start" data-not-in-header="">
+                            <h1>Ernährung</h1>
+                            <article data-id="eat_chap2--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none">Tipps</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Ernährungsmythen - Tipps und Tricks</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            TBA
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display:none;"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 2 - Tipps</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Hier erfährst du Tipps!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/eat.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -792,6 +909,17 @@
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
+                                            <div class="mdl-grid menu-item__title--border-bottom">
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <img src="src/images/sport.png">
+                                                    <div class="menu-item__title">Sport</div>
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+
+                                            </div>
                                             <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--1-col"></div>
                                                 <div class="mdl-cell mdl-cell--10-col">
@@ -829,12 +957,19 @@
                             </article>
                             <article data-id="sport_menu_end">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Kapitelübersicht</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Wähle ein Kapitel aus
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 class="mdl-card__title-text">Kapitelüberischt</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                   Wähle ein Kapitel aus!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -852,13 +987,6 @@
                                                 <div class="mdl-cell mdl-cell--4-col"></div>
                                             </div>
                                         </div>
-                                        <div class="main-help border-bottom">
-                                            <div class="mascot mascot--right mascot--speech green autoplay">
-                                                <wrong>Das war leider Falsch!</wrong>
-                                                <say data-delay="2000">Wähle ein Kapiel aus</say>
-                                                <tip data-delay="2000">Klicke "Abschliessen" um das Kapitel zu beenden</tip>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -868,15 +996,20 @@
                             <h1>Sport</h1>
                             <article data-id="sport_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display:none;">Einleitung</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Das Quiz</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-
+                                <div class="header">
+                                    <div class="header__text">
+                                        <div class="mdl-card__title">
+                                            <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Einleitung</h2>
+                                        </div>
+                                        <div class="main-header">
+                                            <div class="mdl-card__supporting-text">
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="header__icon">
+                                        <img src="src/images/sport.png">
+                                    </div>
+                                </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
                                             <div class="mdl-grid">
@@ -901,17 +1034,24 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    </div>
                             </article>
                             <article data-id="sport_chap1--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 1 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            “Fettpolster killt man nur durch hartes Training: no pain, no gain!”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 1</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    “Fettpolster killt man nur durch hartes Training: no pain, no gain!”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -935,15 +1075,23 @@
                             </article>
                             <article data-id="sport_chap1--q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 2 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            ”Bereits ein Bierchen nach dem Sport ist ungesund!”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 2</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    ”Bereits ein Bierchen nach dem Sport ist ungesund!”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
+
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
                                             <div class="module yesOrNo"
@@ -965,13 +1113,20 @@
                             </article>
                             <article data-id="sport_chap1--q3">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 3 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            ”Besser erst nach dem Sport trinken - sonst riskiert man unnötig ein Völlegefühl”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 3</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    ”Besser erst nach dem Sport trinken - sonst riskiert man unnötig ein Völlegefühl”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -995,13 +1150,20 @@
                             </article>
                             <article data-id="sport_chap1--q4">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 4 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            ”Auch nach dem Sport verbrennt der Körper Fett”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 4</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    ”Auch nach dem Sport verbrennt der Körper Fett”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1025,13 +1187,20 @@
                             </article>
                             <article data-id="sport_chap1--q5">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 5 </h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            “Dehnen vor dem Sport verringert das Verletzungrisiko!”
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - Sportmythen - Frage 5</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    “Dehnen vor dem Sport verringert das Verletzungrisiko!”
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1060,13 +1229,20 @@
                             <h1>Sport</h1>
                             <article data-id="sport_chap2--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none">1</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Warum solltest Du überhaupt Sport treiben?
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">1</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Warum solltest Du überhaupt Sport treiben?
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1096,13 +1272,20 @@
                             </article>
                             <article data-id="sport_chap2--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none">2</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Welche Sportart kommt für Dich in Frage?
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">2</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Welche Sportart kommt für Dich in Frage?
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1137,14 +1320,22 @@
                             </article>
                             <article data-id="sport_chap2--q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none">3</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Wie reagiert der Körper auf Training?<br>
-                                            Muskelaufbau
+
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">3</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Wie reagiert der Körper auf Training?<br>
+                                                    Muskelaufbau
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1155,7 +1346,7 @@
                                                     Wenn du dein Training selbstständig gestalten möchtest, wirst du die schnellsten Erfolge erzielen, wenn du im Hinterkopf behältst, wie wir Menschen Muskeln aufbauen.
                                                     Muskeln befinden sich normalweise in einem Zustand der Selbstregulation, sie sind "im Gleichgewicht". Absolvierst du dein erstes Training, so sind die Muskeln direkt danach erschöpft und weniger leistungsfähig als vor der Trainingsbelastung. Dann beginnen sie sich zu erholen. Hierbei kehren sie jedoch nicht in ihren Ausgangszustand zurück, sie werden sogar noch ein wenig leistungsfähiger als zuvor. Dieser Prozess nennt sich Superkompensiation. Trainiert man dann aber nicht erneut, kehren sie nach einiger Zeit doch in ihren Ausgangszustand zurück.
                                                     <br>
-                                                    <img src="src/images/sport_chap2_q2_1.png" alt="Superkompensation" onclick="showLighboxCenter(this)">
+                                                    <img src="src/images/sport_chap2_q2_1.png" alt="Superkompensation" onclick="showLighboxCenter(this)" class="shadow clickable">
                                                     Die Idee hinter erfolgreichem Training ist also, diesen letzten Schritt zu verhindern, indem man rechtzeitig erneut trainiert. Der Trick hierbei besteht darin, zeitlich möglichst den höchsten Punkt der Superkompensation zu treffen und nicht etwa zu trainieren, während sich die Muskeln noch erholen und geschwächt sind.
                                                     Was bedeutet das jetzt genau für dich und dein Training?
                                                     Manchmal ist weniger mehr! Wenn du so viel trainierst, dass deine Muskeln keine Möglichkeit zur Erholung haben, behinderst du deinen eigenen Trainingserfolg. Du solltest also Ruhetage einplanen, wenn du dir einen Trainingsplan erstellen möchtest. Wenn du dann etwas fitter bist und so großen Gefallen am Sport findest, sodass dir ein Tag ohne Training langweilig erscheint, könntest du dieses Wissen erneut anwenden. So könntest du beispielsweise an geraden Kalendertagen den Oberkörper und an ungeraden Kalendertagen die Beine trainieren und die jeweils andere Muskelgruppe schonen.
@@ -1180,14 +1371,21 @@
                             </article>
                             <article data-id="sport_chap2--q3">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Wie reagiert der Körper auf Training?<br>
-                                            Muskelkater
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">4</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 2 - Basiswissen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Wie reagiert der Körper auf Training?<br>
+                                                    Muskelkater
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1197,7 +1395,7 @@
                                                 <div class="mdl-cell mdl-cell--10-col">
                                                     Stell dir vor, du warst vormittags Joggen und hast dich dabei so richtig ausgepowert. Du legst dich am Abend zufrieden ins Bett. Am nächsten Tag kommst du jedoch kaum noch die Treppe hoch! Dieses unangenehme Gefühl, das den allermeisten Menschen sicher bekannt ist, ist der Muskelkater.
                                                     <br>
-                                                    <img src="src/images/sport_chap2_q3_1.png" alt="Superkompensation">
+                                                    <img src="src/images/sport_chap2_q3_1.png" alt="Superkompensation" onclick="showLighboxCenter(this)" class="shadow clickable">
                                                     Muskelkater tritt etwa sechs bis acht Stunden nach einem intensiven oder ungewohnten Training auf und erreicht seinen Höhepunkt etwa nach 48 Stunden. Da das Auftreten von Muskelkater von der Art des Trainings, der Genetik, sowie der Ernährung abhängt, handelt es sich bei diesen Zeitangaben lediglich um grobe Schätzungen.
                                                     Aber was ist Muskelkater überhaupt? Und was haben Kater damit zu tun?
                                                     Letztere Frage lässt sich schnell beantworten: Der Muskelkater verdankt seinen Namen nämlich nicht dem sympathischen Pelzträger, stattdessen beruht die Benennung wahrscheinlich auf der Eindeutschung des Wortes Katarrh ("Entzündung"). Die erste Frage ist in der Vergangenheit immer wieder Gegenstand wissenschaftlicher Debatten gewesen, mittlerweile gehen jedoch viele Sportwissenschaftler und -mediziner davon aus, dass durch die Überbelastung des Muskels feinste Risse im Muskelgewebe entstehen und Entzündungen verursacht werden. Die Entzündungsstoffe verursachen erst zeitlich versetzt Schmerzen, da die Muskelfasern selbst nicht über zur Schwerzweiterleitung notwendige Nerven verfügen. Der Körper spült nach einiger Zeit jedoch die Entzündungsstoffe aus, sodass sie in umliegendes Gewebe gelangen und dann Schmerzen verursachen.
@@ -1233,12 +1431,20 @@
                             <h1>Sport</h1>
                             <article data-id="sport_chap3--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 3 - Krafttraining</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 3 - Krafttraining</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1313,13 +1519,21 @@
                             </article>
                             <article data-id="sport_chap3--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 3 - Krafttraining</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Exkurs: Trainingsbelastung und Puls
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 3 - Krafttraining</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Exkurs: Trainingsbelastung und Puls
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1425,12 +1639,20 @@
                             <h1>Sport</h1>
                             <article data-id="sport_chap4--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauersport und Abnehmen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauer und Abnehmen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1457,12 +1679,20 @@
                             </article>
                             <article data-id="sport_chap4--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauersport und Abnehmen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauer und Abnehmen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1495,12 +1725,20 @@
                             </article>
                             <article data-id="sport_chap4--q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauersport und Abnehmen</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauer und Abnehmen</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1538,12 +1776,20 @@
                             </article>
                         <article data-id="sport_chap4--q3">
                             <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title">
-                                    <h2 style="display: none"></h2>
-                                    <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauersport und Abnehmen</h2>
-                                </div>
-                                <div class="main-header">
-                                    <div class="mdl-card__supporting-text">
+                                <div class="header">
+                                    <div class="header__text">
+                                        <div class="mdl-card__title">
+                                            <h2 style="display: none"></h2>
+                                            <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauer und Abnehmen</h2>
+                                        </div>
+                                        <div class="main-header">
+                                            <div class="mdl-card__supporting-text">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="header__icon">
+                                        <img src="src/images/sport.png">
                                     </div>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
@@ -1571,13 +1817,21 @@
                         </article>
                         <article data-id="sport_chap4--q4">
                             <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title">
-                                    <h2 style="display: none"></h2>
-                                    <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauersport</h2>
-                                </div>
-                                <div class="main-header">
-                                    <div class="mdl-card__supporting-text">
-                                        Ausdauertraining
+                                <div class="header">
+                                    <div class="header__text">
+                                        <div class="mdl-card__title">
+                                            <h2 style="display: none"></h2>
+                                            <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauer und Abnehmen</h2>
+                                        </div>
+                                        <div class="main-header">
+                                            <div class="mdl-card__supporting-text">
+                                                Ausdauertraining
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="header__icon">
+                                        <img src="src/images/sport.png">
                                     </div>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
@@ -1619,13 +1873,21 @@
                         </article>
                         <article data-id="sport_chap4--q5">
                             <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title">
-                                    <h2 style="display: none"></h2>
-                                    <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauersport</h2>
-                                </div>
-                                <div class="main-header">
-                                    <div class="mdl-card__supporting-text">
-                                        Abnehmen
+                                <div class="header">
+                                    <div class="header__text">
+                                        <div class="mdl-card__title">
+                                            <h2 style="display: none"></h2>
+                                            <h2 class="mdl-card__title-text">Kapitel 4 - Ausdauer und Abnehmen</h2>
+                                        </div>
+                                        <div class="main-header">
+                                            <div class="mdl-card__supporting-text">
+                                                Abnehmen
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="header__icon">
+                                        <img src="src/images/sport.png">
                                     </div>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
@@ -1665,12 +1927,20 @@
                             <h1>Sport</h1>
                             <article data-id="sport_chap5--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1708,12 +1978,20 @@
                             </article>
                             <article data-id="sport_chap5--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1761,12 +2039,20 @@
                             </article>
                             <article data-id="sport_chap5--q2">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1808,13 +2094,21 @@
                             </article>
                             <article data-id="sport_chap5--q3">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Dehnen
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 5 - Regeneration</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Dehnen
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/sport.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1852,7 +2146,7 @@
                             </section>
 
                         <!-- TODO MOTIVATION MENU -->
-                        <section data-linear="1" data-id="motivation_menu" data-finished="sport_menu--start" data-finished="mainmenu--start" data-not-in-header="">
+                        <section data-linear="1" data-id="motivation_menu"  data-finished="motivation--start" data-not-in-header="">
                             <h1>Motivation</h1>
                             <article data-id="motivation_menu--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -1867,6 +2161,17 @@
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class = "test">
                                         <div class="main-content">
+                                            <div class="mdl-grid menu-item__title--border-bottom">
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <img src="src/images/motivation.png">
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="menu-item__title">Motivation</div>
+
+                                            </div>
 
 
                                             <div class="mdl-grid">
@@ -1939,12 +2244,20 @@
                             </article>
                             <article data-id="motivation_menu--end">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 class="mdl-card__title-text">Kapitelübersicht</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
-                                            Wähle ein Kapitel aus
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 class="mdl-card__title-text">Kapitelauswahl</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Wähle ein Kapitel aus!
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/motivation.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -1973,12 +2286,20 @@
                             <h1>Motivation</h1>
                             <article data-id="motivation_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none">1</h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - SMARTe Ziele</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">1</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - SMARTe Ziele</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/motivation.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -2006,12 +2327,20 @@
                             </article>
                             <article data-id="motivation_chap1--q1">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
-                                    <div class="mdl-card__title">
-                                        <h2 style="display: none"></h2>
-                                        <h2 class="mdl-card__title-text">Kapitel 1 - SMARTe Ziele</h2>
-                                    </div>
-                                    <div class="main-header">
-                                        <div class="mdl-card__supporting-text">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">2</h2>
+                                                <h2 class="mdl-card__title-text">Kapitel 1 - SMARTe Ziele</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/motivation.png">
                                         </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
@@ -2058,6 +2387,236 @@
                                 </div>
                             </article>
                             </section>
+                        <!-- TODO TEST MENU NOT_AT_USE -->
+                        <section data-linear="1" data-id="test_menu" data-not-in-header="" data-finished="mainmenu--start">
+                            <h1>Abschlussquiz</h1>
+                            <article data-id="test_menu--start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="mdl-card__title">
+                                        <h2 class="mdl-card__title-text">Einleitung</h2>
+                                    </div>
+                                    <div class="main-header">
+                                        <div class="mdl-card__supporting-text">
+                                            Sport - Wenn schon, dann richtig!
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid menu-item__title--border-bottom">
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <img src="src/images/test.png">
+                                                    <div class="menu-item__title">Abschlussquiz</div>
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+
+                                                    Klicke weiter, um zum Abschlussquiz zu gelangen.
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article data-id="test_menu_end">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 class="mdl-card__title-text">Start</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Starte das Abschlussquiz
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/test.png">
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="test_chap1--start" >Starten</button>
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--4-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Wähle ein Kapiel aus</say>
+                                                <tip data-delay="2000">Klicke "Abschliessen" um das Kapitel zu beenden</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <!-- TODO TEST CHAP 1 -->
+                        <section data-linear="1" data-id="test_chap1" data-not-in-header="" data-finished="test_menu--start">
+                            <h1>Abschlussquiz</h1>
+                            <article data-id="test_chap1--start">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none">Einleitung</h2>
+                                                <h2 class="mdl-card__title-text">Abschlussquiz - Einleitung</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/test.png">
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--2-col">
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--8-col">
+                                                    <img src="src/images/test.png">
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+                                                    "Wie treibe ich richtig Sport? Welcher Sport passt zu mir und wie treibe ich überhaupt richtig Sport? Bringt Sport nur etwas, wenn es wehtut?“. Unser Quiz wird Dich in die Welt der hartnäckigsten Sportmythen einführen.
+                                                    <br>
+                                                    Das Quiz besteht aus fünf Aussagen. Deine Aufgabe ist es, zu entscheiden, ob diese stimmen oder nicht. Danach erhältst du sofort eine Rückmeldung, ob du richtig gelegen hast oder nicht. Außerdem erhältst du weiterführende Informationen.
+                                                    <br><br>
+                                                    <strong>Teste Dein Wissen und starte mit dem Quiz!</strong>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                            </div>
+                                        </div>
+                                        <div class="main-help border-bottom answer">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="1000">Hallo, ich bin Brocci!</say>
+                                                <say data-delay="2000">Ich habe eien Broccoli-Kopf</say>
+                                                <say data-delay="2000">Das sieht manchmal kacke aus...</say>
+                                                <tip data-delay="1000">Ich bin ein Tipp</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article data-id="test_chap1--q1">
+                                <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
+                                    <div class="header">
+                                        <div class="header__text">
+                                            <div class="mdl-card__title">
+                                                <h2 style="display: none"></h2>
+                                                <h2 class="mdl-card__title-text">Abschlussquiz - Frage 1</h2>
+                                            </div>
+                                            <div class="main-header">
+                                                <div class="mdl-card__supporting-text">
+                                                    Text zu FRage 1
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="header__icon">
+                                            <img src="src/images/test.png">
+                                        </div>
+                                    </div>
+                                    <div class="mdl-card__actions mdl-card--border">
+                                        <div class="main-content">
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+
+                                                    <img src="src/images/sport_chap2_q3_1.png" alt="Superkompensation" onclick="showLighboxCenter(this)" class="shadow clickable">
+
+
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--10-col">
+
+                                                    Hier steht die frage
+
+
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="test_chap1--start">Antwort 1</button>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="test_chap1--start">Antwort 2</button>
+                                                </div>
+
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+
+                                            </div>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="test_chap1--start">Antwort 3</button>
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--4-col">
+                                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button-green mdl-button-wide evaluation-item customWalker" data-target="test_chap1--start">Antwort 4</button>
+                                                </div>
+
+                                                <div class="mdl-cell mdl-cell--1-col"></div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="main-help border-bottom">
+                                            <div class="mascot mascot--right mascot--speech green autoplay">
+                                                <wrong>Das war leider Falsch!</wrong>
+                                                <say data-delay="2000">Denk mal nach ...</say>
+                                                <tip data-delay="2000">"Ich habe hier keinen Tipp für dich"</tip>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            </section>
                     </div>
                     <div class="mdl-layout-spacer"></div>
                 </div>
@@ -2069,7 +2628,7 @@
 <script src="src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/dist/stepper.min.js" type="text/javascript" charset="utf-8" defer></script>
-
+<script src="src/js/controller/questionController.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/application.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/abstractViewController.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/controller/profile.js" type="text/javascript" charset="utf-8"></script>
@@ -2091,9 +2650,14 @@
 <!--<script src="src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>-->
 <div id="lightbox__center">
     <div class="close-overlay" onclick="hideLightboxBackground();">
-        X
+        <svg height="100%" width="100%">
+            <line x1="10%" y1="10%" x2="90%" y2="90%" style="stroke:rgb(0,0,0);stroke-width:10%" />
+            <line x1="90%" y1="10%" x2="10%" y2="90%" style="stroke:rgb(0,0,0);stroke-width:10%" />
+        </svg>
     </div>
-    <div id="lightbox__center--content"></div>
+    <div id="lightbox__center--content">
+
+    </div>
 </div>
 <div id="lightbox__background"></div>
 </body>

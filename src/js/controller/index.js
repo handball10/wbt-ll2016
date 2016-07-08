@@ -38,9 +38,12 @@ Main.controller.indexView = (function(){
 
 })();
 
+$('.mdl-layout-title').on('click',function(){
+    console.log("title");
+});
+
 function showLighboxCenter(temp){
     $('#lightbox__center').css('display','block');
-    console.log(temp.src);
     var div = document.createElement("div");
     div.style.backgroundImage = "url('"+temp.src+"')";
     div.style.backgroundPosition = "center";
