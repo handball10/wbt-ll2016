@@ -556,6 +556,7 @@ App.SectionManager = {
 
 
                         currentStep.find('.mascot--init').trigger('article::load');
+                        currentStep.find('.result.circle').trigger('article::load');
 
                         //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
 
@@ -575,6 +576,8 @@ App.SectionManager = {
                         var currentContent = currentStep.find('.mdl-step__content > article');
 
                         currentStep.find('.mascot--init').trigger('article::load');
+                        currentStep.find('.result.circle').trigger('article::load');
+
 
                         $container.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px");
 

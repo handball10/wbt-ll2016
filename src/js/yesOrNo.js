@@ -64,10 +64,6 @@ App.ModuleManager.extend("YesOrNo",
 
                 var parentArticle = $t.parent().parent().parent();
 
-                console.log(parentArticle);
-
-                parentArticle.addClass('hallllloooo');
-
                 // generate ID
                 var id = App.Helper.generateUniqueID();
                 $contentContainer.attr('id', id);
@@ -77,11 +73,15 @@ App.ModuleManager.extend("YesOrNo",
                     .find('div.quest-answer')
                     .on('click', function(){
                         var $this = $(this);
-                        $contentGrid.find('div.quest-answer').removeClass('active');
+                        $contentGrid
+                            .find('div.quest-answer')
+                            .removeClass('active')
+                            .off('click')
+                        ;
                         $this.addClass('active');
                         $contentGrid.attr('data-selected', $this.hasClass('quest-cross') ? 0 : 1);
 
-                        thisHelper.validator($this.hasClass('quest-cross') ? 0 : 1, $contentGrid.data('answer'), parentArticle, id);
+                        thisHelper.validator($this.hasClass('quest-cross') ? 0 : 1, parseInt($contentGrid.data('answer'), 10), parentArticle, id);
                     });
 
                 $contentContainer.append($contentGrid);
@@ -94,28 +94,10 @@ App.ModuleManager.extend("YesOrNo",
                     .append($spacer.clone())
                 ;
 
-
-
-
                 Main.controller.question.addQuestion(section.attr('id'), id);
 
                 $t.replaceWith($container);
 
-
-                //Main.controller.question.
-
-                //console.log(parentArticle);
-                //
-                //App.ModuleManager.registerPreparedModule(id,
-                //    {
-                //        id: id,
-                //        parentArticle: parentArticle.attr("id"),
-                //        selector: $('#'+id),
-                //        isValidator: true,
-                //        validate: thisHelper.validator,
-                //        finished: false
-                //    }
-                //);
             });
         },
 
@@ -126,8 +108,6 @@ App.ModuleManager.extend("YesOrNo",
             } else {
                 Main.controller.question.addAnswer(questionId, article, false);
             }
-
-
 
             return true;
         }

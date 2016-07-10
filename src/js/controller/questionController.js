@@ -1,7 +1,7 @@
 /**
  * Created by flori on 05.07.2016.
  */
-
+var Main = Main || {};
 
 Main.controller.question = (function(){
 
@@ -9,17 +9,11 @@ Main.controller.question = (function(){
         questions = {}
     ;
 
-    var init = function(){
-
-
-
-
-
-    };
-
     var addSection = function(sectionID){
         sections[sectionID] = {
-            questions : []
+            questions : [],
+            rightCount : 0,
+            wrongCount : 0
         };
     };
 
@@ -39,9 +33,9 @@ Main.controller.question = (function(){
 
     var addAnswer = function(questionId, article, correct){
 
-        console.log(questionId, correct);
-
         if(!questions[questionId]) return;
+
+        console.log('question found');
 
         questions[questionId].answered = true;
         questions[questionId].correct  = correct;
@@ -49,33 +43,67 @@ Main.controller.question = (function(){
         // find mascot
         var mascot = article.find('.mascot');
 
-        console.log(mascot);
-
         correct ? mascot.trigger('article::right') : mascot.trigger('article::wrong');
 
+        mascot
+            .off('article::right')
+            .off('article::wrong')
+        ;
 
     };
 
-
-
+    function getAnswer(questionID){
+        return questions[questionID];
+    }
 
     var getSectionResult = function(sectionName){
 
         if(!sections[sectionName]){
-            return;
+            return {
+                right : 0,
+                wrong : 0,
+                count : 0
+            };
         }
 
+        var currentSection = sections[sectionName];
+        var questions = currentSection.questions,
+            right = 0,
+            wrong = 0,
+            currentAnswer
+        ;
+
+        for(var i = 0; i < questions.length; i++){
+
+            console.log('walking');
+
+            currentAnswer = getAnswer(questions[i]);
+
+            console.log(currentAnswer);
+
+            if(currentAnswer.answered){
+                currentAnswer.correct ? right++ : wrong++;
+
+            }
+        }
+
+        currentSection.rightCount = right;
+        currentSection.wrongCount = wrong;
+
+        return {
+            right : currentSection.rightCount,
+            wrong : currentSection.wrongCount,
+            count : questions.length / 2
+        };
 
     };
-
-
-
 
     return {
         init : init,
         addSection : addSection,
         addAnswer : addAnswer,
-        addQuestion : addQuestion
+        addQuestion : addQuestion,
+        getSectionResult : getSectionResult
     }
 
 })();

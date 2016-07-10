@@ -403,3 +403,8 @@ img.disabled {
 	width:auto;
 
 }
+
+.result.circle {
+	width: 100%;
+	margin: 20px;
+}
