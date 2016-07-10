@@ -106,6 +106,10 @@ h1{
 	display: block;
 }
 
+.main-content a{
+	color: #3c3c3c;
+}
+
 .main-content table{
 	margin: 0 auto;
 }
