@@ -102,7 +102,8 @@ h1{
 .main-content img{
 	max-width: 100%;
 	height:auto;
-	margin: 15px 0;
+	margin: 15px auto;
+	display: block;
 }
 
 .main-content table{
@@ -112,6 +113,10 @@ h1{
 .main-content ul li{
 	list-style-type: circle;
 	margin-left:20px;
+}
+
+.main-content ol li{
+	margin-left:-20px;
 }
 
 .main-content ol li{
@@ -233,11 +238,12 @@ h1{
 }
 
 .evaluation-headline{
-	border-bottom:1px solid gray;
+	border-bottom:1px solid darkgrey;
 	width: 100%;
 	float:left;
 	height:30px;
 	margin-top:15px;
+	font-weight: 800;
 }
 
 .evaluation-item{
@@ -245,6 +251,11 @@ h1{
 	float:left;
 	height:30px;
 	margin-top:10px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.evaluation-item:last-child{
+	border:none;
 }
 
 .evaluation-line{
@@ -328,15 +339,12 @@ body{
 	cursor: pointer;
 }
 
-
 .menu-item img:hover {
 	 -webkit-filter: drop-shadow(0px 0px 8px #67b168);
 }
 
 .menu-item:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-
 }
 
 .menu-item__title{
@@ -355,11 +363,55 @@ h1{
 	display:none;
 }
 
-img.shadow{
+.shadow{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-img.clickable{
+.textbox--red{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 96%;
+	height:auto;
+	padding:2%;
+	margin-top:25px;
+	margin-bottom:25px;
+	border: 1px solid lightcoral;
+}
+
+.textbox{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 96%;
+	height:auto;
+	padding:2%;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+.textbox--small{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+padding:5px;
+
+}
+
+img.right{
+	float:right;
+	width: 30%;
+	margin-left:50px;
+	min-width: 200px;
+	margin-bottom:50px;
+}
+
+img.big{
+	min-width: 100%;
+}
+
+@media(max-width:768px){
+	img.right{
+		width: 100%;
+	}
+
+}
+
+.clickable{
 	cursor: pointer;
 }
 
@@ -387,7 +439,6 @@ img.disabled {
 
 .header{
 	display: flex;
-
 }
 
 .header__text{
@@ -401,5 +452,49 @@ img.disabled {
 .header__icon img{
 	height: 100%;
 	width:auto;
+}
 
+.text-invisible{
+	display:none;
+}
+
+#lightbox__center{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+.circle{
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	border: 1px solid darkgrey;
+	overflow: hidden;
+}
+.quader{
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.quader img{
+	margin: 0 auto;
+}
+
+.circle img{
+	margin:0;
+}
+
+.circle__text{
+	width: 100%;
+	text-align: center;
+	font-size: 1em;
+	color: #67b168;
+	margin-top:10px;
+}
+
+.circle__text--black{
+	color:black;
 }
