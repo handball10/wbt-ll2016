@@ -65,3 +65,35 @@ function hideLightboxBackground(){
     $('#lightbox__background').css('display','none');
 
 }
+
+function showTextbox(temp){
+    //$('.text-invisible').css('display','none');
+    if($(temp).next().hasClass('text-invisible')){
+        $(temp).next().removeClass('text-invisible');
+    }else {
+        $(temp).next().addClass('text-invisible');
+    }
+
+}
+
+function showText(temp) {
+
+
+    if($("."+temp.id+"--text").hasClass('text-invisible')){
+        $("."+temp.id+"--text").removeClass('text-invisible');
+    }else {
+        $("."+temp.id+"--text").addClass('text-invisible');
+    }
+    console.log("."+temp.id+"--text");
+}
+
+function colorImage(temp){
+    $(temp).find('img').removeClass('disabled');
+    $(temp).find('.circle__text').removeClass('circle__text--black');
+}
+
+function blackImage(temp){
+    $(temp).find('img').addClass('disabled');
+    $(temp).find('.circle__text').addClass('circle__text--black');
+
+}
