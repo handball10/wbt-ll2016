@@ -20,7 +20,7 @@ App.ModuleManager.extend("Result",
                 var $container = $('<div class="mdl-grid"></div>'),
                     $spacer = $('<div class="mdl-cell mdl-cell--2-col"></div>'),
                     $contentContainer = $('<div class="mdl-cell mdl-cell--8-col"></div>'),
-                    $circleContainer = $('<div class="result circle"></div>'),
+                    $circleContainer = $('<div class="result circleFinished"></div>'),
                     $t = $(this)
                 ;
 
@@ -46,7 +46,7 @@ App.ModuleManager.extend("Result",
                     document.getElementById(id),
                     {
                         strokeWidth: 15,
-                        color: '#FFEA82',
+                        color: '#fff',
                         trailColor: '#eee',
                         trailWidth: 1,
                         easing: 'easeInOut',
@@ -80,6 +80,7 @@ App.ModuleManager.extend("Result",
 
                         var sectionResult = Main.controller.question.getSectionResult(sectionId);
 
+                        console.log(sectionResult);
 
                         bar.animate(sectionResult.right / sectionResult.count);
                     }

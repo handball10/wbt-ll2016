@@ -24,6 +24,10 @@ Main.controller.question = (function(){
             addSection(sectionID);
         }
 
+        if(sections[sectionID].questions.indexOf(id) > -1){
+            return;
+        }
+
         sections[sectionID].questions.push(id);
 
         questions[id] = {
@@ -35,9 +39,9 @@ Main.controller.question = (function(){
 
     var addAnswer = function(questionId, article, correct){
 
-        if(!questions[questionId]) return;
 
-        console.log('question found');
+
+        if(!questions[questionId]) return;
 
         questions[questionId].answered = true;
         questions[questionId].correct  = correct;
@@ -77,13 +81,10 @@ Main.controller.question = (function(){
 
         for(var i = 0; i < questions.length; i++){
 
-            console.log('walking');
-
             currentAnswer = getAnswer(questions[i]);
 
-            console.log(currentAnswer);
-
             if(currentAnswer.answered){
+
                 currentAnswer.correct ? right++ : wrong++;
 
             }
@@ -92,11 +93,15 @@ Main.controller.question = (function(){
         currentSection.rightCount = right;
         currentSection.wrongCount = wrong;
 
-        return {
+        var result = {
             right : currentSection.rightCount,
             wrong : currentSection.wrongCount,
-            count : questions.length / 2
+            count : questions.length
         };
+
+        console.log(result);
+
+        return result;
 
     };
 

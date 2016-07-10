@@ -20,10 +20,8 @@ App.ModuleManager.extend("FourAnswers",
 
             // prepare every module in the current article
             moduleObject.each(function(index){
-                console.log("Getting Build:: FourAnswers :: ");
 
-
-                var $module    = $('<div class="module fourAnswers"></div>'),
+                var $module    = $('<div class="module fourAnswersWrapper"></div>'),
                     $container = $('<div class="mdl-grid"></div>'),
                     $spacer    = $('<div class="mdl-cell mdl-cell--1-col"></div>'),
                     $spacer2   = $('<div class="mdl-cell mdl-cell--2-col"></div>'),
@@ -92,7 +90,7 @@ App.ModuleManager.extend("FourAnswers",
 
                 }
 
-                var parentArticle = $t.parent().parent().parent().parent();
+                var parentArticle = $t.parent().parent().parent();
 
                 console.log(parentArticle);
 
@@ -120,8 +118,10 @@ App.ModuleManager.extend("FourAnswers",
         validator : function(answer, article, questionId){
 
             if(answer == 1){
+                console.log('right');
                 Main.controller.question.addAnswer(questionId, article, true);
             } else {
+                console.log('wrong');
                 Main.controller.question.addAnswer(questionId, article, false);
             }
 

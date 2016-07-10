@@ -259,6 +259,7 @@ App.ModuleManager = {
     buildAllModules : function(){
         for(section in App.SectionManager.sections){
             for(module in this.modules){
+
                 this.modules[module].wrapperFunction(App.SectionManager.sections[section].selector);
             }
         }
