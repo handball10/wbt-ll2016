@@ -502,4 +502,5 @@ img.disabled {
 .result.circle {
 	width: 100%;
 	margin: 20px;
+	height: 500px;
 }
