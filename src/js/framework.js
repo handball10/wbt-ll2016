@@ -18,7 +18,7 @@ var App = App || {
 
         this.Error.registerErrorEventHandler();
         App.Event.registerCustomEvents();
-        Main.controller.question.init();
+     //   Main.controller.question.init();
 
         this.StorageManager.init();
 
@@ -408,7 +408,7 @@ App.SectionManager = {
                 customId : t.data('id') || sectionID
             };
 
-            Main.controller.question.addSection(thisHelper.sections[sectionID].customId);
+           // Main.controller.question.addSection(thisHelper.sections[sectionID].customId);
 
             //console.log(thisHelper.sections[sectionID]);
             // if this is the first section in the whole document, this is the main section that is displayed

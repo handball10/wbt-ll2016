@@ -466,8 +466,8 @@ img.disabled {
 
 .circle{
 	border-radius: 50%;
-	width: 100px;
-	height: 100px;
+	max-width: 100px;
+	height: auto;
 	margin: 0 auto;
 	border: 1px solid darkgrey;
 	overflow: hidden;
