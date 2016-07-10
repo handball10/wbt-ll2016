@@ -9,6 +9,8 @@ Main.controller.question = (function(){
         questions = {}
     ;
 
+    var init = function(){};
+
     var addSection = function(sectionID){
         sections[sectionID] = {
             questions : [],
