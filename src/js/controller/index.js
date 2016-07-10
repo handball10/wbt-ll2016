@@ -67,7 +67,7 @@ function hideLightboxBackground(){
 }
 
 function showTextbox(temp){
-    //$('.text-invisible').css('display','none');
+    $('.text-invisible').css('display','none');
     if($(temp).next().hasClass('text-invisible')){
         $(temp).next().removeClass('text-invisible');
     }else {
@@ -77,8 +77,7 @@ function showTextbox(temp){
 }
 
 function showText(temp) {
-
-
+    $('.text-invisible').css('display','none');
     if($("."+temp.id+"--text").hasClass('text-invisible')){
         $("."+temp.id+"--text").removeClass('text-invisible');
     }else {
