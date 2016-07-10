@@ -94,6 +94,10 @@ App.ModuleManager.extend("FourAnswers",
 
                 console.log(parentArticle);
 
+                // generate ID
+                var id = App.Helper.generateUniqueID();
+                $module.attr('id', id);
+
                 $module
                     .find('.answer-button')
                     .on('click', function(){
@@ -109,7 +113,8 @@ App.ModuleManager.extend("FourAnswers",
                         thisHelper.validator($this.data('correct'), parentArticle, id);
                     });
 
-                Main.controller.question.addQuestion(section.attr('id'), id);
+
+                Main.controller.question.addQuestion(section.data('id'), id);
 
                 $t.replaceWith($module);
             });

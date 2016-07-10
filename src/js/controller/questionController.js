@@ -12,6 +12,9 @@ Main.controller.question = (function(){
     var init = function(){};
 
     var addSection = function(sectionID){
+
+        console.log('adding section:: '+sectionID);
+
         sections[sectionID] = {
             questions : [],
             rightCount : 0,
@@ -20,11 +23,18 @@ Main.controller.question = (function(){
     };
 
     var addQuestion = function(sectionID, id){
+
+        //console.log('adding question to:: ' + sectionID);
+
+
         if(!sections[sectionID]){
             addSection(sectionID);
         }
 
+        console.log(sections);
+
         if(sections[sectionID].questions.indexOf(id) > -1){
+            //console.log('adding:: already in use:: '+id);
             return;
         }
 
@@ -39,9 +49,9 @@ Main.controller.question = (function(){
 
     var addAnswer = function(questionId, article, correct){
 
-
-
-        if(!questions[questionId]) return;
+        if(!questions[questionId]) {
+            return;
+        }
 
         questions[questionId].answered = true;
         questions[questionId].correct  = correct;
@@ -64,11 +74,13 @@ Main.controller.question = (function(){
 
     var getSectionResult = function(sectionName){
 
+        console.log(sectionName);
+
         if(!sections[sectionName]){
             return {
                 right : 0,
                 wrong : 0,
-                count : 0
+                count : 1
             };
         }
 
@@ -79,16 +91,26 @@ Main.controller.question = (function(){
             currentAnswer
         ;
 
+        console.log(currentSection.questions);
+
         for(var i = 0; i < questions.length; i++){
 
             currentAnswer = getAnswer(questions[i]);
 
             if(currentAnswer.answered){
 
-                currentAnswer.correct ? right++ : wrong++;
+                console.log(currentAnswer);
+
+                if(currentAnswer.correct){
+                    right++;
+                } else {
+                    wrong++;
+                }
 
             }
         }
+
+        console.log(right, wrong);
 
         currentSection.rightCount = right;
         currentSection.wrongCount = wrong;
@@ -96,10 +118,8 @@ Main.controller.question = (function(){
         var result = {
             right : currentSection.rightCount,
             wrong : currentSection.wrongCount,
-            count : questions.length
+            count : currentSection.questions.length / 2
         };
-
-        console.log(result);
 
         return result;
 

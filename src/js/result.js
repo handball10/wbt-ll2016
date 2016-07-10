@@ -76,6 +76,7 @@ App.ModuleManager.extend("Result",
                 bar.text.style.fontSize = '4rem';
 
                 var updateEvent = (function(bar, sectionId){
+
                     return function(){
 
                         var sectionResult = Main.controller.question.getSectionResult(sectionId);
@@ -84,9 +85,9 @@ App.ModuleManager.extend("Result",
 
                         bar.animate(sectionResult.right / sectionResult.count);
                     }
-                })(bar, section.attr('id'));
+                })(bar, $t.data('section'));
 
-                $circleContainer.on('article::load', updateEvent)
+                $circleContainer.on('article::result', updateEvent);
 
 
 

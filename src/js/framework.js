@@ -409,7 +409,7 @@ App.SectionManager = {
                 customId : t.data('id') || sectionID
             };
 
-           // Main.controller.question.addSection(thisHelper.sections[sectionID].customId);
+            Main.controller.question.addSection(thisHelper.sections[sectionID].customId);
 
             //console.log(thisHelper.sections[sectionID]);
             // if this is the first section in the whole document, this is the main section that is displayed
@@ -557,7 +557,7 @@ App.SectionManager = {
 
 
                         currentStep.find('.mascot--init').trigger('article::load');
-                        currentStep.find('.result.circle').trigger('article::load');
+                        currentStep.find('.result.circleFinished').trigger('article::result');
 
                         //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
 
