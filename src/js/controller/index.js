@@ -67,7 +67,7 @@ function hideLightboxBackground(){
 }
 
 function showTextbox(temp){
-    $('.text-invisible').css('display','none');
+    $('.textbox--small').addClass('text-invisible');
     if($(temp).next().hasClass('text-invisible')){
         $(temp).next().removeClass('text-invisible');
     }else {
@@ -77,13 +77,12 @@ function showTextbox(temp){
 }
 
 function showText(temp) {
-    $('.text-invisible').css('display','none');
+    $('.textbox--small').addClass('text-invisible');
     if($("."+temp.id+"--text").hasClass('text-invisible')){
         $("."+temp.id+"--text").removeClass('text-invisible');
     }else {
         $("."+temp.id+"--text").addClass('text-invisible');
     }
-    console.log("."+temp.id+"--text");
 }
 
 function colorImage(temp){
@@ -94,5 +93,22 @@ function colorImage(temp){
 function blackImage(temp){
     $(temp).find('img').addClass('disabled');
     $(temp).find('.circle__text').addClass('circle__text--black');
+
+}
+
+
+
+function moveSlider(temp) {
+    $('.sport_chap4--q1__2').css('width',temp.value+"%");
+}
+
+function showTableRow(temp){
+    if($('.'+temp.id+"--item").hasClass('my-table__row--invisible')){
+        $('.'+temp.id+"--item").removeClass('my-table__row--invisible');
+
+    }else{
+        $('.'+temp.id+"--item").addClass('my-table__row--invisible');
+
+    }
 
 }

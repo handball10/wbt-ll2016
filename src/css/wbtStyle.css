@@ -103,11 +103,11 @@ h1{
 	max-width: 100%;
 	height:auto;
 	margin: 15px auto;
-	display: block;
 }
 
 .main-content a{
-	color: #3c3c3c;
+	color:dodgerblue;
+	text-decoration: none;
 }
 
 .main-content table{
@@ -293,6 +293,9 @@ h1{
 	overflow: hidden;
 }
 
+.mdl-step.is-active .mdl-step__actions {
+	justify-content: flex-end;
+}
 /*.mdl-stepper--horizontal .mdl-step>.mdl-step__actions [data-stepper-next] {*/
 	/*float: right;*/
 /*}*/
@@ -396,6 +399,26 @@ padding:5px;
 
 }
 
+.textbox--answer{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 98%;
+	height:auto;
+	padding:1%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.textbox--answer:hover{
+	background-color: lightgray;
+
+}
+
+.textbox--answer.active{
+	background-color: dodgerblue;
+	color:white;
+
+}
+
 img.right{
 	float:right;
 	width: 30%;
@@ -417,6 +440,11 @@ img.big{
 
 .clickable{
 	cursor: pointer;
+}
+
+.clickable--colored{
+	color:dodgerblue;
+	cursor:pointer;
 }
 
 img:hover{
@@ -507,4 +535,95 @@ img.disabled {
 	width: 100%;
 	margin: 20px;
 	height: 500px;
+}
+
+.answer-button.active{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: green;
+	border:1px solid black;
+
+}
+
+#sport_chap4--q1__1{
+	background: url("../images/sport/s42.jpg");
+	background-size: auto 100%;
+	width: 461px;
+	height: 302px;
+	background-repeat: no-repeat;
+	margin: auto;
+}
+
+
+
+.sport_chap4--q1__2{
+	background: url("../images/sport/s43.jpg");
+	background-size: auto 100%;
+	width: 0%;
+	max-width: 100%;
+	min-width: 1%;
+	border-right: 4px solid red;
+	height: 302px;
+	background-repeat: no-repeat;
+
+}
+
+#sport_chap4--q1__3{
+	width: 461px;
+	height: 20px;
+	margin: auto;
+}
+
+#sport_chap4--q1__3--1{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background-color: red;
+	border-radius: 50%;
+}
+
+#slider{
+	width: 100%;
+}
+
+@media(min-width:1400px){
+	#sport_chap4--q1__1{
+		width: 692px;
+		height: 458px;
+	}
+	.sport_chap4--q1__2{
+		height: 458px;
+	}
+
+}
+
+
+@media(max-width:900px){
+	#sport_chap4--q1__1{
+		width: 346px;
+		height: 229px;
+	}
+	.sport_chap4--q1__2{
+		height: 229px;
+	}
+
+}
+
+
+table, th, td {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+th,td{
+	padding:5px;
+}
+
+
+.my-table__row{
+
+}
+
+.my-table__row--invisible{
+visibility:hidden;
 }
