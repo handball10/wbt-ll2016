@@ -94,7 +94,7 @@ App.ModuleManager.extend("YesOrNo",
                     .append($spacer.clone())
                 ;
 
-                Main.controller.question.addQuestion(section.data('id'), id);
+                Main.controller.question.addQuestion(section.data('id'), parentArticle.attr('id'), id);
 
                 $t.replaceWith($container);
 

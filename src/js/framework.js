@@ -535,17 +535,28 @@ App.SectionManager = {
                 var innerNext = (function(instance, $container){
                     return function(){
 
-                        App.SectionManager.validate();
+                        //App.SectionManager.validate();
 
+
+                        var actualStep = $(instance.getActive());
+                        var actualArticle = actualStep.find('.mdl-step__content > article');
+
+                        if(!Main.controller.question.canProceed(actualArticle.attr('id'))){
+                            return;
+                        }
+
+
+                        //
+                        //console.log($container.attr('id'));
 
 
                         if(!instance.next()) {
                             $container.data('finished') && App.SectionManager.gotoArticle($container.data('finished'));
                         }
-
                         var currentStep = $(instance.getActive());
 
                         var currentContent = currentStep.find('.mdl-step__content > article');
+
 
 
                         console.log(currentContent);

@@ -6,7 +6,8 @@ var Main = Main || {};
 Main.controller.question = (function(){
 
     var sections = {},
-        questions = {}
+        questions = {},
+        articles = {}
     ;
 
     var init = function(){};
@@ -22,16 +23,25 @@ Main.controller.question = (function(){
         };
     };
 
-    var addQuestion = function(sectionID, id){
+    var addQuestion = function(sectionID, articleId, id){
 
         //console.log('adding question to:: ' + sectionID);
+
 
 
         if(!sections[sectionID]){
             addSection(sectionID);
         }
 
-        console.log(sections);
+        //articleId = articleId.replace('_','');
+
+        if(!articles[articleId]){
+            articles[articleId] = [];
+        }
+
+        if(articles[articleId].indexOf(id) === -1){
+            articles[articleId].push(id);
+        }
 
         if(sections[sectionID].questions.indexOf(id) > -1){
             //console.log('adding:: already in use:: '+id);
@@ -74,8 +84,6 @@ Main.controller.question = (function(){
 
     var getSectionResult = function(sectionName){
 
-        console.log(sectionName);
-
         if(!sections[sectionName]){
             return {
                 right : 0,
@@ -91,15 +99,11 @@ Main.controller.question = (function(){
             currentAnswer
         ;
 
-        console.log(currentSection.questions);
-
         for(var i = 0; i < questions.length; i++){
 
             currentAnswer = getAnswer(questions[i]);
 
             if(currentAnswer.answered){
-
-                console.log(currentAnswer);
 
                 if(currentAnswer.correct){
                     right++;
@@ -110,19 +114,32 @@ Main.controller.question = (function(){
             }
         }
 
-        console.log(right, wrong);
-
         currentSection.rightCount = right;
         currentSection.wrongCount = wrong;
 
-        var result = {
+        return {
             right : currentSection.rightCount,
             wrong : currentSection.wrongCount,
             count : currentSection.questions.length / 2
         };
 
-        return result;
+    };
 
+    var canProceed = function(currentArticleId){
+
+        if(typeof articles[currentArticleId] === 'undefined'){
+            return true;
+        } else {
+            var ret = false;
+
+            for(var i = 0; i < articles[currentArticleId].length; i++){
+                ret = questions[articles[currentArticleId][i]].answered;
+
+                if(!ret) break;
+            }
+
+            return ret;
+        }
     };
 
     return {
@@ -130,7 +147,8 @@ Main.controller.question = (function(){
         addSection : addSection,
         addAnswer : addAnswer,
         addQuestion : addQuestion,
-        getSectionResult : getSectionResult
+        getSectionResult : getSectionResult,
+        canProceed : canProceed
     }
 
 })();

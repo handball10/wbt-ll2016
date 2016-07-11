@@ -97,6 +97,9 @@ Main.controller.mascot = (function(){
             // console.log(dialogs.say);
             settings.$blockSelector.removeClass('oval-thought');
 
+            console.log(settings.selector.is(':visible'));
+
+
             // check, if the mascot is visible
             if(!settings.selector.is(':visible')){
                 return;
@@ -156,6 +159,7 @@ Main.controller.mascot = (function(){
                     break;
                 case 'out':
                     // console.log('out');
+                    console.log(settings.$blockSelector);
                     settings.$blockSelector.fadeOut();
 
                     break;
@@ -164,6 +168,8 @@ Main.controller.mascot = (function(){
 
         this.right = function(){
             if(dialogs.right.length === 0) return;
+
+            settings.$blockSelector.removeClass('oval-thought').addClass('oval-speech');
 
             var item = dialogs.right[(Math.floor(Math.random() * dialogs.right.length))];
 
@@ -178,6 +184,8 @@ Main.controller.mascot = (function(){
 
         this.wrong = function(){
             if(dialogs.wrong.length === 0) return;
+
+            settings.$blockSelector.removeClass('oval-thought').addClass('oval-speech');
 
             var item = dialogs.wrong[(Math.floor(Math.random() * dialogs.wrong.length))];
 

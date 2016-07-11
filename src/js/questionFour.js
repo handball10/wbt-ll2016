@@ -113,8 +113,9 @@ App.ModuleManager.extend("FourAnswers",
                         thisHelper.validator($this.data('correct'), parentArticle, id);
                     });
 
+                console.log(parentArticle.attr('id'));
 
-                Main.controller.question.addQuestion(section.data('id'), id);
+                Main.controller.question.addQuestion(section.data('id'), parentArticle.attr('id'), id);
 
                 $t.replaceWith($module);
             });
