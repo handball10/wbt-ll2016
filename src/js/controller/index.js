@@ -67,8 +67,9 @@ function hideLightboxBackground(){
 }
 
 function showTextbox(temp){
-    $('.textbox--small').addClass('text-invisible');
     if($(temp).next().hasClass('text-invisible')){
+        $('.textbox--small').addClass('text-invisible');
+
         $(temp).next().removeClass('text-invisible');
     }else {
         $(temp).next().addClass('text-invisible');
@@ -77,8 +78,8 @@ function showTextbox(temp){
 }
 
 function showText(temp) {
-    $('.textbox--small').addClass('text-invisible');
     if($("."+temp.id+"--text").hasClass('text-invisible')){
+        $('.textbox--small').addClass('text-invisible');
         $("."+temp.id+"--text").removeClass('text-invisible');
     }else {
         $("."+temp.id+"--text").addClass('text-invisible');
@@ -105,10 +106,7 @@ function moveSlider(temp) {
 function showTableRow(temp){
     if($('.'+temp.id+"--item").hasClass('my-table__row--invisible')){
         $('.'+temp.id+"--item").removeClass('my-table__row--invisible');
-
     }else{
         $('.'+temp.id+"--item").addClass('my-table__row--invisible');
-
     }
-
 }
