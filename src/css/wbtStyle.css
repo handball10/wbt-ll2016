@@ -279,7 +279,7 @@ h1{
 }
 
 .mdl-step__actions{
-	border-top:1px solid #67b168;
+	border-top:1px solid lightgrey;
 }
 
 .mdl-button--stepper--back{
@@ -640,3 +640,41 @@ visibility:hidden;
 	border:1px solid dodgerblue;
 }
 
+.muscle{
+	display:flex;
+
+}
+
+.muscle__item{
+	width: 500px;
+	text-align: center;
+	padding-top: 15px;
+	margin-right: 10px;
+	height:30px;
+}
+
+.muscle__item:last-child{
+	margin: 0;
+}
+
+.muscle__item:hover{
+color:white;
+background-color: dodgerblue;
+}
+
+.information-icon{
+	cursor: pointer;
+	width: 25px;
+	height:25px;
+	border-radius: 50%;
+	border: 1px solid white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left:15px;
+}
+
+.information-icon:hover{
+	background-color: white;
+	color:dodgerblue;
+}

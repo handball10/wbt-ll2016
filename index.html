@@ -42,7 +42,7 @@
             <span class="mdl-layout-title">Gesünder leben</span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mainNavigation mdl-navigation mdl-layout--large-screen-only"></nav>
-        </div>
+            <div class="information-icon customWalker" data-target="ref_menu--start">i</div>
     </header>
     <main class="mdl-layout__content">
         <div class="page-content">
@@ -276,15 +276,15 @@
                                 <div class="mdl-card__actions mdl-card--border">
                                     <div class="main-content">
                                         <div class="mdl-grid menu-item__title--border-bottom">
-                                            <div class="mdl-cell mdl-cell--2-col">
+                                            <div class="mdl-cell mdl-cell--3-col">
                                             </div>
-                                            <div class="mdl-cell mdl-cell--8-col">
+                                            <div class="mdl-cell mdl-cell--6-col">
                                                 <img src="src/images/eat.png">
                                                 <div class="menu-item__title">Ernährung</div>
 
 
                                             </div>
-                                            <div class="mdl-cell mdl-cell--2-col"></div>
+                                            <div class="mdl-cell mdl-cell--3-col"></div>
 
                                         </div>
                                         <div class="mdl-grid">
@@ -1198,14 +1198,14 @@
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
                                             <div class="mdl-grid menu-item__title--border-bottom">
-                                                <div class="mdl-cell mdl-cell--2-col">
+                                                <div class="mdl-cell mdl-cell--3-col">
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--8-col">
+                                                <div class="mdl-cell mdl-cell--6-col">
                                                     <img src="src/images/sport.png">
                                                     <div class="menu-item__title">Sport</div>
 
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--3-col"></div>
 
                                             </div>
                                             <div class="mdl-grid">
@@ -1789,26 +1789,28 @@
                                                     Wenn du dein Training selbstständig gestalten möchtest, wirst du die schnellsten Erfolge erzielen, wenn du im Hinterkopf behältst, wie wir Menschen Muskeln aufbauen.
                                                     Muskeln befinden sich normalweise in einem Zustand der Selbstregulation, sie sind "im Gleichgewicht".
                                                     <p><strong></strong></p>
-                                                    <img src="src/images/sport/s21.png" alt="Superkompensation" class="shadow clickable interactive-border" usemap="#muscle">
-                                                    <map name="muscle">
-                                                        <area shape="rect" coords="11,10,59,29"
-                                                              href="http://www.koblenz.de/" alt="Koblenz" title="Koblenz">
-                                                        <area shape="rect" coords="42,36,96,57"
-                                                              href="http://www.wiesbaden.de/" alt="Wiesbaden" title="Wiesbaden">
-                                                        <area shape="rect" coords="42,59,78,80"
-                                                              href="http://www.mainz.de/" alt="Mainz" title="Mainz">
-                                                    </map>
+                                                    <img src="src/images/sport/s21.png" alt="" class="shadow ">
+                                                    <div class="muscle" style="display: flex">
+                                                        <div id="sport_chap2--q2__1" class="interactive-border muscle__item clickable" onclick="showText(this)">Belastung</div>
+                                                        <div id="sport_chap2--q2__2" class="interactive-border muscle__item clickable" onclick="showText(this)">Ermüdung</div>
+                                                        <div id="sport_chap2--q2__3" class="interactive-border muscle__item clickable" onclick="showText(this)">Erholung</div>
+                                                        <div id="sport_chap2--q2__4" class="interactive-border muscle__item clickable" onclick="showText(this)">Superkompensation</div>
 
-                                                    <div id="sport_chap2--q2__1" class="text-invisible">
+                                                    </div>
+                                                    <p></p>
+
+
+
+                                                    <div class="sport_chap2--q2__1--text textbox--small text-invisible">
                                                         <b>Belastung</b>: Hier setzt das Training ein, die Muskeln werden stark beansprucht. Absolvierst du dein erstes Training, so sind die Muskeln direkt danach erschöpft und weniger leistungsfähig als vor der Trainingsbelastung.
                                                     </div>
-                                                    <div id="sport_chap2--q2__2" class="text-invisible">
+                                                    <div class="sport_chap2--q2__2--text textbox--small text-invisible">
                                                         <b>Ermüdung</b>: Durch die Belastung ermüden die Muskeln und werden schwächer. Möglicherweise kennst du das Gefühl, die Arme nach anstrengender Arbeit kaum noch heben zu können!
                                                     </div>
-                                                    <div id="sport_chap2--q2__3" class="text-invisible">
+                                                    <div class="sport_chap2--q2__3--text textbox--small text-invisible">
                                                         <b>Erholung</b>: Dann beginnen sie damit, sich zu erholen. Hierbei kehren sie jedoch nicht in ihren Ausgangszustand zurück, sondern es kommt zur...
                                                     </div>
-                                                    <div id="sport_chap2--q2__4" class="text-invisible">
+                                                    <div class="sport_chap2--q2__4--text textbox--small text-invisible">
                                                         <b>Superkompensation</b>: Die Muskeln werden sogar noch ein wenig leistungsfähiger als zuvor! Dieser Prozess nennt sich Superkompensation. Trainiert man dann aber nicht erneut, kehren sie nach einiger Zeit doch in ihren Ausgangszustand zurück.
                                                     </div>
 
@@ -3278,7 +3280,7 @@
                             </section>
 
                         <!-- TODO MOTIVATION MENU -->
-                        <section data-linear="1" data-id="motivation_menu"  data-finished="motivation--start" data-not-in-header="">
+                        <section data-linear="1" data-id="motivation_menu"  data-finished="motivation--start">
                             <h1>Motivation</h1>
                             <article data-id="motivation_menu--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -3294,13 +3296,13 @@
                                         <div class = "test">
                                         <div class="main-content">
                                             <div class="mdl-grid menu-item__title--border-bottom">
-                                                <div class="mdl-cell mdl-cell--2-col">
+                                                <div class="mdl-cell mdl-cell--3-col">
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--8-col">
+                                                <div class="mdl-cell mdl-cell--6-col">
                                                     <img src="src/images/motivation.png">
 
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--3-col"></div>
                                                 <div class="menu-item__title">Motivation</div>
 
                                             </div>
@@ -3690,14 +3692,14 @@
                             </article>
                             </section>
                         <!-- TODO TEST CHAP 1 -->
-                        <section data-linear="1" data-id="test_chap1" data-not-in-header="" data-finished="mainmenu--start">
+                        <section data-linear="1" data-id="test_chap1"  data-finished="mainmenu--start">
                             <h1>Abschlussquiz</h1>
                             <article data-id="test_chap1--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
                                     <div class="header">
                                         <div class="header__text">
                                             <div class="mdl-card__title">
-                                                <h2 style="display: none">Einleitung</h2>
+                                                <h2></h2>
                                                 <h2 class="mdl-card__title-text">Abschlussquiz - Einleitung</h2>
                                             </div>
                                             <div class="main-header">
@@ -3706,20 +3708,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="header__icon">
-                                            <img src="src/images/test.png">
-                                        </div>
                                     </div>
                                     <div class="mdl-card__actions mdl-card--border">
                                         <div class="main-content">
                                             <div class="mdl-grid">
-                                                <div class="mdl-cell mdl-cell--2-col">
+                                                <div class="mdl-cell mdl-cell--3-col">
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--8-col">
+                                                <div class="mdl-cell mdl-cell--6-col">
                                                     <img src="src/images/test.png">
 
                                                 </div>
-                                                <div class="mdl-cell mdl-cell--2-col"></div>
+                                                <div class="mdl-cell mdl-cell--3-col"></div>
 
                                             </div>
                                             <div class="mdl-grid">
@@ -4313,7 +4312,7 @@
                             </section>
 
                         <!-- TODO LITERATUR -->
-                        <section data-linear="1" data-id="ref_menu" data-finished="mainmenu--start">
+                        <section data-linear="1" data-id="ref_menu" data-finished="mainmenu--start" data-not-in-header="">
                             <h1>Quellen</h1>
                             <article data-id="ref_menu--start">
                                 <div class="wbt-card-full-width mdl-card mdl-shadow--2dp">
@@ -4689,16 +4688,6 @@
 <script src="src/js/yesOrNo.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/questionFour.js" type="text/javascript" charset="utf-8"></script>
 <script src="src/js/result.js" type="text/javascript" charset="utf-8"></script>
-<script src="src/js/jquery.rwdImageMaps.min.js" type="text/javascript" charset="utf-8"></script>
-
-<script>
-    $(document).ready(function(e) {
-        $('img[usemap]').rwdImageMaps();
-    });
-
-
-
-</script>
 <div id="lightbox__center">
     <div class="close-overlay" onclick="hideLightboxBackground();">
         <svg height="100%" width="100%">
