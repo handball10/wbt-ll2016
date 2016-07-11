@@ -97,8 +97,7 @@ Main.controller.mascot = (function(){
             // console.log(dialogs.say);
             settings.$blockSelector.removeClass('oval-thought');
 
-            console.log(settings.selector.is(':visible'));
-
+            var shouldLoop = false;
 
             // check, if the mascot is visible
             if(!settings.selector.is(':visible')){
@@ -106,13 +105,18 @@ Main.controller.mascot = (function(){
             }
 
             if(dialogs.say.length === 0 || index >= dialogs.say.length){
-                controller.animateBubble('out');
-                return;
+                if(dialogs.say.length > 1){
+                    index = 0;
+                    shouldLoop = true;
+                } else {
+                    controller.animateBubble('out');
+                    return;
+                }
             }
 
             // console.log('block skipped');
 
-            if(index === 0){
+            if(index === 0 && !shouldLoop){
                 //controller.animateBubble('in');
                 settings.$blockSelector
                     .removeClass('oval-though')
