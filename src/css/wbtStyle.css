@@ -447,7 +447,9 @@ img:hover{
 
 }
 
-.mdl-navigation__link.active{
+.mdl-navigation__link:hover{
+	background-color: white;
+	color:dodgerblue;
 }
 
 img.test{
