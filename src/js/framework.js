@@ -545,11 +545,6 @@ App.SectionManager = {
                             return;
                         }
 
-
-                        //
-                        //console.log($container.attr('id'));
-
-
                         if(!instance.next()) {
                             $container.data('finished') && App.SectionManager.gotoArticle($container.data('finished'));
                         }
@@ -557,20 +552,11 @@ App.SectionManager = {
 
                         var currentContent = currentStep.find('.mdl-step__content > article');
 
-
-
-                        console.log(currentContent);
-                        console.log(currentContent.get(0).scrollHeight);
-
-                        //console.log(currentStep.find('.mdl-step__content').data('min-height'));
-
                         var height = currentContent.data('min-height');
 
 
                         currentStep.find('.mascot--init').trigger('article::load');
                         currentStep.find('.result.circleFinished').trigger('article::result');
-
-                        //console.log(currentStep.find('.mdl-step__content')[0].scrollHeight);
 
                         $('.mdl-layout__content').animate({
                             scrollTop: 0
@@ -672,9 +658,11 @@ App.SectionManager = {
      * @param customID
      */
     gotoArticle : function(customID){
+        console.log('showing from custom walker');
         // need to find the article with the custom id
         for(var article in App.SectionManager.articles){
             if(App.SectionManager.articles[article].customID === customID){
+                console.log("Showing");
                 App.SectionManager.showArticle(App.SectionManager.articles[article].id);
                 return;
             }
@@ -688,6 +676,8 @@ App.SectionManager = {
      * @param  {String} articleName This is the ID of every article. The ID is given by the navigation link manager
      */
     showArticle : function(articleName, skip){
+
+        console.log('showing');
 
         skip = typeof skip === "undefined" ? false : skip;
 
@@ -736,8 +726,8 @@ App.SectionManager = {
             }
         }
 
-        this.firstRun = false;
 
+        //  && !this.firstRun
         if(parentSection.articleList.length > 1){
 
             // get the index of the current article
@@ -747,7 +737,32 @@ App.SectionManager = {
 
             var instance = $ul.get(0).MaterialStepper;
 
+            //console.log('INSTANCE');
+            //console.log(instance);
+            //
+            //// <! TODO: -->
+            //var currentStep = $($ul.get(0).MaterialStepper.getActive());
+            //
+            //var currentContent = currentStep.find('.mdl-step__content > article');
+            //
+            //var height = currentContent.data('min-height');
+            //
+            //
+            //currentStep.find('.mascot--init').trigger('article::load');
+            //currentStep.find('.result.circleFinished').trigger('article::result');
+            //
+                //console.log((currentContent.get(0).scrollHeight + 200) - 8);
+            //
+            //$('.mdl-layout__content').animate({
+            //    scrollTop: 0
+            //}, 200);
+            //$ul.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px");
+
+            //
+
         }
+
+        this.firstRun = false;
 
         // check if we can go to this article
         if(parentSection.isLinear){
@@ -853,7 +868,7 @@ App.SectionManager = {
             thisArticle.selector.find('.mascot--init').trigger('article::load');
         } else {
             //console.log('bla');
-            console.log('firing for first mascot');
+            //console.log('firing for first mascot');
 
             var $item = $('#_'+thisArticle.id);
 
@@ -898,6 +913,8 @@ App.SectionManager = {
     walkingController : function(){
         var thisHelper = this;
         $(".walkingButton").click(function(e){
+
+            //console.log('walking');
             e.preventDefault();
 
             var t = $(this);
@@ -1168,11 +1185,14 @@ App.NavigationManager = {
      * if it's allowed, call showArticle from the SectionManager.
      */
     linkController : function(){
+
         // bind the click event
         //$(".nav .dropdown-menu > li > a").click(function(e){
         $("nav.mainNavigation > a").click(function(e){
 
             var t = $(this);
+
+            //console.log('showing from Nav');
 
             //var parentLI = t.parent("li");
             //// if the LI is disabled, stop here

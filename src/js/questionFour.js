@@ -92,7 +92,7 @@ App.ModuleManager.extend("FourAnswers",
 
                 var parentArticle = $t.parent().parent().parent();
 
-                console.log(parentArticle);
+                //console.log(parentArticle);
 
                 // generate ID
                 var id = App.Helper.generateUniqueID();
@@ -113,7 +113,7 @@ App.ModuleManager.extend("FourAnswers",
                         thisHelper.validator($this.data('correct'), parentArticle, id);
                     });
 
-                console.log(parentArticle.attr('id'));
+                //console.log(parentArticle.attr('id'));
 
                 Main.controller.question.addQuestion(section.data('id'), parentArticle.attr('id'), id);
 
