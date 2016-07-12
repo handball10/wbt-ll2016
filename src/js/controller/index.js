@@ -98,8 +98,6 @@ function blackImage(temp){
 
 }
 
-
-
 function moveSlider(temp) {
     $('.sport_chap4--q1__2').css('width',temp.value+"%");
 }
