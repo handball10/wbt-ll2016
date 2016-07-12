@@ -23,7 +23,7 @@ Main.controller.indexView = (function(){
 
         var bindEvents = function(){
 
-            setTimeout(startWBT, 100);
+            //setTimeout(startWBT, 100);
 
             $('#index-start-wbt').on('click', startWBT);
 
@@ -54,6 +54,7 @@ function showLighboxCenter(temp){
     $('#lightbox__center--content').append(div);
     showLightboxBackground();
 }
+
 
 function showLightboxBackground(){
     $('#lightbox__background').css('display', 'block');
