@@ -528,7 +528,7 @@ img.disabled {
 }
 
 .circle__text--black{
-	color:black;
+	color:dodgerblue;
 }
 
 .result.circle {
@@ -607,16 +607,20 @@ img.disabled {
 	}
 
 }
-
+table{
+	table-layout:fixed;
+}
 
 table, th, td {
 	border: 1px solid lightgray;
 	border-collapse: collapse;
 	text-align: center;
+
 }
 
 th,td{
 	padding:5px;
+	word-wrap:break-word;
 }
 
 
@@ -647,9 +651,10 @@ visibility:hidden;
 
 .muscle__item{
 	text-align: center;
-	padding-top: 15px;
-	margin-right: 10px;
-	height:30px;
+	height:50px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
 }
 
 .muscle__item:last-child{
