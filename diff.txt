@@ -1,0 +1,1161 @@
+diff --git a/src/js/framework.js b/../framework.js
+index 057b437..8d62c1e 100644
+--- a/src/js/framework.js
++++ b/../framework.js
+@@ -1,37 +1,35 @@
+-/**
+- * Stores custom events as an object library
+- * @type {{}}
+- */
+-var customEvents = {
+-    article : {
+-        onAfterRender : function(){
+-            // do your isotope stuff here
+-        }
+-    }
+-};
+-
+-
+-
+ var App = App || {
+     init: function(){
+         var start = (new Date()).getTime();
+-
+         this.Error.registerErrorEventHandler();
+-        App.Event.registerCustomEvents();
+-     //   Main.controller.question.init();
+ 
+-        this.StorageManager.init();
++        if((parseInt($("body").attr("storage-enabled"),10) || 0) == 1){
++            this.StorageManager.init();
++        } else {
++            App.Loader.loadFromDefaults();
++        }        
++        
++        var end = (new Date()).getTime();
++        App.Log.log("Application build in "+ (end - start)+" millis");
++    }
++};
++
++App.Loader = {
+ 
+-        this.SectionManager.init();
+-        this.NavigationManager.init();
++    loadFromSession : function(){
++        App.SectionManager.wakeup();
++        App.NavigationManager.init();
+         App.Event.trigger("onSectionLoadComplete");
+         App.SectionManager.loadArticleByIndex(0);
++    },
+ 
+-        App.NavigationManager.initCustomWalkers();
+-        var end = (new Date()).getTime();
+-
+-        App.Log.log("Application build in "+ (end - start)+" millis");
++    loadFromDefaults : function(){
++        App.SectionManager.init();
++        App.NavigationManager.init();
++        App.Event.trigger("onSectionLoadComplete");
++        App.SectionManager.loadArticleByIndex(0);
+     }
++
+ };
+ 
+ /**
+@@ -47,6 +45,167 @@ App.BrowserManager = {
+ 
+ };
+ 
++
++
++App.StorageManager = {
++
++    storageEnabled : typeof Storage  !== "undefined",
++
++    storage : null,
++
++    currentSession : {},
++
++    sessionLoaded : false,
++
++    windowTitle : "",
++
++    init : function(){
++        if(!this.storageEnabled){   
++            throw new Error("Your browser "+App.BrowserManager.browserName+"\" v."+App.BrowserManager.browserVersion+" does not support LocalStorage! Please update to a new browser!");
++        }
++
++        this.storage = window.localStorage;
++
++        // get the window title
++        this.windowTitle = document.title;
++
++        // check if there are available sessions
++        if(this.storage.length > 0){
++            // walk through all entries in the localStorage memory
++            
++            var hasMatchingElements = false;
++
++            var regex = new RegExp(this.windowTitle+"_[0-9]{13}");
++
++            var message = [];
++
++            var hasMatchingElements = false;
++
++            var itemDate, currentItem;
++
++            for(item in this.storage){
++                if(regex.test(item)){
++                    currentItem = JSON.parse(this.storage[item]);
++                    hasMatchingElements = true;
++                    itemDate = new Date(currentItem.timestamp);
++                    //itemDate.setTime();
++                    message.push("<tr><td><b>"+currentItem.title+"</b> - "+(itemDate.getDate()+"."+itemDate.getMonth()+"."+itemDate.getFullYear()+", "+itemDate.getHours()+":"+itemDate.getMinutes()+"Uhr")+"</td><td><a href=\"#\" class=\"pull-right btn btn-primary btn-sm loadSession\" data-key=\""+item+"\"><span class=\"glyphicon glyphicon glyphicon-repeat\"></span></a>&nbsp;<a class=\"pull-right btn btn-default btn-sm removeSession\" href=\"#\" data-key=\""+item+"\"><span class=\"glyphicon glyphicon-trash\"></span></a>&nbsp;</td></tr>");
++                }
++            }
++
++            if(!hasMatchingElements){
++                this.createEmptySession();
++            } else {
++                App.Helper.showModal(
++                    App.Lang.MSG_LOAD_SESSION_TITLE,
++                    "<p>"+App.Lang.MSG_LOAD_SESSION+"</p><table class=\"table table-striped table-hover\"><thead><tr><th>"+App.Lang.SESSION+"</th><th>&nbsp;</th></tr></thead><tbody>"+message.join("\n")+"</tbody></table>", 
++                    function(){
++                        if(!App.StorageManager.sessionLoaded){
++                            App.StorageManager.createEmptySession();
++                        }
++                    }
++                );
++
++                $(".loadSession").click(function(e){
++                    App.StorageManager.loadSession($(this).attr("data-key"));
++                    $(".modal").modal("hide");
++                    App.Loader.loadFromSession();
++                });
++
++                $(".removeSession").click(function(e){
++                    var t = $(this);
++                    App.StorageManager.removeSession(t.attr("data-key"));
++                    t.parent().parent().remove();
++                });
++            }
++            
++        } else {
++            this.createEmptySession();
++        }
++
++
++        // bind session save function on onbeforeunload event
++        $(window).on("beforeunload", function(){
++            App.StorageManager.saveSession();
++            return "";
++        })
++
++    },
++
++    createEmptySession : function(){
++        var newDate = (new Date()).getTime();
++
++        this.currentSession = {
++            id : this.windowTitle+"_"+newDate,
++            timestamp : newDate,
++            title: this.windowTitle,
++            data : {}
++        };
++
++        this.sessionLoaded = true;
++        App.Loader.loadFromDefaults();
++    },
++
++    removeSession : function(sessionKey){
++        this.storage.removeItem(sessionKey);
++    },
++
++    loadSession : function(sessionKey){
++        this.currentSession = JSON.parse(this.storage.getItem(sessionKey,function (key, value) {
++            // source: http://www.kristofdegrave.be/2012/07/json-serialize-and-deserialize.html
++            if (value && typeof value === "string" && value.substr(0,8) == "function") {
++                var startBody = value.indexOf('{') + 1;
++                var endBody = value.lastIndexOf('}');
++                var startArgs = value.indexOf('(') + 1;
++                var endArgs = value.indexOf(')');
++                return new Function(value.substring(startArgs, endArgs), value.substring(startBody, endBody));
++           }
++           return value;
++        }));
++        this.sessionLoaded = true;
++
++        var data = this.currentSession.data;
++
++        App.SectionManager.sections = data.sections;
++        App.SectionManager.articles = data.articles;
++        App.Event.events = data.events;
++        App.ModuleManager.registeredModules = data.registeredModules;
++        App.NavigationManager.mainNavigation = data.mainNavigation;
++        App.NavigationManager.subNavigation = data.subNavigation;
++
++        console.log(App.ModuleManager.registeredModules);
++    },
++
++
++    saveSession : function(){
++
++        var s = this.currentSession;
++
++        s.data = {
++            sections : App.SectionManager.sections,
++            articles : App.SectionManager.articles,
++            events   : App.Event.events,
++            modules  : App.ModuleManager.modules,
++            registeredModules : App.ModuleManager.registeredModules,
++            mainNavigation : App.NavigationManager.mainNavigation,
++            subNavigation : App.NavigationManager.subNavigation
++        };
++
++
++
++        this.storage.setItem(this.currentSession.id, JSON.stringify(this.currentSession, function (key, value) {
++
++            if (typeof value === 'function') {
++                return value.toString();
++            }
++            return value;
++
++        }));
++    }
++
++
++};
++
+ /**
+  * Event manager to manage and fire custom events
+  * @type {Object}
+@@ -66,9 +225,10 @@ App.Event = {
+      */
+     register : function(event, fn){
+         // check if the event is already registered
+-        if(this.events.hasOwnProperty(event)){
+-            throw new Error("The event \""+event+"\" is already registered!");
+-        }
++        // if(this.events.hasOwnProperty(event)){
++        //     //throw new Error("The event \""+event+"\" is already registered!");
++        //     return
++        // }
+ 
+         this.events[event] = {
+             eventName : event,
+@@ -107,36 +267,6 @@ App.Event = {
+             throw new Error("The event \""+eventName+"\" does not exist!");
+         }
+         delete this.events[eventName];
+-    },
+-
+-    /**
+-     * This function registers all custom events if there is a customEvent object.
+-     * This works recursively through the whole tree.
+-     */
+-    registerCustomEvents : function(){
+-
+-        /**
+-         * walks recursively through an object tree and registers events if an object property is typeof function.
+-         * @private
+-         * @param item Object Contains the items
+-         */
+-        function walk(item, name){
+-
+-            var objectName = name ? name + '.' : '';
+-
+-            for(var property in item){
+-                if(typeof item[property] === 'function'){
+-                    //console.log(objectName + property, item[property]);
+-                     App.Event.register(objectName + property, item[property]);
+-                } else if(typeof item[property] === 'object'){
+-                    walk(item[property], objectName + property);
+-                }
+-            }
+-        }
+-
+-        if(typeof customEvents !== 'undefined'){
+-            walk(customEvents);
+-        }
+     }
+ };
+ 
+@@ -259,10 +389,44 @@ App.ModuleManager = {
+     buildAllModules : function(){
+         for(section in App.SectionManager.sections){
+             for(module in this.modules){
++                this.modules[module].wrapperFunction(App.SectionManager.sections[section].selector, false, null);
++            }
++        }
++    },
+ 
+-                this.modules[module].wrapperFunction(App.SectionManager.sections[section].selector);
++    buildAllModulesFromSource : function(){
++        for(section in App.SectionManager.sections){
++            for(module in this.modules){
++                this.modules[module].wrapperFunction(App.SectionManager.sections[section].selector, true, {});
+             }
+         }
++
++        // walk through all registered modules
++        var keys = Object.keys(this.registeredModules);
++
++            
++        var trm = this.registeredModules;
++
++        console.log("Old modules");
++        console.log(trm);
++
++
++        var tempModules = {};
++
++        for(var i = 0, len = keys.length / 2, module; i < len; i++){
++            tempModules[keys[i+len]] = trm[keys[i]];
++            tempModules[keys[i+len]].finished = trm[keys[i]].finished;
++            //module = trm[keys[i+len]];
++            // module.finished = trm[keys[i]].finished;
++        }
++
++        this.registeredModules = tempModules;
++
++        // for(var i = 0, len = keys.length / 2; i < len; i++){
++        //     delete trm[keys[i]];
++        // }
++
++        console.log(this.registeredModules);
+     }
+ 
+ };
+@@ -300,6 +464,10 @@ App.SectionManager = {
+      */
+     articles : {},
+ 
++    /**
++     * indicates if the showArticle functions runs for the first time. This needs a special behaviour of this function
++     * @type {Boolean}
++     */
+     firstRun : true,
+ 
+    
+@@ -357,12 +525,7 @@ App.SectionManager = {
+                 var _t = $(this);
+ 
+                 // find the articles headline
+-                var articleHeadline = _t.find("h2:first-child"),
+-
+-                    skipAutoButtons = typeof _t.data('skip-button') !== "undefined"
+-                ;
+-
+-                //console.log(_t.data('skip-button'));
++                var articleHeadline = _t.find("h2:first-child");
+ 
+                 // throw a structural error if the is no h2 headline
+                 if(articleHeadline.length == 0){
+@@ -376,17 +539,12 @@ App.SectionManager = {
+                 // push it into the sections article array
+                 articleList.push(articleID);
+ 
+-                //console.log(_t.data('id'));
+-
+                 // generate a new object with article relating properties
+                 thisHelper.articles[articleID] = {
+                     id : articleID,
+                     selector : $("#"+articleID),
+                     parentSection : sectionID,
+                     visited : false,
+-                    skipButtons : skipAutoButtons,
+-                    customID : _t.data('id'),
+-                    minHeight : parseInt(isNaN(_t.data('min-height')) ? _t[0].scrollHeight : _t.data('min-height'), 10),
+                     modules: []
+                 };
+ 
+@@ -403,15 +561,8 @@ App.SectionManager = {
+                 selector : $("#"+sectionID),
+                 isLinear : isLinear,
+                 articleList : articleList,
+-                finished : false,
+-                visibleInHeader : !t[0].hasAttribute('data-not-in-header'),
+-                onFinishId : t.data('finished') || null,
+-                customId : t.data('id') || sectionID
++                finished : false
+             };
+-
+-            Main.controller.question.addSection(thisHelper.sections[sectionID].customId);
+-
+-            //console.log(thisHelper.sections[sectionID]);
+             // if this is the first section in the whole document, this is the main section that is displayed
+             if(index === 0){
+                 thisHelper.currentSection = thisHelper.sections[sectionID].id;
+@@ -433,204 +584,21 @@ App.SectionManager = {
+         for(section in this.sections){
+             var articleArray = this.sections[section].articleList;
+ 
+-            /**
+-             * @Modification
+-             * Build stepper module from material design if there are more than 1 articles
+-             */
+-
+-            if(articleArray.length > 1){
+-
+-                var $container = $('<ul></ul>');
+-
+-                $container.attr('data-finished', this.sections[section].onFinishId );
+-
+-                $container.attr('data-system-id', this.sections[section].id);
+-
+-                $container.addClass('mdl-stepper wbt-card-full-width mdl-stepper--horizontal');
+-
+-                this.sections[section].isLinear && $container.addClass('mdl-stepper--linear');
+-
+-                for(var i = 0, len = articleArray.length; i < len; i++){
+-
+-                    var currentArticle = this.articles[articleArray[i]];
+-
+-                    //console.log(currentArticle.selector.find('h2:first-child').find('small').remove());
+-
+-                    // catch the elements
+-                    var $element = $('<li></li>').addClass('mdl-step mdl-step--editable'),
+-                        $label = $('<span></span>').addClass('mdl-step__label'),
+-                        $title = $('<span></span>').addClass('mdl-step__title-text'),
+-                        $subtitle,
+-                        $titleContainer = $('<span></span>').addClass('mdl-step__title'),
+-                        $subTitleText
+-                    ;
+-
+-                    //
+-
+-                    // .text((currentArticle.selector.find('h2:first-child').find('small').remove()).text())
+-
+-                    $titleContainer.append($title);
+-
+-
+-
+-                    if(($subtitle = currentArticle.selector.find('h2:first-child > small'))){
+-                        $subTitleText = $('<span></span>').addClass('mdl-step__title-message').text($subtitle.text());
+-                        $subtitle.remove();
+-                    }
+-                    $title.text(currentArticle.selector.find('h2:first-child').text());
+-                    $subTitleText && $titleContainer.append($subTitleText);
+-
+-                    $label.append($titleContainer);
+-
+-                    // catch the content
+-                    var $content = currentArticle.selector.find("*:not(h2)").html();
+-
+-                    var $contentContainer = $('<div></div>').addClass('mdl-step__content');//.attr('data-min-height', (currentArticle.minHeight + 192));
+-
+-                    $contentContainer.append($('<article></article>').attr('id', '_'+currentArticle.id).append($content));
+-
+-                    //if(currentArticle.minHeight > 400){
+-
+-
+-                    i == 0 && $container.css("height", (currentArticle.minHeight + 192) + "px");
+-                    //}
+-
+-                    var $footer = $('<div></div>').addClass('mdl-step__actions');
+-
+-                    if(!currentArticle.skipButtons && i > 0){
+-                        id = articleArray[i-1];
+-                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton mdl-button--stepper--back\" role='button' data-stepper-back>Zurück</button>");
+-                        //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+-                        //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+-                    }
+-
+-                    if(!currentArticle.skipButtons && i < len){
+-                        id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
+-                        $footer.append("<button data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton pull-right\" role=\"button\" data-stepper-next>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
+-                        //$footer.append("<button href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent _walkingButton\" role=\"button\" data-stepper-continue>"+(i == len - 1 ? "Abschließen" : "Weiter")+"</button>");
+-                    }
+-
+-                    $element
+-                        .append($label)
+-                        .append($contentContainer)
+-                        .append($footer)
+-                    ;
+-
+-                    $container.append($element);
+-
+-                    this.sections[section].selector.append($container);
+-
+-                    console.log('building');
+-
++            for(var i = 0, len = articleArray.length; i < len; i++){
++                var row = $("<div class=\"container-fluid footer\"></div>");
++                var id;
++                if(i > 0){
++                    id = articleArray[i-1];
++                    row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">"+App.Lang.PREV_BUTTON+"</a>");
+                 }
+ 
++                if(i < len){
++                    id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
++                    row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"btn btn-primary pull-right walkingButton\" role=\"button\">"+(i == len - 1 ? App.Lang.FINISH_BUTTON : App.Lang.NEXT_BUTTON)+"</a>");
++                }
+ 
+-                //document.getElementById(this.sections[section].id.replace('#',''))
+-
+-                componentHandler.upgradeElement($container.get(0));
+-
+-                // finally bind events on next,prev and finalize buttons
+-                var stepperInstance = $container.get(0).MaterialStepper;
+-
+-                var innerNext = (function(instance, $container){
+-                    return function(){
+-
+-                        //App.SectionManager.validate();
+-
+-
+-                        var actualStep = $(instance.getActive());
+-                        var actualArticle = actualStep.find('.mdl-step__content > article');
+-
+-                        if(!Main.controller.question.canProceed(actualArticle.attr('id'))){
+-                            return;
+-                        }
+-
+-                        if(!instance.next()) {
+-                            $container.data('finished') && App.SectionManager.gotoArticle($container.data('finished'));
+-                        }
+-                        var currentStep = $(instance.getActive());
+-
+-                        var currentContent = currentStep.find('.mdl-step__content > article');
+-
+-                        var height = currentContent.data('min-height');
+-
+-
+-                        currentStep.find('.mascot--init').trigger('article::load');
+-                        currentStep.find('.result.circleFinished').trigger('article::result');
+-
+-                        $('.mdl-layout__content').animate({
+-                            scrollTop: 0
+-                        }, 200);
+-                        $container.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px"); // .data('min-height')
+-                    }
+-                })(stepperInstance, $container);
+-
+-                var innerBefore = (function(instance, $container){
+-                    return function(){
+-                        instance.back();
+-
+-                        var currentStep = $(instance.getActive());
+-
+-                        var currentContent = currentStep.find('.mdl-step__content > article');
+-
+-                        currentStep.find('.mascot--init').trigger('article::load');
+-                        currentStep.find('.result.circle').trigger('article::load');
+-
+-
+-                        $container.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px");
+-
+-                        $('.mdl-layout__content').animate({
+-                            scrollTop: 0
+-                        }, 200);
+-                    }
+-                })(stepperInstance, $container);
+-
+-                var innerFinish = (function($container){
+-                    return function(){
+-                        if($container.data('finished')){
+-                            App.SectionManager.gotoArticle($container.data('finished'));
+-                        }
+-
+-                        App.SectionManager.sections[$container.data('system-id')].finished = true;
+-
+-                        $('.mdl-layout__content').animate({
+-                            scrollTop: 0
+-                        }, 200);
+-                    }
+-                })($container);
+-
+-                // now, find all stepper and bind events
+-                $container.find('.mdl-step').each(function(item){
+-                    $(this)
+-                        .on('onstepnext', innerNext)
+-                        .on('onstepback', innerBefore);
+-                });
+-
+-                $container.on('onsteppercomplete', innerFinish);
+-
+-
+-
++                this.articles[articleArray[i]].selector.append(row);
+             }
+-
+-
+-
+-            //for(var i = 0, len = articleArray.length; i < len; i++){
+-            //    var row = $("<div class=\"container-fluid footer\"></div>");
+-            //    var id;
+-            //    if(i > 0){
+-            //        id = articleArray[i-1];
+-            //        row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\">Zurück</a>");
+-            //        //</button><a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+-            //        //row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">Zurück</a>");
+-            //    }
+-            //
+-            //    if(i < len){
+-            //        id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
+-            //        row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent walkingButton\" role=\"button\">"+(i == len - 1 ? "Abschließen" : "Weiter")+"</a>");
+-            //    }
+-            //
+-            //    this.articles[articleArray[i]].selector.append(row);
+-            //}
+         }
+ 
+         // bind walking events on every walking button
+@@ -638,49 +606,13 @@ App.SectionManager = {
+ 
+         // register event that's triggered after all sections have been build
+         App.Event.register("onSectionLoadComplete", function(){ App.ModuleManager.buildAllModules(); });
+-
+-        $(window).trigger('stepper::init');
+-    },
+-
+-    updateArticleSelecotr : function(){
+-        for(article in this.articles){
+-            this.articles[article].selector = $('#'+this.articles[article].id);
+-        }
+-    },
+-
+-    validate : function(articleID){
+-        return true;
+-    },
+-
+-    /**
+-     * Performs a search for a data-id and delegates show article to show the custom article
+-     * @Modification
+-     * @param customID
+-     */
+-    gotoArticle : function(customID){
+-        console.log('showing from custom walker');
+-        // need to find the article with the custom id
+-        for(var article in App.SectionManager.articles){
+-            if(App.SectionManager.articles[article].customID === customID){
+-                console.log("Showing");
+-                App.SectionManager.showArticle(App.SectionManager.articles[article].id);
+-                return;
+-            }
+-        }
+-
+-        //throw new Error('Cannot find article with custom id \''+customID+'\'');
+     },
+ 
+     /**
+      * displays an article in the document --> make it visible
+      * @param  {String} articleName This is the ID of every article. The ID is given by the navigation link manager
+      */
+-    showArticle : function(articleName, skip){
+-
+-        console.log('showing');
+-
+-        skip = typeof skip === "undefined" ? false : skip;
+-
++    showArticle : function(articleName){
+         // check if the article id exists        
+         if(!this.articles.hasOwnProperty(articleName)){
+             throw new Error("The article \""+articleName+"\" does not exist!");
+@@ -694,74 +626,38 @@ App.SectionManager = {
+ 
+         var arg, canProceed = true;
+ 
+-        if(!this.firstRun && !skip){
++        // skip calling validation functions of modules in the first function call
++        if(!this.firstRun){
+             
+-            if(this.currentSection === parentSection.id){
+-                // validate if we have any validator modules in this article
+-                for(var i = 0, modules = this.articles[this.currentArticle].modules, validatorResult = false; i < modules.length; i++){
+-                    var currentModule = App.ModuleManager.registeredModules[modules[i]];
+-                    if(currentModule.isValidator && !currentModule.finished){
+-                        validatorResult = currentModule.validate(currentModule);
+-                        canProceed = canProceed && validatorResult;
++            // is the target a previous one?
++            // if true, skip validation of modules
+ 
+-                        currentModule.finished = validatorResult;
+-                    } else {
+-                        canProceed = canProceed && true;
++            if(this.currentSection === parentSection.id){
++                // is the target a previous one?
++                // if true, skip validation of modules
++                // 
++                if(parentSection.articleList[parentSection.articleList.indexOf(this.currentArticle) - 1] !== articleName){
++                    // validate if we have any validator modules in this article
++                    for(var i = 0, modules = this.articles[this.currentArticle].modules, validatorResult = false; i < modules.length; i++){
++                        var currentModule = App.ModuleManager.registeredModules[modules[i]];
++                        if(currentModule.isValidator && !currentModule.finished){
++                            validatorResult = currentModule.validate(currentModule);
++                            canProceed = canProceed && validatorResult;
++
++                            currentModule.finished = validatorResult;
++                        } else {
++                            canProceed = canProceed && true;
++                        }
+                     }
+                 }
+             }
+ 
+-            if(!canProceed && this.currentSection === parentSection.id){
+-                this.articles[this.currentArticle].selector.trigger('article::wrong');
++            if(!canProceed && this.currentSection === parentSection.id && !this.currentSection.isLinear){
++                App.Helper.showModal(App.Lang.ERROR_VISIT_PREVIOUS_TITLE, "<b>"+App.Lang.ERROR_MSG_WRONG_ANSWER+"</b>", null);
+                 return;
+-            } else {
+-                if(this.articles[this.currentArticle].selector.find('.mascot').length > 0){
+-                    this.articles[this.currentArticle].selector.trigger('article::right');
+-
+-                    setTimeout(function(){
+-                        App.SectionManager.showArticle(articleName, true);
+-                    }, 3000);
+-                }
+-
+             }
+         }
+ 
+-
+-        //  && !this.firstRun
+-        if(parentSection.articleList.length > 1){
+-
+-            // get the index of the current article
+-            var index = parentSection.articleList.indexOf(articleName);
+-
+-            var $ul = parentSection.selector.find('ul');
+-
+-            var instance = $ul.get(0).MaterialStepper;
+-
+-            //console.log('INSTANCE');
+-            //console.log(instance);
+-            //
+-            //// <! TODO: -->
+-            //var currentStep = $($ul.get(0).MaterialStepper.getActive());
+-            //
+-            //var currentContent = currentStep.find('.mdl-step__content > article');
+-            //
+-            //var height = currentContent.data('min-height');
+-            //
+-            //
+-            //currentStep.find('.mascot--init').trigger('article::load');
+-            //currentStep.find('.result.circleFinished').trigger('article::result');
+-            //
+-                //console.log((currentContent.get(0).scrollHeight + 200) - 8);
+-            //
+-            //$('.mdl-layout__content').animate({
+-            //    scrollTop: 0
+-            //}, 200);
+-            //$ul.css("height", (currentContent.get(0).scrollHeight + 200) - 8 + "px");
+-
+-            //
+-
+-        }
+-
+         this.firstRun = false;
+ 
+         // check if we can go to this article
+@@ -786,6 +682,7 @@ App.SectionManager = {
+                 for(var i = 0, modules = this.articles[allArticles[nextIndex-1]].modules; i < modules.length; i++){
+                     var currentModule = App.ModuleManager.registeredModules[modules[i]];
+                     if(currentModule.isValidator && !currentModule.finished){
++                        App.Helper.showModal(App.Lang.ERROR_WRONG_ANSWER_TITLE, "<b>"+App.Lang.ERROR_MSG_WRONG_ANSWER+"</b>", null);
+                         return;
+                     }
+                 }
+@@ -828,22 +725,7 @@ App.SectionManager = {
+         }
+         // make the new section and article visible
+         parentSection.selector.show();
+-
+-        /**
+-         * @Modification
+-         * need to check if the requested article is inside a stepper or not.
+-         *
+-         * Behaviour:
+-         *  Inside:
+-         *      Activate the stepper
+-         */
+-        if(parentSection.articleList.length > 1){
+-
+-        } else {
+-            thisArticle.selector.show();
+-        }
+-
+-
++        thisArticle.selector.show();
+ 
+         // "visit" the article in our structure
+         this.articles[this.currentArticle].visited = true;
+@@ -860,24 +742,71 @@ App.SectionManager = {
+         if(App.Event.eventExists("onSubNavigationBuild")){
+             App.Event.remove("onSubNavigationBuild");
+         }
++    },
+ 
+-        App.Event.eventExists('onAfterRender') && App.Event.trigger('onAfterRender');
++    wakeup : function(){
++        var sections = $("section");
+ 
+-        // trigger articleLoad Event
+-        if(parentSection.articleList.length === 1){
+-            thisArticle.selector.find('.mascot--init').trigger('article::load');
+-        } else {
+-            //console.log('bla');
+-            //console.log('firing for first mascot');
++        var sectionKeys = Object.keys(this.sections);
++
++        var thisHelper = this;
+ 
+-            var $item = $('#_'+thisArticle.id);
++        sections.each(function(index){
++            var equalSectionObject = thisHelper.sections[sectionKeys[index]];
++            var t = $(this);
+ 
+-            $item.find('.mascot--init:first-child').trigger('article::load');
++            t.attr("id",equalSectionObject.id);
+ 
+-            // zhg
+-            //console.log($item.find('.mdl-step__content:first-child')[0].scrollHeight);
++            equalSectionObject.selector = $("#"+equalSectionObject.id);
++
++            var articles = t.find("article");
+ 
++            articles.each(function(index){
++                var thisArticle = $(this);
++                thisArticle.attr("id",equalSectionObject.articleList[index]);
++
++                thisHelper.articles[equalSectionObject.articleList[index]].selector = $("#"+equalSectionObject.articleList[index]);
++            })
++        });
++
++        this.currentSection = sectionKeys[0];
++        this.currentArticle = this.sections[this.currentSection].articleList[0];
++ 
++        // making all sections invisible
++        for(section in this.sections){
++            this.sections[section].selector.hide();
+         }
++
++        // making all articles invisible
++        for(article in this.articles){
++            this.articles[article].selector.hide();
++        }
++
++        // prev and next buttons to every article
++        for(section in this.sections){
++            var articleArray = this.sections[section].articleList;
++
++            for(var i = 0, len = articleArray.length; i < len; i++){
++                var row = $("<div class=\"container-fluid footer\"></div>");
++                var id;
++                if(i > 0){
++                    id = articleArray[i-1];
++                    row.append("<a href=\"#walk\" data-id=\""+id+"\" class=\"btn btn-default pull-left walkingButton\" role=\"button\">"+App.Lang.PREV_BUTTON+"</a>");
++                }
++
++                if(i < len){
++                    id = (i < len - 1) ? articleArray[i + 1] : this.sections[section].id;
++                    row.append("<a href=\"#"+(i == len - 1 ? "finish" : "walk")+"\" data-id=\""+id+"\" class=\"btn btn-primary pull-right walkingButton\" role=\"button\">"+(i == len - 1 ? App.Lang.FINISH_BUTTON : App.Lang.NEXT_BUTTON)+"</a>");
++                }
++
++                this.articles[articleArray[i]].selector.append(row);
++            }
++        }
++
++        this.walkingController();
++
++        App.Event.register("onSectionLoadComplete", function(){ App.ModuleManager.buildAllModulesFromSource(); });
++
+     },
+ 
+     registerModuleForArticle : function(key, article){
+@@ -913,8 +842,6 @@ App.SectionManager = {
+     walkingController : function(){
+         var thisHelper = this;
+         $(".walkingButton").click(function(e){
+-
+-            //console.log('walking');
+             e.preventDefault();
+ 
+             var t = $(this);
+@@ -928,28 +855,39 @@ App.SectionManager = {
+     },
+ 
+     finishSection : function(sectionID){
+-        App.SectionManager.sections[sectionID].finished = true;
+-    }
+ 
+-};
++        var canProceed = true;
+ 
++        for(var i = 0, modules = this.articles[this.currentArticle].modules, validatorResult = false; i < modules.length; i++){
++            var currentModule = App.ModuleManager.registeredModules[modules[i]];
++            if(currentModule.isValidator && !currentModule.finished){
++                validatorResult = currentModule.validate(currentModule);
++                canProceed = canProceed && validatorResult;
+ 
+-App.StorageManager = {
++                currentModule.finished = validatorResult;
++            } else {
++                canProceed = canProceed && true;
++            }
++        }
+ 
+-    storageEnabled : typeof Storage  !== "undefined",
++        if(canProceed && !App.SectionManager.sections[sectionID].finished){
++            App.SectionManager.articles[App.SectionManager.currentArticle].visited = true;
+ 
+-    storage : null,
++            var sectionFinished = true;
++            // check if we visited all articles before
++            
++            for(var i = 0, articles = App.SectionManager.sections[sectionID].articleList; i < articles.length; i++){
++                sectionFinished = sectionFinished && App.SectionManager.articles[articles[i]].visited;
++            }
+ 
+-    currentSession : null,
++            if(sectionFinished){
++                App.SectionManager.sections[sectionID].finished = true;
++                App.NavigationManager.markSubNavigationAsDone();
++            }
+ 
+-    init : function(){
+-        if(!this.storageEnabled){
+-            throw new Error("Your browser "+App.BrowserManager.browserName+"\" v."+App.BrowserManager.browserVersion+" does not support LocalStorage! Please update to a new browser!");
+         }
+-
+     }
+ 
+-
+ };
+ 
+ App.Helper = {
+@@ -1011,6 +949,25 @@ App.Helper = {
+                 return Math.round(Math.random());
+             }
+         );
++    },
++
++    showModal : function(title, content, callback){
++        var myModalID = App.Helper.generateUniqueID(),
++            myModalLabelID = App.Helper.generateUniqueID(),
++            modal = '<div class="modal fade" id="'+myModalID+'" tabindex="-1" role="dialog" aria-labelledby="'+myModalLabelID+'" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><h4 class="modal-title" id="'+myModalLabelID+'">'+title+'</h4></div><div class="modal-body">'+content+'</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">'+App.Lang.CLOSE_BUTTON+'</button></div></div></div></div>';
++        
++        $('body').append(modal);
++        $('#'+myModalID).modal('show'); 
++
++        $('#'+myModalID).on('hidden.bs.modal', function (e) {
++        //Modal löschen
++            $(this).remove();
++            
++            //Callback-Funktion ausführen, wenn vorhanden
++            if(typeof callback === "function"){
++                callback();
++            }
++        });
+     }
+ 
+ };
+@@ -1078,55 +1035,40 @@ App.NavigationManager = {
+         // generate an ID for this navbar
+         var navBarID = App.Helper.generateUniqueID();
+ 
+-        /**
+-         * Modification by Florian Gümbel for Material Design
+-         *
+-         * Another way of building main Menu
+-         */
++        // start with the html content
++        var HTMLcontent = "<div class=\"container-fluid\">";
+ 
+-        var HTMLcontent = "";
++        // add the navbar header
++        HTMLcontent += '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#'+navBarID+'"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>';
++
++        // first part of the collapsable navbar
++        HTMLcontent += '<div class="collapse navbar-collapse" id="'+navBarID+'"><ul class="nav navbar-nav">';
+ 
+-        // start with the html content
+-        //var HTMLcontent = "<div class=\"container-fluid\">";
+-        //
+-        //// add the navbar header
+-        //HTMLcontent += '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#'+navBarID+'"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>'
+-        //
+-        //// first part of the collapsable navbar
+-        //HTMLcontent += '<div class="collapse navbar-collapse" id="'+navBarID+'"><ul class="nav navbar-nav">';
+-        //
+         // walk through every registered section in the section manager, get its articles and adds the dropdown code for every article
+         for(section in App.SectionManager.sections){
+             var workingSection = App.SectionManager.sections[section];
+ 
+-            if(!workingSection.visibleInHeader) continue;
++            HTMLcontent += "<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">"+workingSection.selector.find("h1:first-child").text()+" <span class=\"caret\"></span></a>";
+ 
++            HTMLcontent += "<ul class=\"dropdown-menu\" role=\"menu\">";
+ 
+-            // get the first article of the current section
+-            var firstArticle = workingSection.articleList[0];
++            // walk throgh every article in the article list array
++            for(var i = 0, article, len = workingSection.articleList.length; i < len; i++){
+ 
+-            //HTMLcontent += "<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">"+workingSection.selector.find("h1:first-child").text()+" <span class=\"caret\"></span></a>";
+-            HTMLcontent += "<a href=\"#"+App.SectionManager.articles[firstArticle].id+"\" data-target=\""+App.SectionManager.articles[firstArticle].id+"\" class='mdl-navigation__link'>"+workingSection.selector.find("h1:first-child").text()+"</a>";
++                article = workingSection.articleList[i];
+ 
+-            //HTMLcontent += "<ul class=\"dropdown-menu\" role=\"menu\">";
++                //App.Log.log(App.SectionManager.articles[article].selector.find("h2:first-child").text());
+ 
+-            // walk throgh every article in the article list array
+-            //for(var i = 0, article, len = workingSection.articleList.length; i < len; i++){
+-            //
+-            //    article = workingSection.articleList[i];
+-            //
+-            //    //App.Log.log(App.SectionManager.articles[article].selector.find("h2:first-child").text());
+-            //
+-            //    HTMLcontent += "<li class=\""+((i > 0 && workingSection.isLinear) ? "disabled" : "")+"\" data-target=\""+App.SectionManager.articles[article].id+"\">"+
+-            //    "<a class=\"\" data-target=\""+App.SectionManager.articles[article].id+"\" href=\"#"+App.SectionManager.articles[article].id+"\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a></li>";
+-            //}
+-
+-            //HTMLcontent += "</ul>";
+-            //HTMLcontent += "</li>";
++                HTMLcontent += "<li class=\""+((i > 0 && workingSection.isLinear && !App.SectionManager.articles[article].visited) ? "disabled" : "")+"\" data-target=\""+App.SectionManager.articles[article].id+"\">"+
++                "<a class=\"\" data-target=\""+App.SectionManager.articles[article].id+"\" href=\"#"+App.SectionManager.articles[article].id+"\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a></li>";
++            }
++
++            HTMLcontent += "</ul>";
++            HTMLcontent += "</li>";
+         }
+-        //
+-        //// hmlt end snippets for navigation code
+-        //HTMLcontent += "</ul></div></div>";
++
++        // hmlt end snippets for navigation code
++        HTMLcontent += "</ul></div></div>";
+ 
+         // insert the navigation code into the navigation container
+         navigation.append(HTMLcontent);
+@@ -1135,11 +1077,6 @@ App.NavigationManager = {
+ 
+     },
+ 
+-    /**
+-     * Builds the sub navigation each time the user chooses a section
+-     *
+-     * @Modification by Florian Gümbel for Material Design
+-     */
+     buildSubNavigation : function(){
+         // select the navigation element
+         var navigation = $("nav.subNavigation");
+@@ -1147,18 +1084,18 @@ App.NavigationManager = {
+         this.subNavigation = navigation;
+ 
+         // add some important attributes
+-        //navigation.addClass("list-group");
+-        //navigation.addClass("hidden-xs");
++        navigation.addClass("list-group");
++        navigation.addClass("hidden-xs");
+ 
+         // get the current section
+         var section = App.SectionManager.currentSection;
+         var articles = App.SectionManager.sections[section].articleList;
+ 
+-        // navigation.append("<h3 class=\"list-group-item list-group-item-"+(App.SectionManager.sections[section].finished ? "success" : "info")+"\">"+App.SectionManager.sections[section].selector.find("h1:first-child").text()+""+(App.SectionManager.sections[section].finished ? "<span class=\"glyphicon glyphicon-ok pull-right\" title=\"Kapitel abgeschlossen\"></span>" : "")+"</h3>");
++        navigation.append("<h3 class=\"list-group-item list-group-item-"+(App.SectionManager.sections[section].finished ? "success" : "info")+"\">"+App.SectionManager.sections[section].selector.find("h1:first-child").text()+""+(App.SectionManager.sections[section].finished ? "<span class=\"glyphicon glyphicon-ok pull-right\" title=\"Kapitel abgeschlossen\"></span>" : "")+"</h3>");
+ 
+         for(var i = 0, article; i < articles.length; i++){
+             article = articles[i];
+-            navigation.append("<a href=\"#"+article+"\" class=\"sidebarItem mdl-navigation__link list-group-item"+((i > 0 && App.SectionManager.sections[section].isLinear && !App.SectionManager.articles[article].visited) ? " disabled" : "")+"\" data-target=\""+article+"\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a>");
++            navigation.append("<a href=\"#"+article+"\" class=\"sidebarItem list-group-item"+((i > 0 && App.SectionManager.sections[section].isLinear && !App.SectionManager.articles[article].visited) ? " disabled" : "")+"\" data-target=\""+article+"\" class=\"list-group-item\">"+App.SectionManager.articles[article].selector.find("h2:first-child").text()+"</a>");
+         }
+ 
+         this.sidebarController();
+@@ -1178,6 +1115,10 @@ App.NavigationManager = {
+         })
+     },
+ 
++    wakeup : function(){
++
++    },
++
+     /**
+      * this function binds a click event on every navigation link.
+      * checks if the user can access this element.
+@@ -1185,27 +1126,19 @@ App.NavigationManager = {
+      * if it's allowed, call showArticle from the SectionManager.
+      */
+     linkController : function(){
+-
+         // bind the click event
+-        //$(".nav .dropdown-menu > li > a").click(function(e){
+-        $("nav.mainNavigation > a").click(function(e){
+-
++        $(".nav .dropdown-menu > li > a").click(function(e){
++            
+             var t = $(this);
+ 
+-            //console.log('showing from Nav');
+-
+-            //var parentLI = t.parent("li");
+-            //// if the LI is disabled, stop here
+-            //if(parentLI.hasClass("disabled")){
+-            //    e.preventDefault();
+-            //    return;
+-            //}
++            var parentLI = t.parent("li");
++            // if the LI is disabled, stop here
++            if(parentLI.hasClass("disabled")){
++                e.preventDefault();
++                return;
++            }
+             // call the SectionManagers showArticle method
+-
+             App.SectionManager.showArticle(t.attr("data-target"));
+-            t.parent().find('a').removeClass('active');
+-
+-            t.addClass('active');
+ 
+         });
+     },
+@@ -1250,12 +1183,11 @@ App.NavigationManager = {
+      * @return {jQuery} The jQuery object that contains the element
+      */
+     getNavigationElement : function(target){
+-        //var obj = this.mainNavigation.find(".nav .dropdown-menu > li[data-target=\""+target+"\"]");
+-        var obj = this.mainNavigation.find(".mainNavigation > a[data-target=\""+target+"\"]");
++        var obj = this.mainNavigation.find(".nav .dropdown-menu > li[data-target=\""+target+"\"]");
+ 
+         // if there is no LI, throw a runtime error
+         if(obj.length === 0){
+-            //throw new Error("Runtime Error!\nThe navigation element targeting \""+target+"\" does not exist!");
++            throw new Error("Runtime Error!\nThe navigation element targeting \""+target+"\" does not exist!");
+         }
+ 
+         return obj;
+@@ -1302,12 +1234,12 @@ App.NavigationManager = {
+         this.getSubNavigationElement(target).addClass("disabled");
+     },
+ 
+-    initCustomWalkers : function(){
+-        $('.customWalker').on('click', function(){
+-            var $_ = $(this);
+-
+-            App.SectionManager.gotoArticle($_.data('target'));
+-        });
++    markSubNavigationAsDone : function(){
++        if(this.hasSubNavigation){
++            this.subNavigation.find("h3").removeClass("list-group-item-info")
++                .addClass("list-group-item-success")
++                .append("<span class=\"glyphicon glyphicon-ok pull-right\"></span>");
++        }
+     }
+ 
+ 
+@@ -1378,4 +1310,8 @@ App.Error = {
+            return suppressErrorAlert;
+         };
+     }
+-};
+\ No newline at end of file
++};
++
++
++
++$(document).ready(function(){ App.init(); /*SessionController.init();*/ });
+\ No newline at end of file
